@@ -1,25 +1,27 @@
 """
-MIDOS BRIDGE - Consulta Directa a la Biblioteca L1
-====================================================
-Este script permite que CUALQUIER proyecto consulte la knowledge base de MidOS
-sin necesidad de abrir otra sesion de Claude Code.
+MIDOS BRIDGE - Direct Query to the MidOS Knowledge Library
+============================================================
+This script lets any project query the MidOS knowledge base
+without opening another Claude Code session.
 
-USO DESDE CUALQUIER PROYECTO:
-    python D:/Proyectos/1midos/modules/mcp_server/midos_bridge.py ask "como implementar cache semantico?"
-    python D:/Proyectos/1midos/modules/mcp_server/midos_bridge.py search "vector store"
-    python D:/Proyectos/1midos/modules/mcp_server/midos_bridge.py skills
-    python D:/Proyectos/1midos/modules/mcp_server/midos_bridge.py submit "investigar patron X"
+Usage (CLI):
+    python -m modules.mcp_server.midos_bridge ask "how to implement semantic cache?"
+    python -m modules.mcp_server.midos_bridge search "vector store"
+    python -m modules.mcp_server.midos_bridge skills
+    python -m modules.mcp_server.midos_bridge submit "research topic X"
 
-USO COMO MCP SERVER (para Claude Code de otros proyectos):
-    Agregar a .claude/settings.local.json del proyecto cliente:
+Usage (MCP Server for Claude Code):
+    Add to .claude/settings.local.json:
     {
       "mcpServers": {
         "midos": {
           "command": "python",
-          "args": ["D:/Proyectos/1midos/modules/mcp_server/midos_bridge.py", "--mcp"]
+          "args": ["-m", "modules.mcp_server.midos_bridge", "--mcp"]
         }
       }
     }
+
+Set MIDOS_ROOT env var to point to the MidOS project root.
 """
 
 import sys
@@ -28,8 +30,8 @@ import os
 from pathlib import Path
 from datetime import datetime
 
-# Paths hardcoded - MidOS siempre vive aqui
-MIDOS_ROOT = Path("D:/Proyectos/1midos")
+# Resolve root from env var, fall back to script parent traversal
+MIDOS_ROOT = Path(os.getenv("MIDOS_ROOT", Path(__file__).resolve().parent.parent.parent))
 KNOWLEDGE = MIDOS_ROOT / "knowledge"
 EUREKA = KNOWLEDGE / "EUREKA"
 RESEARCH = KNOWLEDGE / "research"

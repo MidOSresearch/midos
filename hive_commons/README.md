@@ -15,16 +15,15 @@ This package provides shared components for the MidOS system:
 ## Installation
 
 ```bash
-# From L1 (Midos)
-cd D:\Proyectos\1midos
-uv pip install -e ./hive_commons
+cd midos-mcp
+pip install -e ./hive_commons
 ```
 
 ## Usage
 
 ```python
 from hive_commons import get_circuit_breaker, get_vector_store, get_semantic_cache
-from hive_commons.config import L0_ROOT, L1_ROOT, get_api_key, load_hive_env
+from hive_commons.config import L1_ROOT, get_api_key, load_hive_env
 
 # Get API keys with fallback aliases
 gemini_key = get_api_key("GEMINI")  # Checks GEMINI_API_KEY, GOOGLE_API_KEY
@@ -41,7 +40,7 @@ store.search("query", top_k=5)
 ## Architecture
 
 ```
-D:\Proyectos\1midos\
+midos-mcp/
 ├── hive_commons/  [SHARED PACKAGE]
 │   └── src/hive_commons/
 │       ├── __init__.py

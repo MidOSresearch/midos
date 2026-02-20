@@ -22,7 +22,7 @@ CONFIGURATION IN CLAUDE:
             "midos": {
                 "command": "python",
                 "args": ["-m", "modules.mcp_server.midos_mcp"],
-                "cwd": "D:/Proyectos/1midos"
+                "cwd": "/path/to/midos-mcp"
             }
         }
     }

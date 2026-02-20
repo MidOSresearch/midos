@@ -1,6 +1,6 @@
 # Bootstrap: redirect imports to src/hive_commons/
 # This file exists because the project directory shadows the installed package
-# when CWD is the monorepo root (D:\Proyectos\1midos).
+# when CWD is the project root.
 import importlib
 import sys
 from pathlib import Path
