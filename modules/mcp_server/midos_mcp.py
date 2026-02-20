@@ -79,8 +79,8 @@ except ImportError:
 # Configuration (from hive_commons)
 MIDOS_ROOT = L1_ROOT
 KNOWLEDGE_DIR = L1_KNOWLEDGE
-SKILLS_DIR = KNOWLEDGE_DIR / "archive" / "legacy_system" / "capabilities"
-PROTOCOLS_DIR = KNOWLEDGE_DIR / "archive" / "legacy_system" / "protocols"
+SKILLS_DIR = KNOWLEDGE_DIR / "skills"
+PROTOCOLS_DIR = KNOWLEDGE_DIR / "protocols"
 EUREKA_DIR = KNOWLEDGE_DIR / "EUREKA"
 TRUTH_DIR = KNOWLEDGE_DIR / "truth"
 SYNAPSE_DIR = L1_SYNAPSE
