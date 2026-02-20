@@ -24,6 +24,6 @@ RUN mkdir -p /app/knowledge/memory
 EXPOSE 8419
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=90s --retries=3 \
-    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8419/mcp')" || exit 1
+    CMD python -c "import socket; s = socket.create_connection(('localhost', 8419), timeout=5); s.close()" || exit 1
 
 CMD ["python", "-u", "-m", "modules.mcp_server.midos_mcp", "--http", "--host", "0.0.0.0", "--port", "8419"]
