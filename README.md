@@ -15,22 +15,31 @@ MidOS is a curated developer knowledge base exposed as an MCP server. Not raw do
 | Format | Raw text | Stack-specific skill packs with production patterns |
 | Accuracy | Stale docs | Myth-busted (QLoRA, Next.js versions, Prisma Python) |
 
-## Quick Start
+## Connect to MidOS
 
-### 1. Connect via HTTP (hosted)
+### Claude Code
+
+Add to your project's `.mcp.json` or `~/.claude/settings.json`:
 
 ```json
 {
   "mcpServers": {
     "midos": {
-      "url": "https://midos.dev/mcp",
-      "transport": "streamable-http"
+      "url": "https://midos.dev/mcp"
     }
   }
 }
 ```
 
-### 2. Or run locally
+### Cursor / Windsurf / Cline
+
+In your MCP settings, add a new server:
+
+- **Name**: `midos`
+- **URL**: `https://midos.dev/mcp`
+- **Transport**: Streamable HTTP
+
+### Run locally (alternative)
 
 ```bash
 git clone https://github.com/MidOSresearch/midos-mcp.git
@@ -40,46 +49,75 @@ pip install -e hive_commons/
 python -m modules.mcp_server.midos_mcp --http --port 8419
 ```
 
-### 3. Query
+Then point your MCP client to `http://localhost:8419/mcp`.
 
-```bash
-# Free — no API key needed
-curl -X POST http://localhost:8419/mcp \
-  -H "Content-Type: application/json" \
-  -H "Accept: application/json, text/event-stream" \
-  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"search_knowledge","arguments":{"query":"react 19 hooks"}}}'
+### First thing to do
+
+After connecting, call `agent_handshake` with your model and stack info. MidOS will personalize your experience:
+
+```
+agent_handshake(model="claude-opus-4-6", client="claude-code", languages="python,typescript", frameworks="fastapi,react")
 ```
 
-## Tools
+## Tools by Tier
 
-### Free Tier (8 tools, 100 queries/mo)
+### Free (no API key, 100 queries/mo)
 
-| Tool | Description |
-|------|-------------|
-| `search_knowledge` | Keyword search across all knowledge |
-| `list_skills` | Browse 104 skills by stack |
-| `hive_status` | System health and stats |
-| `project_status` | Knowledge pipeline status |
-| `pool_status` | Agent coordination status |
-| `get_eureka` | Get a validated discovery document |
-| `get_truth` | Get a verified truth patch |
-| `agent_handshake` | Personalized onboarding per agent |
+| Tool | What it does |
+|------|--------------|
+| `search_knowledge` | Search 1,200+ curated chunks across all stacks |
+| `list_skills` | Browse 104 skills by technology |
+| `get_skill` | Get full skill content with production patterns |
+| `get_protocol` | Get protocol and pattern documentation |
+| `hive_status` | System health and live stats |
+| `project_status` | Knowledge pipeline dashboard |
+| `agent_handshake` | Personalized onboarding for your model + CLI + stack |
+| `agent_bootstrap` | Quick onboarding (deprecated, use handshake) |
 
-### Premium (additional tools with API key)
+### Dev ($9/mo, 5,000 queries/mo)
 
-| Tool | Description |
-|------|-------------|
-| `semantic_search` | Vector search with Gemini embeddings |
-| `hybrid_search` | Combined keyword + semantic + reranking |
-| `get_skill` | Full skill content with production code |
-| `get_protocol` | Protocol and pattern docs |
-| `smart_search` | Adaptive search mode selection |
-| `memory_stats` | Vector store analytics |
+Everything free, plus:
+
+| Tool | What it does |
+|------|--------------|
+| `chunk_code` | Intelligent code chunking for ingestion |
+| `memory_stats` | Vector store analytics and health |
+| `pool_status` | Multi-agent coordination status |
 | `episodic_search` | Search agent session history |
-| `episodic_store` | Store agent learnings |
-| `chunk_code` | Intelligent code chunking |
-| `pool_signal` | Multi-agent coordination |
-| `research_youtube` | Video knowledge extraction |
+
+### Pro ($12/mo, 25,000 queries/mo)
+
+Everything dev, plus:
+
+| Tool | What it does |
+|------|--------------|
+| `get_eureka` | Validated breakthrough discoveries (104 items) |
+| `get_truth` | Empirically verified truth patches (17 items) |
+| `semantic_search` | Vector search with Gemini embeddings (3072-d) |
+| `research_youtube` | Extract knowledge from video content |
+
+### Team ($25/seat/mo, 100,000 queries/mo)
+
+Everything pro, plus multi-seat access.
+
+## Using an API Key
+
+Pass your key via the `Authorization` header:
+
+```json
+{
+  "mcpServers": {
+    "midos": {
+      "url": "https://midos.dev/mcp",
+      "headers": {
+        "Authorization": "Bearer midos_your_key_here"
+      }
+    }
+  }
+}
+```
+
+Get a key at [midos.dev/pricing](https://midos.dev/pricing).
 
 ## Knowledge Pipeline
 
@@ -94,16 +132,6 @@ staging/ > chunks/ > skills/ > truth/ > EUREKA/ > SOTA/
 - **EUREKA** (104): Validated improvements with measured ROI
 - **SOTA** (11): Best-in-class, currently unimprovable
 
-## Pricing
-
-| Tier | Price | Queries/mo | Tools |
-|------|-------|------------|-------|
-| Free | $0 | 100 | 8 basic |
-| Dev | $9/mo | 5,000 | All tools |
-| Pro | $19/mo | 25,000 | All tools + priority |
-| Team | $49/mo | 100,000 | All tools + 3 seats |
-| Founders Pack | $49 one-time | 12 months Pro | Limited availability |
-
 ## Skill Stacks
 
 React 19, Next.js 16, Angular 21, Svelte 5, TypeScript, Tailwind CSS, FastAPI, Django 5, NestJS 11, Laravel 12, Spring Boot, Go, Rust, PostgreSQL, Redis, MongoDB, Elasticsearch, Kubernetes, Terraform, Docker, Playwright, Vitest, DDD, GraphQL, Prisma 7, Drizzle ORM, MercadoPago, WhisperX, LoRA/QLoRA, LanceDB, MCP patterns, AI agent security, multi-agent orchestration, and more.
@@ -114,29 +142,33 @@ React 19, Next.js 16, Angular 21, Svelte 5, TypeScript, Tailwind CSS, FastAPI, D
 midos-mcp/
 ├── modules/
 │   └── mcp_server/     FastMCP server (streamable-http)
-├── hive_commons/       Shared library (LanceDB vector store, config)
-├── smithery.yaml       Smithery marketplace manifest
-├── Dockerfile          Production container
-└── pyproject.toml      Dependencies and build config
+├── knowledge/
+│   ├── chunks/          Curated knowledge (L1)
+│   ├── skills/          Stack-specific skill packs (L2)
+│   ├── EUREKA/          Validated discoveries — PRO (L4)
+│   └── truth/           Empirical patches — PRO (L3)
+├── hive_commons/        Shared library (LanceDB vector store, config)
+├── smithery.yaml        Smithery marketplace manifest
+├── Dockerfile           Production container
+└── pyproject.toml       Dependencies and build config
 ```
 
 ## Tech Stack
 
 - **Server**: FastMCP 2.x (streamable-http transport)
 - **Vectors**: LanceDB + Gemini embeddings (22,900+ vectors, 3072-d)
-- **Auth**: Tier-based API key middleware with rate limiting
+- **Auth**: 4-tier API key middleware (free/dev/pro/team) with rate limiting
 - **Pipeline**: 5-layer quality validation with myth-busting
-- **Compatible CLIs**: Claude Code, Cursor, Cline, Gemini CLI, OpenCode, Codex CLI
+- **Deploy**: Docker + Coolify (auto-deploy on push)
+- **Compatible CLIs**: Claude Code, Cursor, Cline, Windsurf, Gemini CLI, OpenCode, Codex CLI
 
 ## Contributing
 
 MidOS is community-first. If you have production-tested patterns, battle scars, or discovered that a popular claim is false — we want it.
 
-```bash
-# Search existing knowledge before contributing
-python -m modules.mcp_server.midos_mcp --http --port 8419
-# Then use search_knowledge to check if it already exists
-```
+1. Search existing knowledge first: `search_knowledge("your topic")`
+2. Open an issue describing the pattern or discovery
+3. We'll review and add it to the pipeline
 
 ## License
 
