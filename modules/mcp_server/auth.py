@@ -2,9 +2,9 @@
 MidOS API Key Authentication + Rate Limiting Middleware for FastMCP.
 
 Implements freemium tier gating:
-  - No key → free tier (5 basic tools, 100 queries/mo)
-  - Valid key → tier-based access (dev/pro/team → all tools)
-  - Invalid key → 401 error on premium tools
+  - No key → free tier (8 basic tools, 100 queries/mo)
+  - Valid key → tier-based access (dev/pro/team/admin)
+  - Invalid key → 401 error on gated tools
 
 Rate limits per tier:
   - free: 100 queries/month
@@ -36,13 +36,31 @@ FREE_TOOLS = {
     "list_skills",
     "hive_status",
     "project_status",
-    "pool_status",
-    "get_eureka",
-    "get_truth",
+    "agent_handshake",
+    "agent_bootstrap",
+    "get_skill",
+    "get_protocol",
 }
 
-# All tools not in FREE_TOOLS require a paid key.
-# No need to enumerate — anything outside FREE_TOOLS is premium.
+# Tier-gated tool sets — enforced in on_call_tool middleware.
+DEV_TOOLS = {
+    "chunk_code",
+    "memory_stats",
+    "pool_status",
+    "episodic_search",
+}
+
+PRO_TOOLS = {
+    "get_eureka",
+    "get_truth",
+    "semantic_search",
+    "research_youtube",
+}
+
+ADMIN_TOOLS = {
+    "episodic_store",
+    "pool_signal",
+}
 
 TIER_LIMITS = {
     "free": {"queries_per_month": 100},
@@ -331,12 +349,28 @@ class ApiKeyMiddleware(Middleware):
                 f"Get a key at https://midos.dev/keys"
             )
 
-        # No key + premium tool — reject
-        if tool_name not in FREE_TOOLS and tier == "free" and key is None:
+        # Determine minimum tier required for this tool
+        TIER_LEVELS = {"free": 0, "dev": 1, "pro": 2, "team": 3, "admin": 99}
+        if tool_name in ADMIN_TOOLS:
+            required_tier = "admin"
+        elif tool_name in PRO_TOOLS:
+            required_tier = "pro"
+        elif tool_name in DEV_TOOLS:
+            required_tier = "dev"
+        elif tool_name in FREE_TOOLS:
+            required_tier = "free"
+        else:
+            required_tier = "dev"  # unknown tools default to dev
+
+        user_level = TIER_LEVELS.get(tier, 0)
+        required_level = TIER_LEVELS.get(required_tier, 0)
+
+        if user_level < required_level:
             raise ToolError(
-                f"'{tool_name}' requires an API key. "
+                f"'{tool_name}' requires {required_tier} tier or higher. "
+                f"Current tier: {tier}. "
                 f"Free tools: {', '.join(sorted(FREE_TOOLS))}. "
-                f"Get a key at https://midos.dev/keys"
+                f"Upgrade at https://midos.dev/pricing"
             )
 
         # Rate limit check (applies to ALL tool calls, free and premium)

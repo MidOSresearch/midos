@@ -14,7 +14,7 @@ import structlog
 log = structlog.get_logger("hive_commons.config")
 
 # === PATHS ===
-L1_ROOT = Path("D:/Proyectos/1midos")
+L1_ROOT = Path(os.getenv("MIDOS_ROOT", "D:/Proyectos/1midos"))
 
 # Knowledge paths
 L1_KNOWLEDGE = L1_ROOT / "knowledge"
