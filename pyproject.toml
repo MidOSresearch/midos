@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "midos"
-version = "2026.2.13"
+version = "2026.2.20"
 description = "MCP Community Library — Knowledge base, research engine, and developer tools"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -58,3 +58,6 @@ testpaths = ["tests"]
 python_files = ["test_*.py", "verify_*.py"]
 python_functions = ["test_*"]
 asyncio_mode = "auto"
+
+[tool.hatch.build.targets.wheel]
+packages = ["modules", "hive_commons"]
