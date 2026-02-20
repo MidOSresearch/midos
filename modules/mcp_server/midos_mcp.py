@@ -779,7 +779,12 @@ async def project_status() -> str:
 @mcp.tool
 async def agent_bootstrap() -> str:
     """[DEPRECATED -- use agent_handshake instead] Generic agent onboarding. Returns default config for unknown agents."""
-    return await agent_handshake()
+    from .agent_profiles import AgentProfile
+    from .handshake_engine import generate_config, format_config
+
+    profile = AgentProfile()
+    config = generate_config(profile)
+    return format_config(config, profile)
 
 
 # ============================================================================
