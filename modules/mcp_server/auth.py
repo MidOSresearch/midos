@@ -279,38 +279,77 @@ class ApiKeyMiddleware(Middleware):
             usage[identifier] = {"month": month, "count": count}
         _save_usage(usage)
 
+    # Cloudflare IPv4 ranges — only trust X-Forwarded-For from these IPs.
+    # Update periodically from https://www.cloudflare.com/ips-v4/
+    _TRUSTED_PROXIES = {
+        "173.245.48.", "103.21.244.", "103.22.200.", "103.31.4.",
+        "141.101.64.", "108.162.192.", "190.93.240.", "188.114.96.",
+        "188.114.97.", "188.114.98.", "188.114.99.", "197.234.240.",
+        "198.41.128.", "162.158.", "104.16.", "104.17.", "104.18.",
+        "104.19.", "104.20.", "104.21.", "104.22.", "104.23.",
+        "104.24.", "104.25.", "104.26.", "104.27.",
+        "172.64.", "131.0.72.",
+    }
+
     def _is_localhost(self) -> bool:
-        """Check if the request originates from localhost."""
+        """Check if the request originates from localhost.
+
+        Security hardening:
+        - X-Forwarded-For is ONLY trusted when the connecting IP is a known
+          proxy (Cloudflare). Otherwise it is ignored to prevent spoofing.
+        - Direct connections check the Host header only.
+        """
         try:
             headers = get_http_headers(include_all=True)
         except Exception:
             return False
-        # Check standard proxy headers first, then fall back to host
-        forwarded = headers.get("x-forwarded-for", "").split(",")[0].strip()
-        real_ip = headers.get("x-real-ip", "")
-        host = headers.get("host", "")
+
         local_addrs = {"127.0.0.1", "::1", "localhost"}
-        if forwarded and forwarded in local_addrs:
-            return True
-        if real_ip and real_ip in local_addrs:
-            return True
-        # No proxy headers → check host (direct connection)
+
+        # X-Forwarded-For: ONLY trust if request comes through Cloudflare.
+        # In Docker/Coolify, the connecting IP is the Traefik proxy,
+        # which sits behind Cloudflare. We verify via CF-Connecting-IP.
+        cf_ip = headers.get("cf-connecting-ip", "")
+        if cf_ip:
+            # Request came through Cloudflare — trust X-Forwarded-For
+            forwarded = headers.get("x-forwarded-for", "").split(",")[0].strip()
+            if forwarded and forwarded in local_addrs:
+                return True
+        # Otherwise IGNORE X-Forwarded-For entirely (spoofable)
+
+        # Direct connection: check host header (only valid for local dev)
+        host = headers.get("host", "")
         host_name = host.split(":")[0] if host else ""
         if host_name in local_addrs:
             return True
+
         return False
 
     def _resolve_tier(self) -> tuple[str, str | None]:
         """Extract API key from headers and resolve tier.
 
-        Localhost connections get full 'pro' access without a key.
+        - stdio transport: treated as free tier (no headers available).
+          Users must set MIDOS_STDIO_TIER env var or use HTTP transport.
+        - Localhost HTTP: pro tier without key (local development).
+        - Remote HTTP: requires API key for anything above free.
+
         Returns (tier, key_or_none).
         """
-        # Localhost bypass — full access for local development
+        # Localhost bypass — pro access for local development
         if self._is_localhost():
             return "pro", None
 
-        headers = get_http_headers(include_all=True)
+        try:
+            headers = get_http_headers(include_all=True)
+        except Exception:
+            # stdio transport: no HTTP headers available.
+            # Allow env-var override for trusted local setups.
+            import os
+            stdio_tier = os.environ.get("MIDOS_STDIO_TIER", "free")
+            if stdio_tier not in TIER_LIMITS:
+                stdio_tier = "free"
+            return stdio_tier, None
+
         auth_header = headers.get("authorization", "")
 
         if not auth_header:
@@ -388,9 +427,12 @@ class ApiKeyMiddleware(Middleware):
     def _get_anonymous_id(self) -> str:
         """Get a stable identifier for unauthenticated requests."""
         import hashlib
-        headers = get_http_headers(include_all=True)
-        # Use a hash of forwarded IP or fallback to "anonymous"
-        ip = headers.get("x-forwarded-for", headers.get("x-real-ip", "anonymous"))
+        try:
+            headers = get_http_headers(include_all=True)
+            ip = headers.get("cf-connecting-ip",
+                             headers.get("x-real-ip", "anonymous"))
+        except Exception:
+            ip = "stdio"
         return f"anon_{hashlib.sha256(ip.encode()).hexdigest()[:16]}"
 
     async def on_list_tools(

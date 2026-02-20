@@ -777,16 +777,57 @@ async def agent_bootstrap() -> str:
 
 @mcp.resource("midos://skill/{skill_name}")
 async def read_skill_resource(skill_name: str) -> str:
-    """Read a skill resource by name."""
-    skill_path = SKILLS_DIR / f"{skill_name}.md"
+    """Read a skill resource by name.
+
+    Security: validates path traversal and enforces tier gating.
+    Free/community tier gets truncated preview (400 chars).
+    """
+    import re
+
+    # Path traversal protection: strip dangerous characters
+    safe_name = re.sub(r"[^\w\-]", "", skill_name)
+    if not safe_name or safe_name != skill_name:
+        return f"Invalid skill name: {skill_name}"
+
+    skill_path = SKILLS_DIR / f"{safe_name}.md"
     if not skill_path.exists():
         for f in SKILLS_DIR.glob("*.md"):
-            if f.stem.lower() == skill_name.lower():
+            if f.stem.lower() == safe_name.lower():
                 skill_path = f
                 break
+
     if not skill_path.exists():
         return f"Skill not found: {skill_name}"
-    return get_file_content(skill_path)
+
+    # Verify resolved path is inside SKILLS_DIR (defense in depth)
+    resolved = skill_path.resolve()
+    if not resolved.is_relative_to(SKILLS_DIR.resolve()):
+        return "Access denied: path traversal detected"
+
+    content = get_file_content(skill_path)
+
+    # Tier gating for resources: free tier gets truncated preview
+    try:
+        from fastmcp.server.dependencies import get_http_headers
+        headers = get_http_headers(include_all=True)
+        auth_header = headers.get("authorization", "")
+        has_valid_key = auth_header.startswith("Bearer midos_sk_")
+    except Exception:
+        has_valid_key = False
+
+    if not has_valid_key:
+        # Truncate for free tier
+        preview_limit = 400
+        if len(content) > preview_limit:
+            truncated = content[:preview_limit].rsplit("\n", 1)[0]
+            content = (
+                f"{truncated}\n\n"
+                f"---\n"
+                f"> Full skill content available with MidOS Pro.\n"
+                f"> Get your API key at https://midos.dev/pricing"
+            )
+
+    return content
 
 
 # ============================================================================
