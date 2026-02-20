@@ -1,15 +1,15 @@
 """
 MidOS API Key Authentication + Rate Limiting Middleware for FastMCP.
 
-Implements tiered access gating (ACCESS_TIER_DOCTRINE v1.0):
+Implements tiered access gating (ACCESS_TIER_DOCTRINE v2.0):
   - No key → community tier (8 basic tools, 100 queries/mo)
-  - Valid key → tier-based access (pro/team/admin)
+  - Valid key → tier-based access (dev/ops/admin)
   - Invalid key → rejection on all tool calls
 
 Rate limits per tier:
   - community: 100 queries/month
-  - pro:       25,000 queries/month
-  - team:      100,000 queries/month
+  - dev:       25,000 queries/month
+  - ops:       100,000 queries/month
 
 Keys stored in config/api_keys.json, usage in config/api_usage.json.
 """
@@ -42,8 +42,8 @@ COMMUNITY_TOOLS = {
 }
 
 # Tier-gated tool sets — enforced in on_call_tool middleware.
-# ACCESS_TIER_DOCTRINE v1.0: community (0) → pro (1) → team (2) → admin (99)
-PRO_TOOLS = {
+# ACCESS_TIER_DOCTRINE v2.0: community (0) → dev (1) → ops (2) → admin (99)
+DEV_TOOLS = {
     "get_eureka",
     "get_truth",
     "semantic_search",
@@ -61,8 +61,8 @@ ADMIN_TOOLS = {
 
 TIER_LIMITS = {
     "community": {"queries_per_month": 100},
-    "pro":       {"queries_per_month": 25_000},
-    "team":      {"queries_per_month": 100_000},
+    "dev":       {"queries_per_month": 25_000},
+    "ops":       {"queries_per_month": 100_000},
 }
 
 # ---------------------------------------------------------------------------
@@ -155,7 +155,7 @@ def _save_keys(keys: dict[str, dict[str, Any]]) -> None:
     )
 
 
-def generate_key(name: str, tier: str = "pro") -> str:
+def generate_key(name: str, tier: str = "dev") -> str:
     """Generate a new API key and save it.
 
     Returns the key string (midos_sk_...).
@@ -326,14 +326,14 @@ class ApiKeyMiddleware(Middleware):
 
         - stdio transport: treated as community tier (no headers available).
           Users must set MIDOS_STDIO_TIER env var or use HTTP transport.
-        - Localhost HTTP: pro tier without key (local development).
+        - Localhost HTTP: dev tier without key (local development).
         - Remote HTTP: requires API key for anything above community.
 
         Returns (tier, key_or_none).
         """
-        # Localhost bypass — pro access for local development
+        # Localhost bypass — dev access for local development
         if self._is_localhost():
-            return "pro", None
+            return "dev", None
 
         try:
             headers = get_http_headers(include_all=True)
@@ -391,16 +391,16 @@ class ApiKeyMiddleware(Middleware):
             )
 
         # Determine minimum tier required for this tool
-        # ACCESS_TIER_DOCTRINE v1.0: community(0) → pro(1) → team(2) → admin(99)
-        TIER_LEVELS = {"community": 0, "pro": 1, "mod": 1, "team": 2, "admin": 99}
+        # ACCESS_TIER_DOCTRINE v2.0: community(0) → dev(1) → ops(2) → admin(99)
+        TIER_LEVELS = {"community": 0, "dev": 1, "mod": 1, "ops": 2, "admin": 99}
         if tool_name in ADMIN_TOOLS:
             required_tier = "admin"
-        elif tool_name in PRO_TOOLS:
-            required_tier = "pro"
+        elif tool_name in DEV_TOOLS:
+            required_tier = "dev"
         elif tool_name in COMMUNITY_TOOLS:
             required_tier = "community"
         else:
-            required_tier = "pro"  # unknown tools default to pro
+            required_tier = "dev"  # unknown tools default to dev
 
         user_level = TIER_LEVELS.get(tier, 0)
         required_level = TIER_LEVELS.get(required_tier, 0)
@@ -445,7 +445,7 @@ class ApiKeyMiddleware(Middleware):
         all_tools = await call_next(context)
         tier, _ = self._resolve_tier()
 
-        if tier in ("pro", "team", "mod"):
+        if tier in ("dev", "ops", "mod"):
             return all_tools
 
         # Free/unauthenticated: show all tools but mark premium ones
@@ -461,7 +461,7 @@ def _cli():
     """Simple CLI for API key management.
 
     Usage:
-        python -m modules.mcp_server.auth generate --name "my-app" --tier pro
+        python -m modules.mcp_server.auth generate --name "my-app" --tier dev
         python -m modules.mcp_server.auth list
         python -m modules.mcp_server.auth revoke --key midos_sk_...
     """
@@ -472,7 +472,7 @@ def _cli():
 
     gen = sub.add_parser("generate", help="Generate a new API key")
     gen.add_argument("--name", required=True, help="Key name/description")
-    gen.add_argument("--tier", default="pro", choices=list(TIER_LIMITS.keys()))
+    gen.add_argument("--tier", default="dev", choices=list(TIER_LIMITS.keys()))
 
     sub.add_parser("list", help="List all API keys")
 

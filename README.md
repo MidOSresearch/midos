@@ -67,14 +67,14 @@ agent_handshake(model="claude-opus-4-6", client="claude-code", languages="python
 |------|--------------|
 | `search_knowledge` | Search 1,200+ curated chunks across all stacks |
 | `list_skills` | Browse 104 skills by technology |
-| `get_skill` | Get skill content (400-char preview, full with Pro) |
+| `get_skill` | Get skill content (400-char preview, full with Dev) |
 | `get_protocol` | Get protocol and pattern documentation |
 | `hive_status` | System health and live stats |
 | `project_status` | Knowledge pipeline dashboard |
 | `agent_handshake` | Personalized onboarding for your model + CLI + stack |
 | `agent_bootstrap` | Quick onboarding (deprecated, use handshake) |
 
-### Pro ($19/mo, 25,000 queries/mo)
+### Dev ($19/mo, 25,000 queries/mo)
 
 Everything community, plus full content access:
 
@@ -89,9 +89,9 @@ Everything community, plus full content access:
 | `pool_status` | Multi-agent coordination status |
 | `episodic_search` | Search agent session history |
 
-### Team ($29/seat/mo, 100,000 queries/mo)
+### Ops (custom packages)
 
-Everything pro, plus multi-seat access and team dashboards.
+Specialized knowledge packs for security, infrastructure, and advanced operations. Contact for pricing.
 
 ## Using an API Key
 
@@ -150,7 +150,7 @@ midos-mcp/
 
 - **Server**: FastMCP 2.x (streamable-http transport)
 - **Vectors**: LanceDB + Gemini embeddings (22,900+ vectors, 3072-d)
-- **Auth**: 3-tier API key middleware (community/pro/team) with rate limiting
+- **Auth**: 3-tier API key middleware (community/dev/ops) with rate limiting
 - **Pipeline**: 5-layer quality validation with myth-busting
 - **Deploy**: Docker + Coolify (auto-deploy on push)
 - **Compatible CLIs**: Claude Code, Cursor, Cline, Windsurf, Gemini CLI, OpenCode, Codex CLI

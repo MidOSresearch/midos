@@ -20,7 +20,7 @@ from .agent_profiles import (
     resolve_model,
     resolve_client,
 )
-from .auth import COMMUNITY_TOOLS, PRO_TOOLS, ADMIN_TOOLS
+from .auth import COMMUNITY_TOOLS, DEV_TOOLS, ADMIN_TOOLS
 
 # Paths
 MIDOS_ROOT = Path(__file__).parent.parent.parent.resolve()
@@ -663,8 +663,8 @@ def _tool_min_tier(name: str) -> str:
     """Return the minimum tier label for a tool."""
     if name in COMMUNITY_TOOLS:
         return "community"
-    if name in PRO_TOOLS:
-        return "pro"
+    if name in DEV_TOOLS:
+        return "dev"
     if name in ADMIN_TOOLS:
         return "admin"
     return "dev"

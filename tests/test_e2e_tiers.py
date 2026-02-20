@@ -33,7 +33,7 @@ COMMUNITY_TOOLS = {
     "search_knowledge", "list_skills", "hive_status", "project_status",
     "agent_handshake", "agent_bootstrap", "get_skill", "get_protocol",
 }
-PRO_TOOLS = {
+DEV_TOOLS = {
     "get_eureka", "get_truth", "semantic_search", "research_youtube",
     "chunk_code", "memory_stats", "pool_status", "episodic_search",
 }
@@ -127,7 +127,7 @@ class TestProtocol:
         tool_names = {t["name"] for t in tools}
 
         # All community + pro + admin tools should be listed
-        expected = COMMUNITY_TOOLS | PRO_TOOLS | ADMIN_TOOLS
+        expected = COMMUNITY_TOOLS | DEV_TOOLS | ADMIN_TOOLS
         for name in expected:
             assert name in tool_names, f"Missing tool: {name}"
 
@@ -246,15 +246,15 @@ class TestCommunityTier:
 
 
 # ---------------------------------------------------------------------------
-# Round 3: Pro Tier Gating (no auth = should be rejected)
+# Round 3: Dev Tier Gating (no auth = should be rejected)
 # ---------------------------------------------------------------------------
 
-class TestProTierGating:
-    """Verify PRO tools are blocked without valid API key."""
+class TestDevTierGating:
+    """Verify DEV tools are blocked without valid API key."""
 
-    @pytest.mark.parametrize("tool_name", sorted(PRO_TOOLS))
-    def test_pro_tool_blocked_no_auth(self, tool_name):
-        """PRO tool is blocked for unauthenticated requests."""
+    @pytest.mark.parametrize("tool_name", sorted(DEV_TOOLS))
+    def test_dev_tool_blocked_no_auth(self, tool_name):
+        """DEV tool is blocked for unauthenticated requests."""
         resp = call_tool(tool_name, _default_args(tool_name))
         # Should either be an error or contain tier upgrade message
         text = tool_result_text(resp)
@@ -262,11 +262,11 @@ class TestProTierGating:
             tool_is_error(resp)
             or "requires" in text.lower()
             or "upgrade" in text.lower()
-            or "pro" in text.lower()
+            or "dev" in text.lower()
             or "tier" in text.lower()
         )
         assert is_blocked, (
-            f"PRO tool '{tool_name}' should be blocked without auth. "
+            f"DEV tool '{tool_name}' should be blocked without auth. "
             f"Got: {text[:200]}"
         )
 
@@ -338,12 +338,12 @@ class TestAuthValidation:
 
 
 # ---------------------------------------------------------------------------
-# Round 5: Pro Tier Access (requires MIDOS_TEST_API_KEY)
+# Round 5: Dev Tier Access (requires MIDOS_TEST_API_KEY)
 # ---------------------------------------------------------------------------
 
 @pytest.mark.skipif(not API_KEY, reason="MIDOS_TEST_API_KEY not set")
-class TestProTierAccess:
-    """Verify PRO tools work with valid API key."""
+class TestDevTierAccess:
+    """Verify DEV tools work with valid API key."""
 
     def test_get_eureka_with_key(self):
         """get_eureka works with valid PRO key."""
@@ -380,9 +380,10 @@ class TestContentSecurity:
         text = tool_result_text(resp)
         # Skills are stripped to 400 chars with upgrade notice
         has_notice = (
-            "pro" in text.lower()
+            "dev" in text.lower()
             or "pricing" in text.lower()
             or "full content" in text.lower()
+            or "upgrade" in text.lower()
             or "note" in text.lower()
         )
         assert has_notice or len(text) < 500, (
