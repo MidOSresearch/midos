@@ -1,17 +1,18 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.midosresearch/midos-mcp",
-  "description": "Curated developer knowledge API — 104 skill packs, 1284 chunks, semantic search across 20+ tech stacks. Battle-tested patterns, not raw docs.",
+  "title": "MidOS \u2014 MCP Community Library",
+  "description": "Curated developer knowledge API \u2014 104 skill packs, 1284 chunks, semantic search across 20+ tech stacks. Battle-tested patterns, not raw docs.",
   "repository": {
     "url": "https://github.com/MidOSresearch/midos-mcp",
     "source": "github"
   },
-  "version": "2026.2.20",
+  "version": "2026.2.23",
   "packages": [
     {
       "registryType": "pypi",
-      "identifier": "midos",
-      "version": "2026.2.20",
+      "identifier": "midos-mcp",
+      "version": "2026.2.23",
       "transport": {
         "type": "stdio"
       }
@@ -19,7 +20,7 @@
   ],
   "remotes": [
     {
-      "transport_type": "streamable-http",
+      "transportType": "streamable-http",
       "url": "https://midos.dev/mcp"
     }
   ]
