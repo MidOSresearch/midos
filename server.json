@@ -7,12 +7,12 @@
     "url": "https://github.com/MidOSresearch/midos",
     "source": "github"
   },
-  "version": "2026.2.23.1",
+  "version": "2026.2.24",
   "packages": [
     {
       "registryType": "pypi",
-      "identifier": "midos-mcp",
-      "version": "2026.2.23.1",
+      "identifier": "midos",
+      "version": "2026.2.24",
       "transport": {
         "type": "stdio"
       }
