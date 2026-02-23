@@ -3,8 +3,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "midos-mcp"
-version = "2026.2.23"
+name = "midos"
+version = "2026.2.24"
 description = "MCP Community Library — Curated knowledge, skill packs, and semantic search for AI coding agents"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -34,8 +34,8 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://midos.dev"
-Repository = "https://github.com/MidOSresearch/midos-mcp"
-Documentation = "https://github.com/MidOSresearch/midos-mcp#readme"
+Repository = "https://github.com/MidOSresearch/midos"
+Documentation = "https://github.com/MidOSresearch/midos#readme"
 
 [project.optional-dependencies]
 dev = [
@@ -59,6 +59,7 @@ video = [
 ]
 
 [project.scripts]
+midos = "modules.mcp_server.midos_mcp:main"
 midos-mcp = "modules.mcp_server.midos_mcp:main"
 
 [tool.ruff]
