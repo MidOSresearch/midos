@@ -1,3 +1,4 @@
+<!-- mcp-name: io.github.midosresearch/midos-mcp -->
 <p align="center">
   <h1 align="center">MidOS — MCP Server for Developer Knowledge</h1>
   <p align="center">Curated, validated knowledge for AI coding agents. Not raw docs — battle-tested patterns.</p>
