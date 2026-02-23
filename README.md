@@ -1,4 +1,4 @@
-<!-- mcp-name: io.github.MidOSresearch/midos-mcp -->
+<!-- mcp-name: io.github.MidOSresearch/midos -->
 <p align="center">
   <h1 align="center">MidOS — MCP Server for Developer Knowledge</h1>
   <p align="center">Curated, validated knowledge for AI coding agents. Not raw docs — battle-tested patterns.</p>
@@ -12,7 +12,7 @@
   <a href="https://github.com/nicepkg/aide"><img src="https://img.shields.io/badge/Windsurf-Ready-purple?style=flat-square" alt="Windsurf"></a>
   <br>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="MIT License"></a>
-  <a href="https://github.com/MidOSresearch/midos-mcp/stargazers"><img src="https://img.shields.io/github/stars/MidOSresearch/midos-mcp?style=social" alt="GitHub stars"></a>
+  <a href="https://github.com/MidOSresearch/midos/stargazers"><img src="https://img.shields.io/github/stars/MidOSresearch/midos?style=social" alt="GitHub stars"></a>
   <a href="https://smithery.ai"><img src="https://img.shields.io/badge/Smithery-Listed-orange?style=flat-square" alt="Smithery"></a>
   <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.10+-blue?style=flat-square&logo=python&logoColor=white" alt="Python 3.10+"></a>
 </p>
@@ -73,7 +73,7 @@ Add a new server:
 <summary><b>Self-hosted</b> — Run locally</summary>
 
 ```bash
-git clone https://github.com/MidOSresearch/midos-mcp.git
+git clone https://github.com/MidOSresearch/midos.git
 cd midos-mcp
 pip install -e .
 pip install -e hive_commons/
@@ -220,7 +220,7 @@ midos-mcp/
 MidOS is community-first. If you have production-tested patterns, battle scars, or discovered that a popular claim is false — we want it.
 
 1. Search existing knowledge first: `search_knowledge("your topic")`
-2. [Open an issue](https://github.com/MidOSresearch/midos-mcp/issues/new) describing the pattern or discovery
+2. [Open an issue](https://github.com/MidOSresearch/midos/issues/new) describing the pattern or discovery
 3. We'll review and add it to the pipeline
 
 ## License
@@ -232,5 +232,5 @@ MidOS is community-first. If you have production-tested patterns, battle scars, 
 <p align="center">
   Source-verified developer knowledge. Built by devs, for agents.
   <br>
-  <a href="https://midos.dev">midos.dev</a> · <a href="https://github.com/MidOSresearch/midos-mcp/discussions">Discussions</a> · <a href="https://github.com/MidOSresearch/midos-mcp/issues">Issues</a>
+  <a href="https://midos.dev">midos.dev</a> · <a href="https://github.com/MidOSresearch/midos/discussions">Discussions</a> · <a href="https://github.com/MidOSresearch/midos/issues">Issues</a>
 </p>
