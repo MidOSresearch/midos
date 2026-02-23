@@ -27,6 +27,12 @@ MidOS returns: Battle-tested pattern with useOptimistic + Server Actions, valida
 Context7 returns: Raw React docs from reactjs.org.
 ```
 
+## Install
+
+```bash
+pip install midos
+```
+
 ## Quick Start
 
 **One line.** Add to your MCP config and start querying:
@@ -74,7 +80,7 @@ Add a new server:
 
 ```bash
 git clone https://github.com/MidOSresearch/midos.git
-cd midos-mcp
+cd midos
 pip install -e .
 pip install -e hive_commons/
 python -m modules.mcp_server.midos_mcp --http --port 8419
@@ -194,7 +200,7 @@ Get a key at [midos.dev/pricing](https://midos.dev/pricing).
 ## Architecture
 
 ```
-midos-mcp/
+midos/
 ├── modules/mcp_server/   FastMCP server (streamable-http)
 ├── knowledge/
 │   ├── chunks/            Curated knowledge (L1) — 1,284 items
