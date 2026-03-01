@@ -19,18 +19,12 @@
 
 ---
 
-**104 skill packs** across 20+ tech stacks. **1,284 curated chunks**. **104 validated discoveries**. Every piece reviewed, cross-validated, and myth-busted.
+**200+ skill packs** across 20+ tech stacks. **46,000+ curated chunks**. **383 validated discoveries**. Every piece reviewed, cross-validated, and myth-busted.
 
 ```
 Your agent asks: "How do I implement optimistic updates in React 19?"
 MidOS returns: Battle-tested pattern with useOptimistic + Server Actions, validated Feb 2026.
 Context7 returns: Raw React docs from reactjs.org.
-```
-
-## Install
-
-```bash
-pip install midos
 ```
 
 ## Quick Start
@@ -44,7 +38,7 @@ pip install midos
 {
   "mcpServers": {
     "midos": {
-      "url": "https://midos.dev/mcp"
+      "url": "https://mcp.midos.dev/mcp"
     }
   }
 }
@@ -56,7 +50,7 @@ pip install midos
 
 Add a new server:
 - **Name**: `midos`
-- **URL**: `https://midos.dev/mcp`
+- **URL**: `https://mcp.midos.dev/mcp`
 - **Transport**: Streamable HTTP
 </details>
 
@@ -67,8 +61,25 @@ Add a new server:
 {
   "mcpServers": {
     "midos": {
-      "url": "https://midos.dev/mcp",
+      "url": "https://mcp.midos.dev/mcp",
       "transportType": "streamable-http"
+    }
+  }
+}
+```
+</details>
+
+<details>
+<summary><b>Claude Desktop</b> — <code>claude_desktop_config.json</code></summary>
+
+- macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+
+```json
+{
+  "mcpServers": {
+    "midos": {
+      "url": "https://mcp.midos.dev/mcp"
     }
   }
 }
@@ -105,36 +116,35 @@ search_knowledge("React 19 Server Components patterns")
 
 ## Tools Reference
 
-### Community Tier (free, no API key)
+### Dev Tier (free, no API key)
 
 | Tool | Description | Example |
 |------|-------------|---------|
-| `search_knowledge` | Search 1,284 curated chunks across all stacks | `search_knowledge("FastAPI dependency injection")` |
-| `hybrid_search` | Combined keyword + semantic search with reranking | `hybrid_search("PostgreSQL JSONB indexing")` |
-| `list_skills` | Browse 104 skill packs by technology | `list_skills(stack="react")` |
-| `get_skill` | Get a specific skill pack (preview in free, full in Dev) | `get_skill("nextjs")` |
+| `search_knowledge` | Search 46,000+ curated chunks across all stacks | `search_knowledge("FastAPI dependency injection")` |
+| `smart_search` | Unified search with auto/keyword/semantic/hybrid modes | `smart_search("PostgreSQL JSONB indexing")` |
+| `hybrid_search` | Combined keyword + semantic search with reranking | `hybrid_search("event sourcing patterns")` |
+| `list_skills` | Browse 200+ skill packs by technology | `list_skills(stack="react")` |
+| `get_skill` | Get a complete skill pack | `get_skill("nextjs")` |
+| `get_eureka` | Access 383 validated breakthrough discoveries | `get_eureka("response-cache")` |
+| `get_truth` | Empirically verified truth patches (50 items) | `get_truth("qlora-myths")` |
+| `semantic_search` | Vector search with Gemini embeddings (670K vectors, 3072-d) | `semantic_search("event sourcing CQRS")` |
 | `get_protocol` | Protocol and pattern documentation | `get_protocol("domain-driven-design")` |
 | `hive_status` | System health and live statistics | `hive_status()` |
-| `project_status` | Knowledge pipeline dashboard | `project_status()` |
 | `agent_handshake` | Personalized onboarding for your model + stack | See example above |
 
-### Dev Tier ($19/mo — full content + advanced search)
+### Pro Tier ($20/mo — security ops, AOTC, orchestration)
 
 | Tool | Description | Example |
 |------|-------------|---------|
-| `get_eureka` | Validated breakthrough discoveries (104 items) | `get_eureka("response-cache")` |
-| `get_truth` | Empirically verified truth patches (17 items) | `get_truth("qlora-myths")` |
-| `semantic_search` | Vector search with Gemini embeddings (3072-d) | `semantic_search("event sourcing CQRS")` |
-| `research_youtube` | Extract knowledge from video content | `research_youtube("https://youtube.com/...")` |
-| `chunk_code` | Intelligent code chunking for ingestion | `chunk_code(code="...", language="python")` |
-| `memory_stats` | Vector store analytics and health | `memory_stats()` |
+| `get_aotc` | Ahead-of-the-curve frontier research (140 SOTA + 3 AOTC) | `get_aotc("mcp-streaming")` |
+| `security_scan_target` | Automated security scanning | `security_scan_target("https://example.com")` |
+| `generate_pentest_report` | Penetration testing report | `generate_pentest_report(target="api")` |
+| `quality_gate` | Quality gate evaluation for knowledge items | `quality_gate(chunk_id="react19_hooks")` |
 | `episodic_search` | Search agent session history | `episodic_search("last deployment issue")` |
+| `create_plan` | Persistent execution plans for multi-step tasks | `create_plan(goal="migrate to v2")` |
+| `where_was_i` | Recover last session context instantly | `where_was_i()` |
 
-### Ops Tier (custom — security, infrastructure, advanced ops)
-
-Contact for specialized knowledge packs. [midos.dev/pricing](https://midos.dev/pricing)
-
-## Skill Packs (104 and growing)
+## Skill Packs (200+ and growing)
 
 Production-tested patterns for:
 
@@ -172,21 +182,21 @@ staging/ → chunks/ → skills/ → truth/ → EUREKA/ → SOTA/
  (entry)    (L1)      (L2)      (L3)     (L4)      (L5)
 ```
 
-- **Chunks** (1,284): Curated, indexed knowledge across 20+ stacks
-- **Skills** (104): Organized, actionable, versioned by stack
-- **Truth** (17): Verified with empirical evidence
-- **EUREKA** (104): Validated improvements with measured ROI
-- **SOTA** (11): Best-in-class, currently unimprovable
+- **Chunks** (46,000+): Curated, indexed knowledge across 20+ stacks
+- **Skills** (200+): Organized, actionable, versioned by stack
+- **Truth** (50): Verified with empirical evidence
+- **EUREKA** (383): Validated improvements with measured ROI
+- **SOTA** (140): Best-in-class, currently unimprovable
 
 ## Using an API Key
 
-Pass your key via the `Authorization` header for Dev/Ops access:
+Pass your key via the `Authorization` header for Pro access:
 
 ```json
 {
   "mcpServers": {
     "midos": {
-      "url": "https://midos.dev/mcp",
+      "url": "https://mcp.midos.dev/mcp",
       "headers": {
         "Authorization": "Bearer midos_your_key_here"
       }
@@ -203,10 +213,11 @@ Get a key at [midos.dev/pricing](https://midos.dev/pricing).
 midos/
 ├── modules/mcp_server/   FastMCP server (streamable-http)
 ├── knowledge/
-│   ├── chunks/            Curated knowledge (L1) — 1,284 items
-│   ├── skills/            Stack-specific skill packs (L2) — 104 items
-│   ├── EUREKA/            Validated discoveries (L4) — 104 items
-│   └── truth/             Empirical patches (L3) — 17 items
+│   ├── chunks/            Curated knowledge (L1) — 46,000+ items
+│   ├── skills/            Stack-specific skill packs (L2) — 200+ items
+│   ├── EUREKA/            Validated discoveries (L4) — 383 items
+│   ├── SOTA/              State-of-the-art (L5) — 140 items
+│   └── truth/             Empirical patches (L3) — 50 items
 ├── hive_commons/          Shared library (LanceDB vector store, config)
 ├── smithery.yaml          Smithery marketplace manifest
 ├── Dockerfile             Production container
@@ -216,8 +227,8 @@ midos/
 ## Tech Stack
 
 - **Server**: [FastMCP](https://github.com/jlowin/fastmcp) 2.x (streamable-http transport)
-- **Vectors**: [LanceDB](https://lancedb.com) + Gemini embeddings (22,900+ vectors, 3072-d)
-- **Auth**: 3-tier API key middleware (community → dev → ops) with rate limiting
+- **Vectors**: [LanceDB](https://lancedb.com) + Gemini embeddings (670,000+ vectors, 3072-d)
+- **Auth**: 2-tier API key middleware (dev → pro) with rate limiting
 - **Pipeline**: 5-layer quality validation with myth-busting
 - **Deploy**: Docker + Coolify (auto-deploy on push)
 
