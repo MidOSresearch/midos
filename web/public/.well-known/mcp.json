@@ -2,9 +2,9 @@
   "$schema": "https://registry.modelcontextprotocol.io/schemas/server.json",
   "name": "io.github.midosresearch/midos-mcp",
   "version": "1.0.0",
-  "description": "Curated knowledge library for AI agents — 1284 chunks, 104 skills, 100+ EUREKA patterns, 55 MCP tools across 15+ stacks. Community tier: 22 tools free. Dev tier: semantic search, EUREKA, truth patches.",
+  "description": "Curated knowledge library for AI agents — 46,000+ chunks, 125 skills, 436 EUREKA patterns, 85 MCP tools across 15+ stacks. Community tier: 21 tools free. Dev tier: semantic search, EUREKA, truth patches.",
   "homepage": "https://midos.dev",
-  "repository": "https://github.com/MidOSresearch/MidOS",
+  "repository": "https://github.com/MidOSresearch/midos-mcp",
   "license": "MIT",
   "authors": [
     {
@@ -19,12 +19,10 @@
       "env": {}
     },
     "streamable-http": {
-      "url": "http://localhost:8420/mcp-protocol/mcp",
-      "note": "Self-hosted only. Start with: python -m modules.mcp_server.midos_mcp --http 8420"
+      "url": "https://midos.dev/mcp"
     },
     "sse": {
-      "url": "http://localhost:8420/mcp-sse/sse",
-      "note": "Self-hosted only. Legacy SSE transport."
+      "url": "https://midos.dev/mcp"
     }
   },
   "capabilities": {
@@ -60,8 +58,8 @@
   },
   "tools": {
     "community": [
-      {"name": "search_knowledge", "description": "Keyword search across 1284 knowledge chunks"},
-      {"name": "list_skills", "description": "Browse 104 skills across 15+ technology stacks"},
+      {"name": "search_knowledge", "description": "Keyword search across 46,000+ knowledge chunks"},
+      {"name": "list_skills", "description": "Browse 125 skills across 15+ technology stacks"},
       {"name": "get_skill", "description": "Fetch a complete skill document by name or stack"},
       {"name": "get_protocol", "description": "Fetch protocol/standard document"},
       {"name": "hive_status", "description": "System health dashboard"},
@@ -125,11 +123,11 @@
     {"uri": "midos://discovery/server.json", "description": "Server discovery metadata"}
   ],
   "knowledge_base": {
-    "chunks": 1284,
-    "skills": 104,
-    "eureka": 100,
-    "truth_patches": 33,
-    "vectors": 22900,
+    "chunks": 46117,
+    "skills": 125,
+    "eureka": 436,
+    "truth_patches": 52,
+    "vectors": 672629,
     "embedding_model": "gemini-embedding-001",
     "embedding_dimensions": 3072,
     "vector_db": "LanceDB"

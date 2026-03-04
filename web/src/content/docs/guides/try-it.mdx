@@ -8,15 +8,15 @@ import { Steps, Aside } from '@astrojs/starlight/components';
 Test MidOS tools instantly using the live cloud endpoint. No install, no API key, no signup.
 
 <Aside type="tip">
-These examples use the free Community tier (9 tools, 100 queries/month). Want full access? See [Access Tiers](/tiers/).
+These examples use the Free tier (9 tools, 100 queries/month). Want full access? See [Access Tiers](/tiers/).
 </Aside>
 
 ## Live Endpoint
 
-MidOS is hosted on Smithery and available at:
+MidOS is available at:
 
 ```
-https://midos-mcp--midosresearch.run.tools
+https://midos.dev/mcp
 ```
 
 You can call any free-tier tool via JSON-RPC. Every example below is a real request you can copy and run.
@@ -28,7 +28,7 @@ You can call any free-tier tool via JSON-RPC. Every example below is a real requ
 Find knowledge chunks across 20+ technology stacks:
 
 ```bash
-curl -s https://midos-mcp--midosresearch.run.tools \
+curl -s -X POST https://midos.dev/mcp \
   -H "Content-Type: application/json" \
   -d '{
     "jsonrpc": "2.0",
@@ -53,7 +53,7 @@ curl -s https://midos-mcp--midosresearch.run.tools \
 Browse available skills for any technology:
 
 ```bash
-curl -s https://midos-mcp--midosresearch.run.tools \
+curl -s -X POST https://midos.dev/mcp \
   -H "Content-Type: application/json" \
   -d '{
     "jsonrpc": "2.0",
@@ -77,7 +77,7 @@ curl -s https://midos-mcp--midosresearch.run.tools \
 Tell MidOS about your agent to get personalized recommendations:
 
 ```bash
-curl -s https://midos-mcp--midosresearch.run.tools \
+curl -s -X POST https://midos.dev/mcp \
   -H "Content-Type: application/json" \
   -d '{
     "jsonrpc": "2.0",
@@ -106,7 +106,7 @@ curl -s https://midos-mcp--midosresearch.run.tools \
 Check the knowledge base health and metrics:
 
 ```bash
-curl -s https://midos-mcp--midosresearch.run.tools \
+curl -s -X POST https://midos.dev/mcp \
   -H "Content-Type: application/json" \
   -d '{
     "jsonrpc": "2.0",
@@ -164,8 +164,8 @@ These 9 tools are available without an API key:
 
 | Tool | What it does |
 |------|-------------|
-| `search_knowledge` | Keyword search across 1,284 knowledge chunks |
-| `list_skills` | Browse 104 skills by technology stack |
+| `search_knowledge` | Keyword search across 46,000+ knowledge chunks |
+| `list_skills` | Browse 125 skills by technology stack |
 | `hive_status` | Knowledge base health and metrics |
 | `project_status` | System overview and pipeline status |
 | `agent_handshake` | Personalized onboarding and tool recommendations |
@@ -174,4 +174,4 @@ These 9 tools are available without an API key:
 | `get_progress` | Retrieve saved session progress |
 | `agent_bootstrap` | Quick-start configuration for new agents |
 
-**Want more?** The [Dev tier](/tiers/) ($19/mo) unlocks all 57 tools, full untruncated knowledge, EUREKA discoveries, semantic search, and 25,000 queries/month.
+**Want more?** The [Dev tier](/tiers/) ($20/mo) unlocks all 85 tools, full untruncated knowledge, EUREKA discoveries, semantic search, and 25,000 queries/month.

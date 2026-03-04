@@ -1,7 +1,7 @@
 {
   "name": "midos-mcp",
   "display_name": "MidOS — Curated Knowledge Library",
-  "description": "Production-tested developer knowledge base with 1284 chunks, 104 skills across 15+ stacks, and 48 MCP tools. EUREKA-validated patterns, semantic search with Gemini embeddings (3072-d). Not raw docs — battle-tested patterns from real projects.",
+  "description": "Production-tested developer knowledge base with 46000+ chunks, 125 skills across 15+ stacks, and 85 MCP tools. EUREKA-validated patterns, semantic search with Gemini embeddings (3072-d). Not raw docs — battle-tested patterns from real projects.",
   "version": "0.3.0",
   "license": "MIT",
   "author": "MidOS Research",
@@ -34,14 +34,14 @@
       "args": ["-m", "modules.mcp_server.midos_mcp"]
     },
     "streamable-http": {
-      "url": "https://lsk8k0so448c8ss40gk8c04o.5.161.96.136.sslip.io/mcp-protocol/mcp"
+      "url": "https://midos.dev/mcp"
     }
   },
   "tools": [
-    {"name": "smart_search", "description": "Unified search across 1284 knowledge chunks — auto-detects keyword, semantic, or hybrid mode"},
+    {"name": "smart_search", "description": "Unified search across 46,000+ knowledge chunks — auto-detects keyword, semantic, or hybrid mode"},
     {"name": "ask_knowledge", "description": "Ask questions and get AI-synthesized answers from the knowledge base"},
-    {"name": "get_skills", "description": "Browse 104 production-tested skill templates across React, Next.js, Python, Go, Rust, and more"},
-    {"name": "get_eureka", "description": "Access 104 EUREKA-validated improvements with measured ROI"},
+    {"name": "get_skills", "description": "Browse 125 production-tested skill templates across React, Next.js, Python, Go, Rust, and more"},
+    {"name": "get_eureka", "description": "Access 436 EUREKA-validated improvements with measured ROI"},
     {"name": "get_truth", "description": "Truth patch documents — verified fixes and corrections"},
     {"name": "get_sota", "description": "State-of-the-art patterns promoted from EUREKA"},
     {"name": "submit_feedback", "description": "Submit feedback, ratings, and suggestions"},
@@ -50,13 +50,13 @@
     {"name": "context_health", "description": "Check context window utilization and get optimization tips"}
   ],
   "stats": {
-    "knowledge_chunks": 1284,
-    "skills": 104,
-    "eureka_improvements": 104,
-    "truth_patches": 17,
-    "sota_patterns": 11,
-    "total_tools": 48,
-    "vector_embeddings": 24644,
+    "knowledge_chunks": 46117,
+    "skills": 125,
+    "eureka_improvements": 436,
+    "truth_patches": 52,
+    "sota_patterns": 138,
+    "total_tools": 85,
+    "vector_embeddings": 672629,
     "embedding_model": "gemini-embedding-001 (3072-d)"
   }
 }
