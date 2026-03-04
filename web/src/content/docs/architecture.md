@@ -27,12 +27,12 @@ MidOS is a **knowledge-as-a-service platform** for AI agents, built on the Model
 │         Knowledge Layer                      │
 │  ┌──────────┐ ┌──────────┐ ┌─────────────┐ │
 │  │ Chunks   │ │ Skills   │ │ EUREKA/SOTA │ │
-│  │ (1284)   │ │ (104)    │ │ (115)       │ │
+│  │ (46,000+)│ │ (125)    │ │ (574)       │ │
 │  └──────────┘ └──────────┘ └─────────────┘ │
 │  ┌──────────┐ ┌──────────┐                  │
 │  │ Truth    │ │ Vector   │                  │
 │  │ Patches  │ │ Store    │                  │
-│  │ (17)     │ │ (22900)  │                  │
+│  │ (52)     │ │ (670K+)  │                  │
 │  └──────────┘ └──────────┘                  │
 └─────────────────────────────────────────────┘
 ```
@@ -45,7 +45,7 @@ Content flows through 5 layers of validation before reaching agents:
 Raw content (books, docs, research, Discord harvests) enters the staging area. It gets distilled into focused chunks — each chunk covers one concept, one pattern, or one technique.
 
 - **Input**: Books, documentation, research papers, community discussions
-- **Output**: 1,284 focused knowledge chunks
+- **Output**: 46,000+ focused knowledge chunks
 - **Quality**: Frontmatter with metadata, tags, source attribution
 
 ### Layer 2: Skills
@@ -53,26 +53,26 @@ Chunks that describe actionable patterns are promoted to skills. Each skill is a
 
 - **Coverage**: 20+ tech stacks (React, FastAPI, Django, NestJS, Go, Rust, K8s, etc.)
 - **Format**: Structured markdown with code examples, patterns, and anti-patterns
-- **Count**: 104 skills
+- **Count**: 125 skills
 
 ### Layer 3: Truth Patches
 Corrections to common misconceptions or outdated information. When we discover that a widely-held belief is wrong, we create a truth patch.
 
 - **Format**: Problem → Evidence → Correction
-- **Count**: 17 verified patches
+- **Count**: 52 verified patches
 - **Examples**: Cache invalidation patterns, ORM anti-patterns, security misconfigurations
 
 ### Layer 4: EUREKA
 Breakthrough discoveries and improvements validated through testing. Each EUREKA entry includes implementation details and measured ROI.
 
 - **Format**: Problem → Solution → Test Results → ROI
-- **Count**: 104 validated improvements
+- **Count**: 436 validated improvements
 - **Promotion**: High-impact EUREKAs get promoted to SOTA
 
 ### Layer 5: SOTA (State of the Art)
 The top-tier knowledge — the best patterns, the most impactful discoveries. Only content with proven, significant value reaches this level.
 
-- **Count**: 11 state-of-the-art entries
+- **Count**: 138 state-of-the-art entries
 - **Access**: Dev tier and above
 
 ## Vector Store
@@ -84,7 +84,7 @@ MidOS uses **LanceDB** with **Gemini embeddings** (3072-dimensional) for semanti
 | Engine | LanceDB |
 | Embedding Model | gemini-embedding-001 |
 | Dimensions | 3,072 |
-| Total Vectors | 22,900 |
+| Total Vectors | 670,000+ |
 | Search Modes | Vector, Keyword, Hybrid |
 | Reranking | Built-in relevance reranking |
 

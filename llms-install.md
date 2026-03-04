@@ -1,6 +1,6 @@
 # MidOS MCP Server — Installation Guide
 
-MidOS is a curated developer knowledge base exposed as an MCP server. It provides 104 skill packs, 1,284 curated knowledge chunks, and semantic search across 20+ tech stacks.
+MidOS is a curated developer knowledge base exposed as an MCP server. It provides 125 skill packs, 46,000+ curated knowledge chunks, and semantic search across 20+ tech stacks.
 
 ## Cloud (Recommended)
 

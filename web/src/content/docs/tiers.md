@@ -1,6 +1,6 @@
 ---
 title: Access Tiers
-description: MidOS access tiers — Community (free), Dev ($19/mo), and Ops (custom). Compare features, query limits, and tool access.
+description: MidOS access tiers — Community (free), Dev ($20/mo), and Ops (custom). Compare features, query limits, and tool access.
 ---
 
 MidOS uses tiered access to balance free community usage with sustainable development.
@@ -11,9 +11,9 @@ MidOS uses tiered access to balance free community usage with sustainable develo
 
 | Feature | <span class="badge badge-free">Community</span> | <span class="badge badge-dev">Dev</span> | <span class="badge badge-pro">Ops</span> |
 |---------|:---:|:---:|:---:|
-| **Price** | $0/mo | $19/mo ($15/mo annual) | Custom |
+| **Price** | $0/mo | $20/mo ($17/mo annual) | Custom |
 | **Queries/month** | 100 | 25,000 | 100,000 |
-| **Tools** | 9 | All 57 | All 57 + custom packs |
+| **Tools** | 9 | All 85 | All 85 + custom packs |
 | **Knowledge Chunks** | Truncated (250 chars) | Full | Full |
 | **Skills** | Truncated (400 chars) | Full | Full |
 | **EUREKA** | — | Full access | Full access |
@@ -44,22 +44,22 @@ Best for evaluation and light usage. No credit card required.
 - Session management tools
 - Admin tools
 
-## Dev ($19/mo)
+## Dev ($20/mo)
 
 For individual developers who use MidOS daily. The "EUREKA line" — everything validated and high-value unlocks here.
 
 **Everything in Community, plus:**
-- All 57 tools unlocked
+- All 85 tools unlocked
 - Full, untruncated knowledge chunks and skills
-- EUREKA patterns (104 validated improvements)
-- SOTA (11 state-of-the-art entries)
-- Truth patches (17 verified corrections)
+- EUREKA patterns (436 validated improvements)
+- SOTA (138 state-of-the-art entries)
+- Truth patches (52 verified corrections)
 - Semantic search with Gemini embeddings
 - Session save/restore (`save_progress`, `get_progress`)
 - Code chunking (`chunk_code`)
 - 25,000 queries per month
 
-**Annual discount:** $15/mo (20% off) when paid yearly.
+**Annual discount:** $17/mo (15% off) when paid yearly.
 
 ## Ops (Custom Pricing)
 
@@ -82,7 +82,7 @@ Test any free-tier tool right now — no install needed. See the [Try MidOS](/gu
 
 ## Payment
 
-- **Primary**: Stripe
+- **Primary**: PayPal
 - **LATAM fallback**: MercadoPago
 - **Trial**: No trial needed — the free tier is permanent
 

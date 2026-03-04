@@ -13,12 +13,12 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="MIT License"></a>
   <a href="https://github.com/MidOSresearch/midos-mcp/stargazers"><img src="https://img.shields.io/github/stars/MidOSresearch/midos-mcp?style=social" alt="GitHub stars"></a>
   <a href="https://smithery.ai"><img src="https://img.shields.io/badge/Smithery-Listed-orange?style=flat-square" alt="Smithery"></a>
-  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.10+-blue?style=flat-square&logo=python&logoColor=white" alt="Python 3.10+"></a>
+  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.11+-blue?style=flat-square&logo=python&logoColor=white" alt="Python 3.11+"></a>
 </p>
 
 ---
 
-**104 skill packs** across 20+ tech stacks. **1,284 curated chunks**. **104 validated discoveries**. Every piece reviewed, cross-validated, and myth-busted.
+**125 skill packs** across 20+ tech stacks. **46,000+ curated chunks**. **436 validated discoveries**. Every piece reviewed, cross-validated, and myth-busted.
 
 ```
 Your agent asks: "How do I implement optimistic updates in React 19?"
@@ -98,25 +98,25 @@ search_knowledge("React 19 Server Components patterns")
 
 ## Tools Reference
 
-### Community Tier (free, no API key)
+### Free Tier (no API key)
 
 | Tool | Description | Example |
 |------|-------------|---------|
-| `search_knowledge` | Search 1,284 curated chunks across all stacks | `search_knowledge("FastAPI dependency injection")` |
+| `search_knowledge` | Search 46,000+ curated chunks across all stacks | `search_knowledge("FastAPI dependency injection")` |
 | `hybrid_search` | Combined keyword + semantic search with reranking | `hybrid_search("PostgreSQL JSONB indexing")` |
-| `list_skills` | Browse 104 skill packs by technology | `list_skills(stack="react")` |
+| `list_skills` | Browse 125 skill packs by technology | `list_skills(stack="react")` |
 | `get_skill` | Get a specific skill pack (preview in free, full in Dev) | `get_skill("nextjs")` |
 | `get_protocol` | Protocol and pattern documentation | `get_protocol("domain-driven-design")` |
 | `hive_status` | System health and live statistics | `hive_status()` |
 | `project_status` | Knowledge pipeline dashboard | `project_status()` |
 | `agent_handshake` | Personalized onboarding for your model + stack | See example above |
 
-### Dev Tier ($19/mo — full content + advanced search)
+### Dev Tier ($20/mo — full content + advanced search)
 
 | Tool | Description | Example |
 |------|-------------|---------|
-| `get_eureka` | Validated breakthrough discoveries (104 items) | `get_eureka("response-cache")` |
-| `get_truth` | Empirically verified truth patches (17 items) | `get_truth("qlora-myths")` |
+| `get_eureka` | Validated breakthrough discoveries (436 items) | `get_eureka("response-cache")` |
+| `get_truth` | Empirically verified truth patches (52 items) | `get_truth("qlora-myths")` |
 | `semantic_search` | Vector search with Gemini embeddings (3072-d) | `semantic_search("event sourcing CQRS")` |
 | `research_youtube` | Extract knowledge from video content | `research_youtube("https://youtube.com/...")` |
 | `chunk_code` | Intelligent code chunking for ingestion | `chunk_code(code="...", language="python")` |
@@ -127,7 +127,7 @@ search_knowledge("React 19 Server Components patterns")
 
 Contact for specialized knowledge packs. [midos.dev/pricing](https://midos.dev/pricing)
 
-## Skill Packs (104 and growing)
+## Skill Packs (125 and growing)
 
 Production-tested patterns for:
 
@@ -165,11 +165,11 @@ staging/ → chunks/ → skills/ → truth/ → EUREKA/ → SOTA/
  (entry)    (L1)      (L2)      (L3)     (L4)      (L5)
 ```
 
-- **Chunks** (1,284): Curated, indexed knowledge across 20+ stacks
-- **Skills** (104): Organized, actionable, versioned by stack
-- **Truth** (17): Verified with empirical evidence
-- **EUREKA** (104): Validated improvements with measured ROI
-- **SOTA** (11): Best-in-class, currently unimprovable
+- **Chunks** (46,000+): Curated, indexed knowledge across 20+ stacks
+- **Skills** (125): Organized, actionable, versioned by stack
+- **Truth** (52): Verified with empirical evidence
+- **EUREKA** (436): Validated improvements with measured ROI
+- **SOTA** (138): Best-in-class, currently unimprovable
 
 ## Using an API Key
 
@@ -196,10 +196,10 @@ Get a key at [midos.dev/pricing](https://midos.dev/pricing).
 midos-mcp/
 ├── modules/mcp_server/   FastMCP server (streamable-http)
 ├── knowledge/
-│   ├── chunks/            Curated knowledge (L1) — 1,284 items
-│   ├── skills/            Stack-specific skill packs (L2) — 104 items
-│   ├── EUREKA/            Validated discoveries (L4) — 104 items
-│   └── truth/             Empirical patches (L3) — 17 items
+│   ├── chunks/            Curated knowledge (L1) — 46,000+ items
+│   ├── skills/            Stack-specific skill packs (L2) — 125 items
+│   ├── EUREKA/            Validated discoveries (L4) — 436 items
+│   └── truth/             Empirical patches (L3) — 52 items
 ├── hive_commons/          Shared library (LanceDB vector store, config)
 ├── smithery.yaml          Smithery marketplace manifest
 ├── Dockerfile             Production container
@@ -209,8 +209,8 @@ midos-mcp/
 ## Tech Stack
 
 - **Server**: [FastMCP](https://github.com/jlowin/fastmcp) 2.x (streamable-http transport)
-- **Vectors**: [LanceDB](https://lancedb.com) + Gemini embeddings (22,900+ vectors, 3072-d)
-- **Auth**: 3-tier API key middleware (community → dev → ops) with rate limiting
+- **Vectors**: [LanceDB](https://lancedb.com) + Gemini embeddings (670,000+ vectors, 3072-d)
+- **Auth**: 2-tier API key middleware (free → dev) with rate limiting
 - **Pipeline**: 5-layer quality validation with myth-busting
 - **Deploy**: Docker + Coolify (auto-deploy on push)
 

@@ -1,9 +1,9 @@
 ---
 title: Tool Catalog
-description: Complete reference for all 57 MidOS MCP tools organized by access tier — Free, Dev, Pro, Admin, Marketplace, and QA.
+description: Complete reference for all 85 MidOS MCP tools organized by access tier — Free, Dev, Pro, Admin, Marketplace, and QA.
 ---
 
-MidOS provides **57 MCP tools** organized across 6 access tiers. Each tool follows MCP's JSON-RPC 2.0 protocol and works with any compatible client.
+MidOS provides **85 MCP tools** organized across 6 access tiers. Each tool follows MCP's JSON-RPC 2.0 protocol and works with any compatible client.
 
 ## Tools by Tier
 
@@ -16,7 +16,7 @@ MidOS provides **57 MCP tools** organized across 6 access tiers. Each tool follo
 | [**Marketplace**](/midos-web/tools/marketplace/) | 5 | Profile-based | Skill pack management |
 | [**QA & Community**](/midos-web/tools/qa/) | 6 | Varies | Feedback, quality gates, reporting |
 
-**Total: 57 tools**
+**Total: 85 tools**
 
 ## Quick Reference
 
@@ -24,8 +24,8 @@ MidOS provides **57 MCP tools** organized across 6 access tiers. Each tool follo
 
 | Tool | Tier | What it does |
 |------|------|-------------|
-| `search_knowledge` | Free | Keyword search across 1,284 chunks |
-| `list_skills` | Free | Browse 104 skills, filter by stack |
+| `search_knowledge` | Free | Keyword search across 46,000+ chunks |
+| `list_skills` | Free | Browse 125 skills, filter by stack |
 | `agent_handshake` | Free | Personalized onboarding — call this first |
 | `semantic_search` | Pro | Vector search with Gemini embeddings |
 | `get_skill` | Dev | Get full skill document by name |

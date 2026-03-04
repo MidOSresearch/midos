@@ -3,7 +3,7 @@ title: Semantic Search
 description: How to use MidOS vector search — search modes, reranking, and tips for getting the best results.
 ---
 
-MidOS uses **LanceDB** with **Gemini embeddings** (3072-dimensional vectors) to provide semantic search across 22,900+ knowledge vectors.
+MidOS uses **LanceDB** with **Gemini embeddings** (3072-dimensional vectors) to provide semantic search across 670,000+ knowledge vectors.
 
 ## Search Tools Comparison
 
