@@ -4,16 +4,24 @@ build-backend = "hatchling.build"
 
 [project]
 name = "midos"
-version = "2026.2.20"
-description = "MCP Community Library — Knowledge base, research engine, and developer tools"
+version = "2026.2.24"
+description = "MCP Community Library — Curated knowledge, skill packs, and semantic search for AI coding agents"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
 authors = [
     { name = "MidOS Contributors" }
 ]
-keywords = ["mcp", "knowledge-base", "ai-tools", "research"]
-
+keywords = ["mcp", "mcp-server", "knowledge-base", "ai-tools", "ai-agents", "semantic-search", "developer-tools"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries",
+]
 dependencies = [
     "structlog>=25.5.0",
     "httpx>=0.28.1",
@@ -23,6 +31,11 @@ dependencies = [
     "pydantic>=2.12.5",
     "fastmcp>=2.0.0,<3.0.0",
 ]
+
+[project.urls]
+Homepage = "https://midos.dev"
+Repository = "https://github.com/MidOSresearch/midos"
+Documentation = "https://github.com/MidOSresearch/midos#readme"
 
 [project.optional-dependencies]
 dev = [
@@ -44,6 +57,10 @@ video = [
     "youtube_transcript_api>=0.6.0",
     "pdfplumber>=0.11.0",
 ]
+
+[project.scripts]
+midos = "modules.mcp_server.midos_mcp:main"
+midos-mcp = "modules.mcp_server.midos_mcp:main"
 
 [tool.ruff]
 line-length = 100

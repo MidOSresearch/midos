@@ -1,0 +1,32 @@
+---
+import LandingLayout from "../layouts/LandingLayout.astro";
+---
+
+<LandingLayout title="Museum — MidOS Knowledge Gallery" description="Explore MidOS's curated knowledge gallery. Preview skill packs, pipeline stages, and battle-tested patterns for AI agents.">
+  <main class="min-h-screen flex items-center justify-center px-6">
+    <div class="max-w-2xl text-center">
+      <p class="text-sm font-mono text-primary tracking-widest uppercase mb-4">Coming Soon</p>
+      <h1 class="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
+        The Museum
+      </h1>
+      <p class="mt-4 text-lg text-muted-foreground leading-relaxed">
+        A curated gallery of AI agent skills, pipeline stages, and knowledge exhibits.
+        Browse real code, real metrics, real receipts.
+      </p>
+      <div class="mt-8 flex items-center justify-center gap-4">
+        <a
+          href="/"
+          class="px-5 py-2.5 text-sm font-medium rounded-full bg-primary text-primary-foreground hover:brightness-110 transition-all"
+        >
+          Back to Home
+        </a>
+        <a
+          href="/quickstart/"
+          class="px-5 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+        >
+          Read the Docs &rarr;
+        </a>
+      </div>
+    </div>
+  </main>
+</LandingLayout>
