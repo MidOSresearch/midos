@@ -1,13 +1,16 @@
 ---
-tier: premium
-title: MCP Persistent Memory Patterns — 2026 Landscape
+title: "MCP Persistent Memory Patterns \u2014 2026 Landscape"
 source: research
 date: 2026-02-15
-tags: [comparison, landscape, mcp, research]
+tags:
+- comparison
+- landscape
+- mcp
+- research
 confidence: 0.7
----
-
-# MCP Persistent Memory Patterns — 2026 Landscape
-
+domain: architecture
+category: research
+content_type: research
+access_tier: dev
 
 [...content truncated — free tier preview]

@@ -8,110 +8,455 @@ Get a key: https://midos.dev/pricing
 
 ## Available EUREKA Documents
 
-- `ATOM_001` — Atom-001
+- `AGENT_CONTEXT_PROACTIVE_KNOWLEDGE_2026` — Agent Context Proactive Knowledge 2026
+- `AI_DEVELOPER_WORKFLOWS_PRODUCTIVITY_2026` — Ai Developer Workflows Productivity 2026
 - `ATOM_002` — Atom-002
-- `ATOM_003` — Atom-003
-- `ATOM_004` — Atom-004
 - `ATOM_005` — Atom-005
-- `ATOM_006` — Atom-006
 - `ATOM_007` — Atom-007
-- `ATOM_008` — Atom-008
 - `ATOM_009` — Atom-009
 - `ATOM_010` — Atom-010
 - `ATOM_011` — Atom-011
 - `ATOM_012` — Atom-012
 - `ATOM_013` — Atom-013
-- `ATOM_014` — Atom-014
-- `ATOM_015` — Atom-015
 - `ATOM_016` — Atom-016
-- `ATOM_017` — Atom-017
-- `EUREKA_AGENTIC_RAG_ARCHITECTURES_2026` — Agentic Rag Architectures 2026
-- `EUREKA_AGENTIC_RAG_PATTERNS_2026` — Agentic Rag Patterns 2026
-- `EUREKA_AGENT_ARCHITECTURE_PATTERNS_2026` — Agent Architecture Patterns 2026
-- `EUREKA_AGENT_FRAMEWORKS_2026` — Agent Frameworks 2026
-- `EUREKA_AGGREGATES_CONSISTENCY_BOUNDARIES_2026` — Aggregates Consistency Boundaries 2026
-- `EUREKA_AI_GUARDRAILS_PATTERNS_2026` — Ai Guardrails Patterns 2026
-- `EUREKA_AI_HUMAN_GOVERNANCE_MATRIX_2026` — Ai Human Governance Matrix 2026
+- `CLAUDE_ECOSYSTEM_SOTA_2026-02-13` — Claude Ecosystem Sota 2026-02-13
+- `DEVELOPER_ONBOARDING_RESEARCH_2026-02-13` — Developer Onboarding Research 2026-02-13
+- `E-108_conductor_orchestrator_role_spectrum` — E-108 Conductor Orchestrator Role Spectrum
+- `EUREKA_2026_02_12_LLM_SECURITY_MCP_SERVERS_2026_20260302` — 2026 02 12 Llm Security Mcp Servers 2026 20260302
+- `EUREKA_3d_graphics_rendering_cookbook_b15113_03_final_nm_20260227` — 3D Graphics Rendering Cookbook B15113 03 Final Nm 20260227
+- `EUREKA_3d_graphics_rendering_cookbook_b15113_06_final_nm_20260227` — 3D Graphics Rendering Cookbook B15113 06 Final Nm 20260227
+- `EUREKA_3d_graphics_rendering_cookbook_b15113_07_final_nm_20260227` — 3D Graphics Rendering Cookbook B15113 07 Final Nm 20260227
+- `EUREKA_5g_nr_chp001_20260227` — 5G Nr Chp001 20260227
+- `EUREKA_5g_nr_itr001_20260227` — 5G Nr Itr001 20260227
+- `EUREKA_ACTIONS_ADVANCED_PATTERNS_REAL_WORLD_EXAMPLES_2026_20260302` — Actions Advanced Patterns Real World Examples 2026 20260302
+- `EUREKA_AI_CLI_IDE_CATALOG_2026_02_12_20260302` — Ai Cli Ide Catalog 2026 02 12 20260302
+- `EUREKA_AI_CODING_TOOLS_ARCHITECTURE_RESEARCH_20260302` — Ai Coding Tools Architecture Research 20260302
+- `EUREKA_AI_EMAIL_INTEGRATION_RESEARCH_2026_02_14_20260302` — Ai Email Integration Research 2026 02 14 20260302
+- `EUREKA_AI_ENGINEERING_20260222.MD` — Ai Engineering 20260222.Md
+- `EUREKA_AI_ENGINEERING_20260222_8.MD` — Ai Engineering 20260222 8.Md
+- `EUREKA_AI_INDIE_GAMES_PSYCHOLOGICAL_2026.MD` — Ai Indie Games Psychological 2026.Md
+- `EUREKA_AI_LLM_BENCHMARKS_FEBRUARY_2026_DEEP_RESEARCH_20260302` — Ai Llm Benchmarks February 2026 Deep Research 20260302
+- `EUREKA_AI_MARKETPLACE_ECONOMICS_DEEP_RESEARCH_20260222.MD` — Ai Marketplace Economics Deep Research 20260222.Md
+- `EUREKA_AI_MODEL_CATALOG_2026_02_12_20260302` — Ai Model Catalog 2026 02 12 20260302
+- `EUREKA_AI_REASONING_MODELS_DEVELOPER_WORKFLOW_2026.MD` — Ai Reasoning Models Developer Workflow 2026.Md
+- `EUREKA_AI_SDK_BACKEND_AGNOSTIC_PATTERN_2026` — Ai Sdk Backend Agnostic Pattern 2026
+- `EUREKA_ANIME_STYLE_RENDERING_IMPLEMENTATION_2026-02-13.MD` — Anime Style Rendering Implementation 2026-02-13.Md
+- `EUREKA_ANIME_STYLE_RENDERING_IMPLEMENTATION_2026_02_13_20260304` — Anime Style Rendering Implementation 2026 02 13 20260304
+- `EUREKA_ANTHROPIC_HACKATHON_2026_RESEARCH.MD` — Anthropic Hackathon 2026 Research.Md
+- `EUREKA_API_BOT_IMPLEMENTATION_GUIDE_2026_20260302` — Api Bot Implementation Guide 2026 20260302
 - `EUREKA_ATTENTION_PINCH_SYSTEM_2026` — Attention Pinch System 2026
 - `EUREKA_BACKLOG_SCORING_FORMULA` — Backlog Scoring Formula
 - `EUREKA_BATCH_HANDLER_2026` — Batch Handler 2026
+- `EUREKA_BROWSER_AUTOMATION_TIMEOUT_RETRY_SERVERLESS_2026_20260302` — Browser Automation Timeout Retry Serverless 2026 20260302
+- `EUREKA_BUILDING_MACHINE_LEARNING_SYSTEMS_FEATURE_STORE_20260222_2.MD` — Building Machine Learning Systems Feature Store 20260222 2.Md
+- `EUREKA_BUILDING_MACHINE_LEARNING_SYSTEMS_FEATURE_STORE_20260222_6.MD` — Building Machine Learning Systems Feature Store 20260222 6.Md
 - `EUREKA_CLAUDE_CODE_HOOKS_ADVANCED_2026` — Claude Code Hooks Advanced 2026
-- `EUREKA_COMPOSITION_ROOT_DI_PYTHON_2026` — Composition Root Di Python 2026
-- `EUREKA_CONTEXT_ENGINEERING_2026` — Context Engineering 2026
-- `EUREKA_CONTINUOUS_LEARNING_FRONTIERS_2026` — Continuous Learning Frontiers 2026
+- `EUREKA_CLAUDE_ECOSYSTEM_SOTA_2026_02_13_20260302` — Claude Ecosystem Sota 2026 02 13 20260302
+- `EUREKA_COHERENCE_FORGE_RUST_WORKSPACE_ARCHITECTURE_REFERENCE_20260302` — Coherence Forge Rust Workspace Architecture Reference 20260302
+- `EUREKA_CONSERVATION_LAW_STATE_MACHINE_ENFORCEMENT_RUST_20260302` — Conservation Law State Machine Enforcement Rust 20260302
+- `EUREKA_CONTAINER_SECURITY_2026_20260302` — Container Security 2026 20260302
 - `EUREKA_CONVERSATION_MANAGER_2026` — Conversation Manager 2026
 - `EUREKA_CQRS_READ_WRITE_SEPARATION_2026` — Cqrs Read Write Separation 2026
-- `EUREKA_DATA_FLYWHEEL_2026` — Data Flywheel 2026
+- `EUREKA_CRAFTING_ENGINEERING_STRATEGY_20260222_3.MD` — Crafting Engineering Strategy 20260222 3.Md
+- `EUREKA_DATA_PIPELINE_FAILURE_MODES_2026` — Data Pipeline Failure Modes 2026
 - `EUREKA_DEBUNK_ELEVATE_METHODOLOGY_2026` — Debunk Elevate Methodology 2026
+- `EUREKA_DEEP_LEARNING_CODERS_FASTAI_PYTORCH_20260222_2.MD` — Deep Learning Coders Fastai Pytorch 20260222 2.Md
+- `EUREKA_DESIGNING_DATA_INTENSIVE_APPLICATIONS_20260222_1.MD` — Designing Data Intensive Applications 20260222 1.Md
+- `EUREKA_DESIGNING_LARGE_LANGUAGE_MODEL_APPLICATIONS_20260222_1.MD` — Designing Large Language Model Applications 20260222 1.Md
 - `EUREKA_DEVDAY_2025_KNOWLEDGE` — Devday 2025 Knowledge
+- `EUREKA_DEVELOPER_ONBOARDING_RESEARCH_2026_02_13_20260302` — Developer Onboarding Research 2026 02 13 20260302
+- `EUREKA_DEV_COMMUNITY_SERVER_PATTERNS_2026_20260302` — Dev Community Server Patterns 2026 20260302
 - `EUREKA_DEXTER_HORTHY_IDEAS` — Dexter Horthy Ideas
-- `EUREKA_DOMAIN_EVENTS_MESSAGE_BUS_2026` — Domain Events Message Bus 2026
+- `EUREKA_DOCKER_K8S_2026_MASTER_GUIDE_20260302` — Docker K8S 2026 Master Guide 20260302
 - `EUREKA_E025_RESEARCH_SUMMARY` — E025 Research Summary
+- `EUREKA_EFFICIENT_GO_20260222_10.MD` — Efficient Go 20260222 10.Md
+- `EUREKA_EFFICIENT_GO_20260222_4.MD` — Efficient Go 20260222 4.Md
+- `EUREKA_EFFICIENT_GO_20260222_7.MD` — Efficient Go 20260222 7.Md
+- `EUREKA_EFFICIENT_GO_20260222_8_20260303` — Efficient Go 20260222 8 20260303
+- `EUREKA_ENGINEERING_RESILIENT_SYSTEMS_AWS_20260222_4.MD` — Engineering Resilient Systems Aws 20260222 4.Md
 - `EUREKA_ERROR_CLASSIFIER_2026` — Error Classifier 2026
-- `EUREKA_FASTMCP_MIDDLEWARE_PATTERN_2026` — Fastmcp Middleware Pattern 2026
+- `EUREKA_ERROR_HANDLING_RESILIENCE_AI_2026_02_13_20260303` — Error Handling Resilience Ai 2026 02 13 20260303
+- `EUREKA_EUREKA_SEMANTIC_SEARCH_RERANKING_2026_20260302` — Semantic Search Reranking 2026 20260302
+- `EUREKA_FASTAPI_MODERN_PATTERNS_2026_02_10_20260303` — Fastapi Modern Patterns 2026 02 10 20260303
+- `EUREKA_FASTAPI_PYDANTIC_V2_MIGRATION_HARVEST_REPORT_2026_02_20260303` — Fastapi Pydantic V2 Migration Harvest Report 2026 02 20260303
 - `EUREKA_FEATURE_INTEGRATION_LIFECYCLE_2026` — Feature Integration Lifecycle 2026
-- `EUREKA_FIVE_LAYER_KNOWLEDGE_PIPELINE` — Five Layer Knowledge Pipeline
+- `EUREKA_FIELD_GUIDE_RAPIDLY_IMPROVING_AI_PRODUCTS_20260222.MD` — Field Guide Rapidly Improving Ai Products 20260222.Md
+- `EUREKA_FLUENT_PYTHON_20260222_1.MD` — Fluent Python 20260222 1.Md
 - `EUREKA_FREE_EMBEDDINGS_STRATEGY` — Free Embeddings Strategy
 - `EUREKA_GEMINI_CLI_CALIBRATION_2026` — Gemini Cli Calibration 2026
+- `EUREKA_GENERATIVE_AI_DESIGN_PATTERNS_20260222_4.MD` — Generative Ai Design Patterns 20260222 4.Md
+- `EUREKA_GENERATIVE_AI_DESIGN_PATTERNS_20260222_6_20260303` — Generative Ai Design Patterns 20260222 6 20260303
+- `EUREKA_GENERATIVE_AI_DESIGN_PATTERNS_20260222_7_20260303` — Generative Ai Design Patterns 20260222 7 20260303
 - `EUREKA_GITHUB_ACTIONS_CICD_2026` — Github Actions Cicd 2026
 - `EUREKA_GPU_MEMORY_MANAGEMENT_LOCAL_LLM_2026` — Gpu Memory Management Local Llm 2026
-- `EUREKA_GUARDRAILS_COMPARISON_2026` — Guardrails Comparison 2026
+- `EUREKA_GPU_VIDEO_INTELLIGENCE_BENCHMARKS_2026-02-14.MD` — Gpu Video Intelligence Benchmarks 2026-02-14.Md
+- `EUREKA_GPU_VIDEO_INTELLIGENCE_BENCHMARKS_2026_02_14_20260304` — Gpu Video Intelligence Benchmarks 2026 02 14 20260304
+- `EUREKA_HANDS_GENERATIVE_AI_TRANSFORMERS_DIFFUSION_MODELS_20260222_4.MD` — Hands Generative Ai Transformers Diffusion Models 20260222 4.Md
+- `EUREKA_HANDS_GENERATIVE_AI_TRANSFORMERS_DIFFUSION_MODELS_20260222_8_20260303` — Hands Generative Ai Transformers Diffusion Models 20260222 8 20260303
+- `EUREKA_HANDS_MACHINE_LEARNING_3RD_EDITION_20260222_1.MD` — Hands Machine Learning 3Rd Edition 20260222 1.Md
 - `EUREKA_HEALTH_MONITOR_2026` — Health Monitor 2026
 - `EUREKA_HITL_COST_REDUCTION_2026` — Hitl Cost Reduction 2026
 - `EUREKA_HOOK_ENFORCEMENT_PATTERN` — Hook Enforcement Pattern
-- `EUREKA_HYBRID_RAG_FINETUNING_2026` — Hybrid Rag Finetuning 2026
-- `EUREKA_HYBRID_SEARCH_RRF_2026` — Hybrid Search Rrf 2026
 - `EUREKA_HYBRID_SEARCH_STRATEGIES_2026` — Hybrid Search Strategies 2026
+- `EUREKA_ISSUES_20260304_010055_20260304` — Issues 20260304 010055 20260304
+- `EUREKA_ISTIO_ACTION_20260222_14.MD` — Istio Action 20260222 14.Md
 - `EUREKA_JSON_REPAIR_2026` — Json Repair 2026
-- `EUREKA_KNOWLEDGE_GRAPH_ONTOLOGY_2026` — Knowledge Graph Ontology 2026
-- `EUREKA_LANCEDB_ADVANCED_SEARCH_2026` — Lancedb Advanced Search 2026
-- `EUREKA_LLM_AS_JUDGE_KNOWLEDGE_VALIDATION_2026` — Llm As Judge Knowledge Validation 2026
-- `EUREKA_LLM_GUARDRAILS_PRODUCTION_2026` — Llm Guardrails Production 2026
-- `EUREKA_LLM_VALIDATION_PRODUCTION_2026` — Llm Validation Production 2026
+- `EUREKA_KG_RESEARCH_SUMMARY_2026_02_13_20260303` — Kg Research Summary 2026 02 13 20260303
+- `EUREKA_KNOWLEDGE_GRAPH_CONSTRUCTION_ONTOLOGY_2026_02_13_20260302` — Knowledge Graph Construction Ontology 2026 02 13 20260302
+- `EUREKA_LIGHTRAG_IMPLEMENTATION_PLAN_MIDOS_2026_02_13_20260303` — Lightrag Implementation Plan Midos 2026 02 13 20260303
+- `EUREKA_LLMS_PRODUCTION_20260222_10_20260303` — Llms Production 20260222 10 20260303
+- `EUREKA_LLM_ENGINEERS_HANDBOOK_20260222_5_20260303` — Llm Engineers Handbook 20260222 5 20260303
 - `EUREKA_LOCAL_LLM_AGENT_PATTERNS_2026` — Local Llm Agent Patterns 2026
-- `EUREKA_MCP_A2A_PROTOCOLS_2026` — Mcp A2A Protocols 2026
-- `EUREKA_MCP_ARCHITECTURE_PATTERNS_2026` — Mcp Architecture Patterns 2026
+- `EUREKA_MACHINE_LEARNING_DESIGN_PATTERNS_20260222_2.MD` — Machine Learning Design Patterns 20260222 2.Md
+- `EUREKA_MACHINE_LEARNING_DESIGN_PATTERNS_20260222_5.MD` — Machine Learning Design Patterns 20260222 5.Md
+- `EUREKA_MARKET_RESEARCH_MCP_CONFIG_MANAGEMENT_2026.MD` — Market Research Mcp Config Management 2026.Md
+- `EUREKA_MASTERING_API_ARCHITECTURE_20260222_2.MD` — Mastering Api Architecture 20260222 2.Md
+- `EUREKA_MASTERING_API_ARCHITECTURE_20260222_4.MD` — Mastering Api Architecture 20260222 4.Md
+- `EUREKA_MCP_A2A_COMPREHENSIVE_PROTOCOLS_RESEARCH_2026_02_14_20260302` — Mcp A2A Comprehensive Protocols Research 2026 02 14 20260302
+- `EUREKA_MCP_A2A_MULTIAGENT_INTEROPERABILITY_2026_20260303` — Mcp A2A Multiagent Interoperability 2026 20260303
+- `EUREKA_MCP_COMPETITORS_DEEP_RESEARCH_PIECES_MINTLIFY_2026_02_20260302` — Mcp Competitors Deep Research Pieces Mintlify 2026 02 20260302
 - `EUREKA_MCP_CROSS_PLATFORM_CONFIG_2026` — Mcp Cross Platform Config 2026
 - `EUREKA_MCP_FASTMCP_FOUNDATIONS_2026` — Mcp Fastmcp Foundations 2026
-- `EUREKA_MCP_INFRASTRUCTURE_BASELINE_2026` — Mcp Infrastructure Baseline 2026
-- `EUREKA_MCP_PRODUCTION_PATTERNS_2026` — Mcp Production Patterns 2026
-- `EUREKA_MCP_PROTOCOL_SPEC_2026` — Mcp Protocol Spec 2026
-- `EUREKA_MCP_SECURITY_ARXIV_2026` — Mcp Security Arxiv 2026
-- `EUREKA_MCP_SECURITY_ZEROTRUST_2026` — Mcp Security Zerotrust 2026
-- `EUREKA_MCP_STREAMING_PATTERNS_2026` — Mcp Streaming Patterns 2026
+- `EUREKA_MCP_REGISTRY_DISCOVERY_IMPLEMENTATION_2026_20260303` — Mcp Registry Discovery Implementation 2026 20260303
+- `EUREKA_MEMORY_VERTICAL_2026` — Memory Vertical 2026
+- `EUREKA_MERKLE_SIGNOFF_CHAIN_CODE_PROVENANCE_20260302` — Merkle Signoff Chain Code Provenance 20260302
 - `EUREKA_MODEL_AUTO_SWITCHING_STABILITY_2026` — Model Auto Switching Stability 2026
 - `EUREKA_MODEL_SELECTOR_2026` — Model Selector 2026
-- `EUREKA_MULTI_AGENT_CONSENSUS_2026` — Multi Agent Consensus 2026
-- `EUREKA_MULTI_AGENT_LOGICAL_PATTERNS_2026` — Multi Agent Logical Patterns 2026
-- `EUREKA_MULTI_AGENT_PATTERNS_2026` — Multi Agent Patterns 2026
 - `EUREKA_MULTI_CLI_ORCHESTRATION_FINDINGS_2026` — Multi Cli Orchestration Findings 2026
+- `EUREKA_NATURAL_LANGUAGE_PROCESSING_TRANSFORMERS_REVISED_EDITION_20260222_8.MD` — Natural Language Processing Transformers Revised Edition 20260222 8.Md
+- `EUREKA_NETWORK_PROGRAMMABILITY_AUTOMATION_2ND_EDITION_20260222_7.MD` — Network Programmability Automation 2Nd Edition 20260222 7.Md
+- `EUREKA_OBSERVABILITY_TRACING_AI_AGENTS_2026_02_13_20260302` — Observability Tracing Ai Agents 2026 02 13 20260302
 - `EUREKA_OPENCODE_EXPERTISE` — Opencode Expertise
 - `EUREKA_OUTPUT_VALIDATOR_2026` — Output Validator 2026
 - `EUREKA_PATH_TRAVERSAL_PREVENTION` — Path Traversal Prevention
 - `EUREKA_PER_CLI_HANDSHAKE_ARCHITECTURE_2026` — Per Cli Handshake Architecture 2026
+- `EUREKA_PLATFORM_ENGINEERING_ARCHITECTS_B31164_05_20260223.MD` — Platform Engineering Architects B31164 05 20260223.Md
+- `EUREKA_PLATFORM_ENGINEERING_ARCHITECTS_B31164_06_20260223.MD` — Platform Engineering Architects B31164 06 20260223.Md
+- `EUREKA_PLATFORM_ENGINEERING_ARCHITECTS_B31164_09_20260223.MD` — Platform Engineering Architects B31164 09 20260223.Md
+- `EUREKA_PLAYWRIGHT_E2E_PATTERNS_2026_02_10_20260303` — Playwright E2E Patterns 2026 02 10 20260303
+- `EUREKA_PRISMA5_HARVEST_2026_02_10_20260302` — Prisma5 Harvest 2026 02 10 20260302
 - `EUREKA_PROGRESSIVE_SKILL_DISCLOSURE_2026` — Progressive Skill Disclosure 2026
+- `EUREKA_PROJECT_MRI_HALLUCINATION_DETECTION_METHODOLOGY_20260302` — Project Mri Hallucination Detection Methodology 20260302
 - `EUREKA_PROMPT_COMPRESSION_2026` — Prompt Compression 2026
-- `EUREKA_QUOTA_FAILOVER_PATTERN_2026` — Quota Failover Pattern 2026
+- `EUREKA_QUICK_START_GUIDE_LARGE_LANGUAGE_MODELS_2ND_EDITION_20260222_10.MD` — Quick Start Guide Large Language Models 2Nd Edition 20260222 10.Md
+- `EUREKA_R068_EXTERNAL_INTERFACES_20260302` — R068 External Interfaces 20260302
+- `EUREKA_RAG_EVALUATION_RAGAS_ARES_ROUGE_2026_20260303` — Rag Evaluation Ragas Ares Rouge 2026 20260303
 - `EUREKA_RALPH_WIGGUM_TECHNIQUE` — Ralph Wiggum Technique
 - `EUREKA_REQUEST_LOGGER_2026` — Request Logger 2026
-- `EUREKA_RESEARCH_QUALITY_FRAMEWORK_2026` — Research Quality Framework 2026
-- `EUREKA_RESPONSE_CACHE_2026` — Response Cache 2026
-- `EUREKA_RESPONSE_CACHE_PATTERN` — Response Cache Pattern
+- `EUREKA_RESEARCH_AGENT_PROMPTING_PATTERNS_2026_02_13_20260303` — Research Agent Prompting Patterns 2026 02 13 20260303
+- `EUREKA_RESEARCH_AI_COST_OPTIMIZATION_2026_02_13_20260303` — Research Ai Cost Optimization 2026 02 13 20260303
+- `EUREKA_RESEARCH_AI_GUARDRAILS_PATTERNS_2026_02_13_20260302` — Research Ai Guardrails Patterns 2026 02 13 20260302
+- `EUREKA_RESEARCH_ANTHROPIC_AGENT_SDK_2026_02_13_20260303` — Research Anthropic Agent Sdk 2026 02 13 20260303
+- `EUREKA_RESEARCH_ANTHROPIC_AGENT_TEAMS_2026_02_13_20260303` — Research Anthropic Agent Teams 2026 02 13 20260303
+- `EUREKA_RESEARCH_CLAUDE_CODE_HOOKS_DEEP_2026_02_13_20260302` — Research Claude Code Hooks Deep 2026 02 13 20260302
+- `EUREKA_RESEARCH_CREWAI_VS_LANGGRAPH_2026_02_13_20260303` — Research Crewai Vs Langgraph 2026 02 13 20260303
+- `EUREKA_RESEARCH_HYBRID_SEARCH_STRATEGIES_2026_02_13_20260302` — Research Hybrid Search Strategies 2026 02 13 20260302
+- `EUREKA_RESEARCH_LANCEDB_COMPACTION_STRATEGIES_2026_02_14_20260304` — Research Lancedb Compaction Strategies 2026 02 14 20260304
+- `EUREKA_RESEARCH_LORA_QLORA_CONSUMER_GPU_2026_02_13_20260302` — Research Lora Qlora Consumer Gpu 2026 02 13 20260302
+- `EUREKA_RESEARCH_MCP_STREAMING_PATTERNS_2026_02_14_20260302` — Research Mcp Streaming Patterns 2026 02 14 20260302
+- `EUREKA_RESEARCH_MULTI_AGENT_LOGICAL_PATTERNS_2026_02_13_20260302` — Research Multi Agent Logical Patterns 2026 02 13 20260302
+- `EUREKA_RESEARCH_MULTI_CLI_WINDOWS_ORCHESTRATION_2026_02_13_20260302` — Research Multi Cli Windows Orchestration 2026 02 13 20260302
+- `EUREKA_RESEARCH_OPENAI_AGENTS_SDK_2026_02_13_20260304` — Research Openai Agents Sdk 2026 02 13 20260304
+- `EUREKA_REVERSE_ENGINEERING_SOFTWARE_ARCHITECTURE_CLAUDE_CODE_HELP_CLAUDE_20260222.MD` — Reverse Engineering Software Architecture Claude Code Help Claude 20260222.Md
+- `EUREKA_RUST_WASM_2026_COMPREHENSIVE_GUIDE_20260304` — Rust Wasm 2026 Comprehensive Guide 20260304
+- `EUREKA_RUST_WORKSPACE_TIER_PROGRESSION_PYTHON_MIGRATION_20260302` — Rust Workspace Tier Progression Python Migration 20260302
 - `EUREKA_SAAS_PRICING_MODELS_2026` — Saas Pricing Models 2026
-- `EUREKA_SCIENTIFIC_EVALUATION_CRITERIA_2026` — Scientific Evaluation Criteria 2026
-- `EUREKA_SKILLSBENCH_VALIDATION_2026` — Skillsbench Validation 2026
+- `EUREKA_SCIENTIFIC_EVALUATION_CRITERIA_KNOWLEDGE_2026_02_13_20260302` — Scientific Evaluation Criteria Knowledge 2026 02 13 20260302
+- `EUREKA_SECURITY_CLOUD_IAC_SCANNING_2026.MD` — Security Cloud Iac Scanning 2026.Md
+- `EUREKA_SECURITY_DEFENSE_EDR_XDR_2026.MD` — Security Defense Edr Xdr 2026.Md
+- `EUREKA_SECURITY_DEFENSE_LOG_ANALYSIS_LLM_2026.MD` — Security Defense Log Analysis Llm 2026.Md
+- `EUREKA_SECURITY_DEFENSE_NETWORK_MONITORING_2026.MD` — Security Defense Network Monitoring 2026.Md
+- `EUREKA_SECURITY_DEFENSE_PURPLE_TEAM_2026.MD` — Security Defense Purple Team 2026.Md
+- `EUREKA_SECURITY_DEFENSE_SIEM_AI_2026.MD` — Security Defense Siem Ai 2026.Md
+- `EUREKA_SECURITY_DEFENSE_THREAT_HUNTING_AI_2026.MD` — Security Defense Threat Hunting Ai 2026.Md
+- `EUREKA_SECURITY_DEFENSE_THREAT_INTEL_2026.MD` — Security Defense Threat Intel 2026.Md
+- `EUREKA_SECURITY_FINDINGS_PTEST-R004_20260224` — Security Findings Ptest-R004 20260224
+- `EUREKA_SECURITY_METHODOLOGY_COMPLIANCE_MAPPING_2026.MD` — Security Methodology Compliance Mapping 2026.Md
+- `EUREKA_SECURITY_METHODOLOGY_MITRE_ATTACK_WEB_2026.MD` — Security Methodology Mitre Attack Web 2026.Md
+- `EUREKA_SECURITY_METHODOLOGY_OWASP_TESTING_GUIDE_2026.MD` — Security Methodology Owasp Testing Guide 2026.Md
+- `EUREKA_SECURITY_METHODOLOGY_PENTEST_REPORTING_2026.MD` — Security Methodology Pentest Reporting 2026.Md
+- `EUREKA_SECURITY_METHODOLOGY_SUPPLY_CHAIN_MCP_2026.MD` — Security Methodology Supply Chain Mcp 2026.Md
+- `EUREKA_SECURITY_MOBILE_IOT_PENTESTING_2026.MD` — Security Mobile Iot Pentesting 2026.Md
+- `EUREKA_SECURITY_PENTEST_METASPLOIT_MCP_2026.MD` — Security Pentest Metasploit Mcp 2026.Md
+- `EUREKA_SECURITY_PENTEST_PENTESTGPT_2026.MD` — Security Pentest Pentestgpt 2026.Md
+- `EUREKA_SECURITY_PENTEST_PROJECTDISCOVERY_2026.MD` — Security Pentest Projectdiscovery 2026.Md
+- `EUREKA_SECURITY_PENTEST_REDAMON_PENTAGI_2026.MD` — Security Pentest Redamon Pentagi 2026.Md
+- `EUREKA_SECURITY_PENTEST_XBOW_2026.MD` — Security Pentest Xbow 2026.Md
+- `EUREKA_SECURITY_PRODUCT_CICD_PIPELINE_2026.MD` — Security Product Cicd Pipeline 2026.Md
+- `EUREKA_SECURITY_PRODUCT_LEGAL_FRAMEWORK_2026.MD` — Security Product Legal Framework 2026.Md
+- `EUREKA_SECURITY_REDTEAM_C2_OPERATIONS_2026.MD` — Security Redteam C2 Operations 2026.Md
+- `EUREKA_SECURITY_VULNRESEARCH_0DAY_ECONOMICS_2026.MD` — Security Vulnresearch 0Day Economics 2026.Md
+- `EUREKA_SECURITY_VULNRESEARCH_AI_VULN_DISCOVERY_2026.MD` — Security Vulnresearch Ai Vuln Discovery 2026.Md
+- `EUREKA_SECURITY_VULNRESEARCH_API_VULNS_2026.MD` — Security Vulnresearch Api Vulns 2026.Md
+- `EUREKA_SECURITY_VULNRESEARCH_BINARY_EXPLOITATION_2026.MD` — Security Vulnresearch Binary Exploitation 2026.Md
+- `EUREKA_SECURITY_VULNRESEARCH_CVE_ANALYSIS_2026.MD` — Security Vulnresearch Cve Analysis 2026.Md
+- `EUREKA_SECURITY_VULNRESEARCH_DESERIALIZATION_2026.MD` — Security Vulnresearch Deserialization 2026.Md
+- `EUREKA_SECURITY_VULNRESEARCH_DISCLOSURE_WORKFLOW_2026.MD` — Security Vulnresearch Disclosure Workflow 2026.Md
+- `EUREKA_SECURITY_VULNRESEARCH_FUZZING_2026.MD` — Security Vulnresearch Fuzzing 2026.Md
+- `EUREKA_SECURITY_VULNRESEARCH_LLM_VULNS_2026.MD` — Security Vulnresearch Llm Vulns 2026.Md
+- `EUREKA_SECURITY_VULNRESEARCH_RACE_CONDITIONS_2026.MD` — Security Vulnresearch Race Conditions 2026.Md
+- `EUREKA_SECURITY_VULNRESEARCH_WEB_EXPLOIT_CHAINS_2026.MD` — Security Vulnresearch Web Exploit Chains 2026.Md
+- `EUREKA_SERVERLESS_DEVELOPMENT_AWS_20260222_3.MD` — Serverless Development Aws 20260222 3.Md
+- `EUREKA_STREAMING_CORRECTNESS_KAPPA_2026` — Streaming Correctness Kappa 2026
 - `EUREKA_STREAMING_RESPONSES_2026` — Streaming Responses 2026
 - `EUREKA_SUBAGENT_TOOL_VISIBILITY_2026` — Subagent Tool Visibility 2026
+- `EUREKA_SUPER_RESOLUTION_IR_SURVEILLANCE_BENCHMARKS_2026-02-14.MD` — Super Resolution Ir Surveillance Benchmarks 2026-02-14.Md
+- `EUREKA_SUPER_RESOLUTION_IR_SURVEILLANCE_BENCHMARKS_2026_02_14_20260304` — Super Resolution Ir Surveillance Benchmarks 2026 02 14 20260304
+- `EUREKA_SVG_MANGA_RENDERING_PIPELINE_2026_02_12_20260304` — Svg Manga Rendering Pipeline 2026 02 12 20260304
+- `EUREKA_TESTING_EVAL_FRAMEWORKS_AI_2026-02-13.MD` — Testing Eval Frameworks Ai 2026-02-13.Md
+- `EUREKA_TESTING_EVAL_FRAMEWORKS_AI_2026_02_13_20260304` — Testing Eval Frameworks Ai 2026 02 13 20260304
 - `EUREKA_THREE_SUITE_TESTING` — Three Suite Testing
 - `EUREKA_TIER_GATING_AUDIT_2026` — Tier Gating Audit 2026
 - `EUREKA_TOOL_EXECUTOR_2026` — Tool Executor 2026
-- `EUREKA_UNIT_OF_WORK_PATTERN_2026` — Unit Of Work Pattern 2026
+- `EUREKA_TYPESCRIPT_MASTERY_2026.MD` — Typescript Mastery 2026.Md
+- `EUREKA_TYPESCRIPT_MASTERY_ADVANCED_PATTERNS_2026_02_10_20260304` — Typescript Mastery Advanced Patterns 2026 02 10 20260304
+- `EUREKA_UNDERSTANDING_DISTRIBUTED_SYSTEMS_2ND_EDITION_K15248_C005_20260223.MD` — Understanding Distributed Systems 2Nd Edition K15248 C005 20260223.Md
+- `EUREKA_UNDERSTANDING_DISTRIBUTED_SYSTEMS_2ND_EDITION_K15248_C010_20260223.MD` — Understanding Distributed Systems 2Nd Edition K15248 C010 20260223.Md
+- `EUREKA_UNDERSTANDING_DISTRIBUTED_SYSTEMS_2ND_EDITION_K15248_C019_20260223.MD` — Understanding Distributed Systems 2Nd Edition K15248 C019 20260223.Md
+- `EUREKA_UNDERSTANDING_DISTRIBUTED_SYSTEMS_2ND_EDITION_K15248_C021_20260223.MD` — Understanding Distributed Systems 2Nd Edition K15248 C021 20260223.Md
 - `EUREKA_VIDEO_INTELLIGENCE_PIPELINE` — Video Intelligence Pipeline
+- `EUREKA_VIDEO_INTEL_IR_BENCHMARKS.MD` — Video Intel Ir Benchmarks.Md
+- `EUREKA_VITEST_REACT_TESTING_PATTERNS_2026-02-10.MD` — Vitest React Testing Patterns 2026-02-10.Md
+- `EUREKA_VUE34_HARVEST_2026_02_10_20260302` — Vue34 Harvest 2026 02 10 20260302
+- `EUREKA_W0_AI_ML_REVERSE_ENGINEERING_SOFTWARE_ARCHITECTURE_CLAUDE_CODE_20260222.MD` — W0 Ai Ml Reverse Engineering Software Architecture Claude Code 20260222.Md
+- `EUREKA_W0_AI_ML_WRITE_GOOD_SPEC_AI_AGENTS_20260222.MD` — W0 Ai Ml Write Good Spec Ai Agents 20260222.Md
+- `EUREKA_W0_CH01_20260223_96.MD` — W0 Ch01 20260223 96.Md
+- `EUREKA_W0_CH03_20260223_101.MD` — W0 Ch03 20260223 101.Md
+- `EUREKA_W0_CH03_20260223_31.MD` — W0 Ch03 20260223 31.Md
+- `EUREKA_W0_CH03_20260223_71.MD` — W0 Ch03 20260223 71.Md
+- `EUREKA_W0_CH04_20260223_48.MD` — W0 Ch04 20260223 48.Md
+- `EUREKA_W0_CH04_20260223_64.MD` — W0 Ch04 20260223 64.Md
+- `EUREKA_W0_CH05_20260223_16.MD` — W0 Ch05 20260223 16.Md
+- `EUREKA_W0_CH05_20260223_64.MD` — W0 Ch05 20260223 64.Md
+- `EUREKA_W0_CH06_20260223_33.MD` — W0 Ch06 20260223 33.Md
+- `EUREKA_W0_CH06_20260223_66.MD` — W0 Ch06 20260223 66.Md
+- `EUREKA_W0_CH07_20260223_32.MD` — W0 Ch07 20260223 32.Md
+- `EUREKA_W0_CH07_20260223_8.MD` — W0 Ch07 20260223 8.Md
+- `EUREKA_W0_CH08_20260223_6.MD` — W0 Ch08 20260223 6.Md
+- `EUREKA_W0_CH09_20260223_19.MD` — W0 Ch09 20260223 19.Md
+- `EUREKA_W0_CH10_20260223_21.MD` — W0 Ch10 20260223 21.Md
+- `EUREKA_W0_CH10_20260223_23.MD` — W0 Ch10 20260223 23.Md
+- `EUREKA_W0_CH10_20260223_5.MD` — W0 Ch10 20260223 5.Md
+- `EUREKA_W0_CH12_20260223_10.MD` — W0 Ch12 20260223 10.Md
+- `EUREKA_W0_CHAPTER_05_20260223.MD` — W0 Chapter 05 20260223.Md
+- `EUREKA_W0_CHAPTER_4_20260223.MD` — W0 Chapter 4 20260223.Md
+- `EUREKA_W0_FIELD_GUIDE_RAPIDLY_IMPROVING_AI_PRODUCTS_20260304` — W0 Field Guide Rapidly Improving Ai Products 20260304
+- `EUREKA_WEB_APPLICATION_HACKERS_HANDBOOK_2ND_EDITION_9781118175248C21_20260223.MD` — Web Application Hackers Handbook 2Nd Edition 9781118175248C21 20260223.Md
+- `EUREKA_WEB_APPLICATION_HACKERS_HANDBOOK_2ND_EDITION_9781118175248C21_20260223_1.MD` — Web Application Hackers Handbook 2Nd Edition 9781118175248C21 20260223 1.Md
+- `EUREKA_WEB_APPLICATION_HACKERS_HANDBOOK_2ND_EDITION_9781118175248C21_20260223_2.MD` — Web Application Hackers Handbook 2Nd Edition 9781118175248C21 20260223 2.Md
+- `EUREKA_WEB_CODE_QUALITY_AI_PARADOX_2026` — Web Code Quality Ai Paradox 2026
+- `EUREKA_advances_battery_technologies_electric_vehicles_b9781782423775000182_20260227` — Advances Battery Technologies Electric Vehicles B9781782423775000182 20260227
+- `EUREKA_ai_native_llm_security_b31334_07_20260227` — Ai Native Llm Security B31334 07 20260227
+- `EUREKA_api_design_patterns_22_20260227` — Api Design Patterns 22 20260227
+- `EUREKA_api_design_patterns_24_20260227` — Api Design Patterns 24 20260227
+- `EUREKA_applied_geospatial_data_science_python_b18788_03_20260227` — Applied Geospatial Data Science Python B18788 03 20260227
+- `EUREKA_applied_geospatial_data_science_python_b18788_04_20260227` — Applied Geospatial Data Science Python B18788 04 20260227
+- `EUREKA_applied_geospatial_data_science_python_b18788_06_20260227` — Applied Geospatial Data Science Python B18788 06 20260227
+- `EUREKA_applied_geospatial_data_science_python_b18788_07_20260227` — Applied Geospatial Data Science Python B18788 07 20260227
+- `EUREKA_applied_geospatial_data_science_python_b18788_08_20260227` — Applied Geospatial Data Science Python B18788 08 20260227
+- `EUREKA_applied_geospatial_data_science_python_b18788_09_20260227` — Applied Geospatial Data Science Python B18788 09 20260227
+- `EUREKA_applied_geospatial_data_science_python_b18788_10_20260227` — Applied Geospatial Data Science Python B18788 10 20260227
+- `EUREKA_arduino_arduinians_chapter10_20260227` — Arduino Arduinians Chapter10 20260227
+- `EUREKA_arduino_arduinians_chapter15_20260227` — Arduino Arduinians Chapter15 20260227
+- `EUREKA_arduino_arduinians_chapter19_20260227` — Arduino Arduinians Chapter19 20260227
+- `EUREKA_asp_net_core_action_3rd_edition_20_20260227` — Asp Net Core Action 3Rd Edition 20 20260227
+- `EUREKA_asp_net_core_action_3rd_edition_23_20260227` — Asp Net Core Action 3Rd Edition 23 20260227
+- `EUREKA_asp_net_core_action_3rd_edition_24_20260227` — Asp Net Core Action 3Rd Edition 24 20260227
+- `EUREKA_asp_net_core_action_3rd_edition_25_20260227` — Asp Net Core Action 3Rd Edition 25 20260227
+- `EUREKA_asp_net_core_action_3rd_edition_26_20260227` — Asp Net Core Action 3Rd Edition 26 20260227
+- `EUREKA_asp_net_core_action_3rd_edition_27_20260227` — Asp Net Core Action 3Rd Edition 27 20260227
+- `EUREKA_asp_net_core_action_3rd_edition_29_20260227` — Asp Net Core Action 3Rd Edition 29 20260227
+- `EUREKA_asp_net_core_action_3rd_edition_31_20260227` — Asp Net Core Action 3Rd Edition 31 20260227
+- `EUREKA_asp_net_core_action_3rd_edition_32_20260227` — Asp Net Core Action 3Rd Edition 32 20260227
+- `EUREKA_asp_net_core_action_3rd_edition_33_20260227` — Asp Net Core Action 3Rd Edition 33 20260227
+- `EUREKA_asp_net_core_action_3rd_edition_34_20260227` — Asp Net Core Action 3Rd Edition 34 20260227
+- `EUREKA_asp_net_core_action_3rd_edition_35_20260227` — Asp Net Core Action 3Rd Edition 35 20260227
+- `EUREKA_asp_net_core_action_3rd_edition_36_20260227` — Asp Net Core Action 3Rd Edition 36 20260227
+- `EUREKA_bioinformatics_python_cookbook_fourth_edition_b32056_03_20260227` — Bioinformatics Python Cookbook Fourth Edition B32056 03 20260227
+- `EUREKA_bioinformatics_python_cookbook_fourth_edition_b32056_12_20260227` — Bioinformatics Python Cookbook Fourth Edition B32056 12 20260227
+- `EUREKA_bioinformatics_python_cookbook_fourth_edition_b32056_13_20260227` — Bioinformatics Python Cookbook Fourth Edition B32056 13 20260227
+- `EUREKA_bioinformatics_python_cookbook_fourth_edition_b32056_14_20260227` — Bioinformatics Python Cookbook Fourth Edition B32056 14 20260227
+- `EUREKA_bioinformatics_python_cookbook_fourth_edition_b32056_15_20260227` — Bioinformatics Python Cookbook Fourth Edition B32056 15 20260227
+- `EUREKA_bioinformatics_python_cookbook_fourth_edition_b32056_16_20260227` — Bioinformatics Python Cookbook Fourth Edition B32056 16 20260227
+- `EUREKA_bioinformatics_python_cookbook_fourth_edition_b32056_17_20260227` — Bioinformatics Python Cookbook Fourth Edition B32056 17 20260227
+- `EUREKA_bioinformatics_python_cookbook_fourth_edition_b32056_18_20260227` — Bioinformatics Python Cookbook Fourth Edition B32056 18 20260227
+- `EUREKA_bioinformatics_python_cookbook_third_edition_b17942_12_20260227` — Bioinformatics Python Cookbook Third Edition B17942 12 20260227
+- `EUREKA_building_agentic_ai_systems_b31483_02_20260227` — Building Agentic Ai Systems B31483 02 20260227
+- `EUREKA_building_agentic_ai_systems_b31483_03_20260227` — Building Agentic Ai Systems B31483 03 20260227
+- `EUREKA_building_agentic_ai_systems_b31483_04_20260227` — Building Agentic Ai Systems B31483 04 20260227
+- `EUREKA_building_agentic_ai_systems_b31483_05_20260227` — Building Agentic Ai Systems B31483 05 20260227
+- `EUREKA_building_agentic_ai_systems_b31483_06_20260227` — Building Agentic Ai Systems B31483 06 20260227
+- `EUREKA_building_agentic_ai_systems_b31483_07_20260227` — Building Agentic Ai Systems B31483 07 20260227
+- `EUREKA_building_smart_home_home_assistant_b17825_03_20260227` — Building Smart Home Home Assistant B17825 03 20260227
+- `EUREKA_building_smart_home_home_assistant_b17825_08_20260227` — Building Smart Home Home Assistant B17825 08 20260227
 - `EUREKA_cache-semantica` — Cache-Semantica
+- `EUREKA_ccna_200_301_official_cert_guide_appq_20260227` — Ccna 200 301 Official Cert Guide Appq 20260227
+- `EUREKA_cloud_security_handbook_2nd_ed_b31177_05_20260227` — Cloud Security Handbook 2Nd Ed B31177 05 20260227
+- `EUREKA_edge_computing_aws_b21184_03_20260227` — Edge Computing Aws B21184 03 20260227
+- `EUREKA_edge_computing_aws_b21184_06_20260227` — Edge Computing Aws B21184 06 20260227
+- `EUREKA_edge_computing_aws_b21184_07_20260227` — Edge Computing Aws B21184 07 20260227
+- `EUREKA_edge_computing_systems_k8s_b16945_01_final_pg_20260227` — Edge Computing Systems K8S B16945 01 Final Pg 20260227
+- `EUREKA_edge_computing_systems_k8s_b16945_08_final_pg_20260227` — Edge Computing Systems K8S B16945 08 Final Pg 20260227
+- `EUREKA_edge_computing_systems_k8s_b16945_12_final_pg_20260227` — Edge Computing Systems K8S B16945 12 Final Pg 20260227
+- `EUREKA_edge_computing_systems_k8s_b16945_13_final_pg_20260227` — Edge Computing Systems K8S B16945 13 Final Pg 20260227
+- `EUREKA_edge_computing_systems_k8s_b16945_14_final_pg_20260227` — Edge Computing Systems K8S B16945 14 Final Pg 20260227
+- `EUREKA_game_development_patterns_godot_4_b22405_08_20260227` — Game Development Patterns Godot 4 B22405 08 20260227
+- `EUREKA_game_development_patterns_godot_4_b22405_11_20260227` — Game Development Patterns Godot 4 B22405 11 20260227
+- `EUREKA_green_information_technology_b9780128013793000152_20260227` — Green Information Technology B9780128013793000152 20260227
 - `EUREKA_health-fallback` — Health-Fallback
+- `EUREKA_html_css_design_build_websites_15_chapter_09_20260227` — Html Css Design Build Websites 15 Chapter 09 20260227
+- `EUREKA_industrial_digital_transformation_b16367_01_final_pg_epub_20260227` — Industrial Digital Transformation B16367 01 Final Pg Epub 20260227
+- `EUREKA_industrial_digital_transformation_b16367_05_final_pg_epub_20260227` — Industrial Digital Transformation B16367 05 Final Pg Epub 20260227
+- `EUREKA_intelligent_autonomous_drones_raspberry_pi_494112_1_en_20260227_3` — Intelligent Autonomous Drones Raspberry Pi 494112 1 En 20260227 3
+- `EUREKA_istio_action_ch_01_20260227` — Istio Action Ch 01 20260227
+- `EUREKA_istio_action_ch_02_20260227` — Istio Action Ch 02 20260227
+- `EUREKA_istio_action_ch_03_20260227` — Istio Action Ch 03 20260227
+- `EUREKA_istio_action_ch_04_20260227` — Istio Action Ch 04 20260227
+- `EUREKA_istio_action_ch_05_20260227` — Istio Action Ch 05 20260227
+- `EUREKA_istio_action_ch_06_20260227` — Istio Action Ch 06 20260227
+- `EUREKA_istio_action_ch_07_20260227` — Istio Action Ch 07 20260227
+- `EUREKA_istio_action_ch_08_20260227` — Istio Action Ch 08 20260227
+- `EUREKA_istio_action_ch_09_20260227` — Istio Action Ch 09 20260227
+- `EUREKA_istio_action_ch_10_20260227` — Istio Action Ch 10 20260227
+- `EUREKA_istio_action_ch_11_20260227` — Istio Action Ch 11 20260227
+- `EUREKA_istio_action_ch_12_20260227` — Istio Action Ch 12 20260227
+- `EUREKA_istio_action_ch_13_20260227` — Istio Action Ch 13 20260227
+- `EUREKA_istio_action_ch_14_20260227` — Istio Action Ch 14 20260227
+- `EUREKA_kotlin_action_2nd_edition_ch01_20260227` — Kotlin Action 2Nd Edition Ch01 20260227
+- `EUREKA_kotlin_action_2nd_edition_ch13_20260227` — Kotlin Action 2Nd Edition Ch13 20260227
+- `EUREKA_kotlin_action_2nd_edition_ch14_20260227` — Kotlin Action 2Nd Edition Ch14 20260227
+- `EUREKA_kotlin_action_2nd_edition_ch16_20260227` — Kotlin Action 2Nd Edition Ch16 20260227
+- `EUREKA_learn_kubernetes_month_lunches_19_20260227` — Learn Kubernetes Month Lunches 19 20260227
+- `EUREKA_learn_kubernetes_month_lunches_20_20260227` — Learn Kubernetes Month Lunches 20 20260227
+- `EUREKA_learn_three_js_4th_edition_b18726_01_20260227` — Learn Three Js 4Th Edition B18726 01 20260227
+- `EUREKA_learn_three_js_4th_edition_b18726_04_20260227` — Learn Three Js 4Th Edition B18726 04 20260227
+- `EUREKA_learn_three_js_4th_edition_b18726_10_20260227` — Learn Three Js 4Th Edition B18726 10 20260227
 - `EUREKA_local-fallback` — Local-Fallback
+- `EUREKA_machine_learning_engineering_action_appa_wilson_20260227` — Machine Learning Engineering Action Appa Wilson 20260227
+- `EUREKA_machine_learning_engineering_action_ch05_wilson_20260227` — Machine Learning Engineering Action Ch05 Wilson 20260227
+- `EUREKA_machine_learning_engineering_action_ch06_wilson_20260227` — Machine Learning Engineering Action Ch06 Wilson 20260227
+- `EUREKA_machine_learning_engineering_action_ch07_wilson_20260227` — Machine Learning Engineering Action Ch07 Wilson 20260227
+- `EUREKA_machine_learning_engineering_action_ch10_wilson_20260227` — Machine Learning Engineering Action Ch10 Wilson 20260227
+- `EUREKA_machine_learning_engineering_action_ch11_wilson_20260227` — Machine Learning Engineering Action Ch11 Wilson 20260227
+- `EUREKA_machine_learning_engineering_action_ch13_wilson_20260227` — Machine Learning Engineering Action Ch13 Wilson 20260227
+- `EUREKA_machine_learning_engineering_action_ch14_wilson_20260227` — Machine Learning Engineering Action Ch14 Wilson 20260227
+- `EUREKA_machine_learning_engineering_action_ch15_wilson_20260227` — Machine Learning Engineering Action Ch15 Wilson 20260227
+- `EUREKA_machine_learning_engineering_action_ch16_wilson_20260227` — Machine Learning Engineering Action Ch16 Wilson 20260227
+- `EUREKA_mastering_flask_web_api_development_b19383_01_20260227` — Mastering Flask Web Api Development B19383 01 20260227
+- `EUREKA_mastering_flask_web_api_development_b19383_02_20260227` — Mastering Flask Web Api Development B19383 02 20260227
+- `EUREKA_mastering_flask_web_api_development_b19383_04_20260227` — Mastering Flask Web Api Development B19383 04 20260227
+- `EUREKA_mastering_flask_web_api_development_b19383_05_20260227` — Mastering Flask Web Api Development B19383 05 20260227
+- `EUREKA_mastering_flask_web_api_development_b19383_06_20260227` — Mastering Flask Web Api Development B19383 06 20260227
+- `EUREKA_mastering_flask_web_api_development_b19383_07_20260227` — Mastering Flask Web Api Development B19383 07 20260227
+- `EUREKA_mastering_flask_web_api_development_b19383_08_20260227` — Mastering Flask Web Api Development B19383 08 20260227
+- `EUREKA_mastering_flask_web_api_development_b19383_09_20260227` — Mastering Flask Web Api Development B19383 09 20260227
+- `EUREKA_mastering_flask_web_api_development_b19383_11_20260227` — Mastering Flask Web Api Development B19383 11 20260227
+- `EUREKA_mastering_flask_web_api_development_b19383_12_20260227` — Mastering Flask Web Api Development B19383 12 20260227
+- `EUREKA_mastering_postgresql_17_sixth_edition_b31013_03_20260227` — Mastering Postgresql 17 Sixth Edition B31013 03 20260227
+- `EUREKA_mastering_postgresql_17_sixth_edition_b31013_04_20260227` — Mastering Postgresql 17 Sixth Edition B31013 04 20260227
+- `EUREKA_mastering_postgresql_17_sixth_edition_b31013_05_20260227` — Mastering Postgresql 17 Sixth Edition B31013 05 20260227
+- `EUREKA_mastering_postgresql_17_sixth_edition_b31013_06_20260227` — Mastering Postgresql 17 Sixth Edition B31013 06 20260227
+- `EUREKA_mastering_postgresql_17_sixth_edition_b31013_10_20260227` — Mastering Postgresql 17 Sixth Edition B31013 10 20260227
+- `EUREKA_memory_kernel_concurrency_benchmark_20260302` — Memory Kernel Concurrency Benchmark 20260302
+- `EUREKA_midos_memory_product_architecture_20260302` — Midos Memory Product Architecture 20260302
+- `EUREKA_modern_time_series_python_b17959_04_20260227` — Modern Time Series Python B17959 04 20260227
+- `EUREKA_modern_time_series_python_b17959_06_20260227` — Modern Time Series Python B17959 06 20260227
+- `EUREKA_modern_time_series_python_b17959_07_20260227` — Modern Time Series Python B17959 07 20260227
+- `EUREKA_modern_time_series_python_b17959_10_20260227` — Modern Time Series Python B17959 10 20260227
+- `EUREKA_modern_time_series_python_b17959_11_20260227` — Modern Time Series Python B17959 11 20260227
+- `EUREKA_modern_time_series_python_b17959_12_20260227` — Modern Time Series Python B17959 12 20260227
+- `EUREKA_modern_time_series_python_b17959_13_20260227` — Modern Time Series Python B17959 13 20260227
+- `EUREKA_modern_time_series_python_b17959_14_20260227` — Modern Time Series Python B17959 14 20260227
+- `EUREKA_modern_time_series_python_b17959_16_20260227` — Modern Time Series Python B17959 16 20260227
+- `EUREKA_renewable_energy_5th_ed_chp003_20260227` — Renewable Energy 5Th Ed Chp003 20260227
+- `EUREKA_renewable_energy_5th_ed_chp006_20260227` — Renewable Energy 5Th Ed Chp006 20260227
+- `EUREKA_ros_2_scratch_b22403_05_20260227` — Ros 2 Scratch B22403 05 20260227
+- `EUREKA_ros_2_scratch_b22403_06_20260227` — Ros 2 Scratch B22403 06 20260227
+- `EUREKA_ros_2_scratch_b22403_08_20260227` — Ros 2 Scratch B22403 08 20260227
+- `EUREKA_ros_2_scratch_b22403_13_20260227` — Ros 2 Scratch B22403 13 20260227
+- `EUREKA_self_taught_cloud_computing_engineer_b19796_01_20260227` — Self Taught Cloud Computing Engineer B19796 01 20260227
+- `EUREKA_self_taught_cloud_computing_engineer_b19796_04_20260227` — Self Taught Cloud Computing Engineer B19796 04 20260227
+- `EUREKA_self_taught_cloud_computing_engineer_b19796_05_20260227` — Self Taught Cloud Computing Engineer B19796 05 20260227
+- `EUREKA_self_taught_cloud_computing_engineer_b19796_06_20260227` — Self Taught Cloud Computing Engineer B19796 06 20260227
+- `EUREKA_self_taught_cloud_computing_engineer_b19796_07_20260227` — Self Taught Cloud Computing Engineer B19796 07 20260227
+- `EUREKA_self_taught_cloud_computing_engineer_b19796_08_20260227` — Self Taught Cloud Computing Engineer B19796 08 20260227
+- `EUREKA_self_taught_cloud_computing_engineer_b19796_09_20260227` — Self Taught Cloud Computing Engineer B19796 09 20260227
+- `EUREKA_self_taught_cloud_computing_engineer_b19796_10_20260227` — Self Taught Cloud Computing Engineer B19796 10 20260227
+- `EUREKA_sklearn_midos_adoption_blueprint_20260301` — Sklearn Midos Adoption Blueprint 20260301
+- `EUREKA_smart_home_linux_raspberry_pi_2nd_ed_9781430258872_20260227_10` — Smart Home Linux Raspberry Pi 2Nd Ed 9781430258872 20260227 10
+- `EUREKA_smart_home_linux_raspberry_pi_2nd_ed_9781430258872_20260227_2` — Smart Home Linux Raspberry Pi 2Nd Ed 9781430258872 20260227 2
+- `EUREKA_smart_home_linux_raspberry_pi_2nd_ed_9781430258872_20260227_3` — Smart Home Linux Raspberry Pi 2Nd Ed 9781430258872 20260227 3
+- `EUREKA_smart_home_linux_raspberry_pi_2nd_ed_9781430258872_20260227_5` — Smart Home Linux Raspberry Pi 2Nd Ed 9781430258872 20260227 5
+- `EUREKA_smart_home_linux_raspberry_pi_2nd_ed_9781430258872_20260227_9` — Smart Home Linux Raspberry Pi 2Nd Ed 9781430258872 20260227 9
+- `EUREKA_solar_energy_engineering_2nd_chp010_20260227` — Solar Energy Engineering 2Nd Chp010 20260227
+- `EUREKA_solar_energy_engineering_2nd_chp011_20260227_1` — Solar Energy Engineering 2Nd Chp011 20260227 1
+- `EUREKA_svelte_test_driven_development_b19611_01_20260227` — Svelte Test Driven Development B19611 01 20260227
+- `EUREKA_svelte_test_driven_development_b19611_03_20260227` — Svelte Test Driven Development B19611 03 20260227
+- `EUREKA_technical_writing_software_developers_b20936_06_20260227` — Technical Writing Software Developers B20936 06 20260227
+- `EUREKA_terraform_action_ch_01_20260227` — Terraform Action Ch 01 20260227
+- `EUREKA_terraform_action_ch_03_20260227` — Terraform Action Ch 03 20260227
+- `EUREKA_terraform_action_ch_04_20260227` — Terraform Action Ch 04 20260227
+- `EUREKA_terraform_action_ch_05_20260227` — Terraform Action Ch 05 20260227
+- `EUREKA_terraform_action_ch_06_20260227` — Terraform Action Ch 06 20260227
+- `EUREKA_terraform_action_ch_07_20260227` — Terraform Action Ch 07 20260227
+- `EUREKA_terraform_action_ch_08_20260227` — Terraform Action Ch 08 20260227
+- `EUREKA_terraform_action_ch_10_20260227` — Terraform Action Ch 10 20260227
+- `EUREKA_terraform_action_ch_11_20260227` — Terraform Action Ch 11 20260227
+- `EUREKA_terraform_action_ch_12_20260227` — Terraform Action Ch 12 20260227
+- `EUREKA_terraform_action_ch_13_20260227` — Terraform Action Ch 13 20260227
 - `EUREKA_weighted-routing` — Weighted-Routing
+- `HITL_PATTERNS_2026` — Hitl Patterns 2026
+- `HYBRID_RAG_FINETUNING_IMPLEMENTATION_2026` — Hybrid Rag Finetuning Implementation 2026
+- `LANCEDB_V029_2026` — Lancedb V029 2026
+- `MAINTAINABLE_CODE_ENGINEERING_2026` — Maintainable Code Engineering 2026
+- `MCP_COMPETITORS_DEEP_RESEARCH_PIECES_MINTLIFY_2026-02-22` — Mcp Competitors Deep Research Pieces Mintlify 2026-02-22
+- `R068_external_interfaces` — R068 External Interfaces
 - `REVIEW_LOG_R014` — Review Log R014
 - `SKILLS_CLI_TOKEN_OPTIMIZATION` — Skills Cli Token Optimization
+- `SMART_LOGGING_MONITORING_2026` — Smart Logging Monitoring 2026
+- `SPEC_DRIVEN_DEVELOPMENT_2026` — Spec Driven Development 2026
+- `ai_cli_ide_catalog_2026-02-12` — Ai Cli Ide Catalog 2026-02-12
+- `ai_coding_tools_architecture_research_20260222` — Ai Coding Tools Architecture Research 20260222
+- `ai_email_integration_research_2026-02-14` — Ai Email Integration Research 2026-02-14
+- `ai_model_catalog_2026-02-12` — Ai Model Catalog 2026-02-12
+- `api_bot_implementation_guide_2026_20260222` — Api Bot Implementation Guide 2026 20260222
+- `browser_automation_timeout_retry_serverless_2026` — Browser Automation Timeout Retry Serverless 2026
+- `container_security_2026` — Container Security 2026
+- `dev_community_server_patterns_2026_20260212` — Dev Community Server Patterns 2026 20260212
+- `docker_k8s_2026_master_guide` — Docker K8S 2026 Master Guide
+- `efficient_go_20260222_8` — Efficient Go 20260222 8
+- `error_handling_resilience_ai_2026-02-13` — Error Handling Resilience Ai 2026-02-13
+- `fastapi_pydantic_v2_migration_harvest_report_2026-02-10` — Fastapi Pydantic V2 Migration Harvest Report 2026-02-10
+- `generative_ai_design_patterns_20260222_6` — Generative Ai Design Patterns 20260222 6
+- `gepa_content_type_profiles_coherence_weights_20260303` — Gepa Content Type Profiles Coherence Weights 20260303
+- `hands_generative_ai_transformers_diffusion_models_20260222_8` — Hands Generative Ai Transformers Diffusion Models 20260222 8
+- `kg_research_summary_2026-02-13` — Kg Research Summary 2026-02-13
+- `lightrag_implementation_plan_midos_2026-02-13` — Lightrag Implementation Plan Midos 2026-02-13
+- `llm_engineers_handbook_20260222_5` — Llm Engineers Handbook 20260222 5
+- `llms_production_20260222_10` — Llms Production 20260222 10
+- `mcp_a2a_multiagent_interoperability_2026` — Mcp A2A Multiagent Interoperability 2026
+- `mcp_registry_discovery_implementation_2026` — Mcp Registry Discovery Implementation 2026
+- `nosql_database_mocking_dynamodb_advanced_2026` — Nosql Database Mocking Dynamodb Advanced 2026
+- `nosql_database_mocking_mongodb_mongoose_2026` — Nosql Database Mocking Mongodb Mongoose 2026
+- `observability_tracing_ai_agents_2026-02-13` — Observability Tracing Ai Agents 2026-02-13
+- `openclaw_vps_agent_deployment_patterns_security_20260227` — Openclaw Vps Agent Deployment Patterns Security 20260227
+- `playwright_e2e_patterns_2026-02-10` — Playwright E2E Patterns 2026-02-10
+- `pydantic_v2_validation_production_patterns_20260227` — Pydantic V2 Validation Production Patterns 20260227
+- `python_concurrency_threading_multiprocessing_20260227` — Python Concurrency Threading Multiprocessing 20260227
+- `rag_evaluation_ragas_ares_rouge_2026` — Rag Evaluation Ragas Ares Rouge 2026
+- `research_agent_prompting_patterns_2026-02-13` — Research Agent Prompting Patterns 2026-02-13
+- `research_ai_cost_optimization_2026-02-13` — Research Ai Cost Optimization 2026-02-13
+- `research_anthropic_agent_teams_2026-02-13` — Research Anthropic Agent Teams 2026-02-13
+- `research_lancedb_compaction_strategies_2026-02-14` — Research Lancedb Compaction Strategies 2026-02-14
+- `structlog_production_logging_patterns_20260227` — Structlog Production Logging Patterns 20260227
+- `svg_manga_rendering_pipeline_2026-02-12` — Svg Manga Rendering Pipeline 2026-02-12
+- `swarm_interround_learning_kaizen_aggregation_20260303` — Swarm Interround Learning Kaizen Aggregation 20260303
+- `tier_guard_pattern_mcp_stdio_bypass_20260303` — Tier Guard Pattern Mcp Stdio Bypass 20260303
+- `typescript_mastery_advanced_patterns_2026-02-10` — Typescript Mastery Advanced Patterns 2026-02-10
+- `vitest_react_testing_patterns_2026-02-10` — Vitest React Testing Patterns 2026-02-10
+- `vue34_harvest_2026-02-10` — Vue34 Harvest 2026-02-10
+- `w0_field_guide_rapidly_improving_ai_products_20260222` — W0 Field Guide Rapidly Improving Ai Products 20260222
+- `write_good_spec_ai_agents_20260222` — Write Good Spec Ai Agents 20260222
+- `zombie_dispatch_prevention_retry_watchdog_persistent_orchestrator_20260303` — Zombie Dispatch Prevention Retry Watchdog Persistent Orchestrator 20260303
 
-_Total: 105 EUREKA documents_
+_Total: 450 EUREKA documents_

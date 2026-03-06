@@ -129,7 +129,7 @@ class SemanticCache:
             if not tbl:
                 return {"entries": 0, "total_hits": 0, "status": "empty"}
 
-            count = len(tbl.to_pandas())
+            count = tbl.count_rows()
             return {"entries": count, "db_path": str(self.uri), "status": "active"}
         except Exception as e:
             return {"entries": 0, "error": str(e), "status": "error"}

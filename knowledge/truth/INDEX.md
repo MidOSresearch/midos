@@ -26,9 +26,16 @@ Una verdad **sube** cuando demuestra mejora Kaizen/ROI medible. Ver [EUREKA/INDE
 
 ---
 
-## Truth Patches (TP-XXX)
+## Universal Truths (Language-Agnostic Axiom System)
 
-| TP-ID  | Verdad                                       | Por qué                                                         | Archivo                                                                           |
-| ------ | -------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| TP-001 | Validar tokens antes de enviar prompt        | Truncamiento silencioso rompe la cadena                         | [EUREKA_CONTEXT_WINDOW_2026](../archive/deprecated_2026/truth_superseded_by_eureka/EUREKA_CONTEXT_WINDOW_2026.md) _(archived)_ |
-| TP-002 | Comprimir antes de truncar                   | Truncar destruye contenido, comprimir lo preserva               | [EUREKA_PROMPT_COMPRESSION_2026](../EUREKA/EUREKA_PROMPT_COMPRESSION_2026.md)     |
+| Component | Path | Purpose |
+|-----------|------|---------|
+| **Doctrine** | `knowledge/truth/UNIVERSAL_TRUTHS.md` | Immutable truths: math, algorithms, physics, chemistry, CS infra, design patterns |
+| **Inference Engine** | `core/axioms/universal_truths.pl` | Prolog module: consequent truth derivation, family genealogies, cross-domain truths |
+| **Family Index** | `knowledge/truth/TRUTH_FAMILIES_INDEX.md` | Maps existing chunks to truth families, tracks overlaps, unification rules |
+
+**Principle**: A truth is universal when it is immutable to the language that expresses it. From 2 base facts (parent_of), the engine derives 15+ consequent truths. Chunks should REFERENCE universal truths, not re-derive them.
+
+**Truth domains**: Mathematics (Peano, ZFC, number domains), Algorithms (sorting, search, graph, complexity), Data Structures, Physics (Newton, Thermodynamics), Chemistry, CS Infrastructure (CAP, ACID, OSI), Design Patterns.
+
+---

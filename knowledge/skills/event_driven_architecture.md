@@ -5,6 +5,7 @@ date: 2026-02-13
 tags: [event-driven, kafka, rabbitmq, messaging, async, cqrs, event-sourcing, nats, pulsar]
 source: WebSearch + Production Patterns Research
 confidence: 0.92
+access_tier: community
 ---
 
 # Skill: Event-Driven Architecture Patterns
@@ -13,6 +14,5 @@ confidence: 0.92
 
 ### Decision Matrix
 
-| Requirement | Best Choice | Alternative | Avoid If |
 
 > **Note**: Full content available to MidOS PRO subscribers. See https://midos.dev/pricing

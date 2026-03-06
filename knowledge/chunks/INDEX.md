@@ -2,9 +2,22 @@
 title: Chunks INDEX
 source: internal
 date: 2026-02-16
-tags: [knowledge, index, chunks]
+tags:
+- knowledge
+- index
+- chunks
+content_type: reference
 confidence: 0.9
+domain: security
+access_tier: dev
+related:
+- knowledge_quality_pipeline_2026.md
+- deepeval_knowledge_quality_2026.md
+- knowledge_atom_video_general_20260210.md
+- eureka_promotion_pipeline_automated_quality_sweep_2026-02-15.md
+- knowledge_consolidation_pipeline_2026.md
 ---
+
 
 # Chunks INDEX
 
@@ -37,10 +50,11 @@ confidence: 0.9
 | **B** | Awareness, contexto de mercado                 | Indexar con tag `context-only` |
 | **C** | Beginner, genérico, no aplicable               | Descarte → `_discarded/`       |
 
-## Recent Additions (2026-02-15)
+## Recent Additions (2026-02-22)
 
-**MCP Security Threat Model & Defense Patterns (2026-02-15)** — CRITICAL production security research
+**SpiralSafe / Reson8-Labs** — 15 knowledge chunks distilled from confidential material (636KB)
 
 | Chunk | Topic | Tags | Created |
 |-------|-------|------|---------|
-| `MCP_SECURITY_THREAT_MODEL_2026.md` | 7 attack vectors (tool poisoning 72.8% success, prompt injection, rug pulls, privilege escalation, SSRF, data exfil, command injection), 8 critical CVEs, 5-layer defense model, FastAPI/Python implementation patterns, security tools ecosystem (MCP-Scan, mcp-context-protector, Invariant, Presidio), governance & compliance | mcp, security, threat-model, vulnerabilities, cve, defense, production, fastapi, python, tool-poisoning, prompt-injection, oauth2.1, critical, 2026 | 2026-02-15 |
+| `spiralsafe_master_index_reson8labs_2026.md` | Master index of SpiralSafe/Reson8-Labs ecosystem | spiralsafe, reson8labs, index, 2026 | 2026-02-22 |
+| `spiralsafe_75d_coherence_matrix_2026.md` | 75D coherence matrix (3x5x5), Phi_total measurement | spiralsafe, coherence, matrix, measurement, 2026 | 2026-02-22 |

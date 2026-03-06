@@ -1,14 +1,18 @@
 ---
-tier: internal
-title: "MCP Plugin Packaging Infrastructure"
+title: MCP Plugin Packaging Infrastructure
 source: internal
 date: 2026-02-15
-tags: [mcp, plugin, packaging, installer, profiles]
+tags:
+- mcp
+- plugin
+- packaging
+- installer
+- profiles
 confidence: 0.9
----
-
-# MCP Plugin Packaging Infrastructure
-
-> **Source**: R029 V5 — February 2026
+domain: architecture
+category: tutorial
+content_type: tutorial
+access_tier: dev
+related:
 
 [...content truncated — free tier preview]

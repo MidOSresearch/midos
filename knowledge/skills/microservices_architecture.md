@@ -3,6 +3,7 @@ name: Microservices Architecture Patterns
 version: "1.0"
 date: 2026-02-13
 tags: [microservices, architecture, distributed-systems, patterns, resilience, DDD, CQRS, event-sourcing, api-gateway, service-mesh]
+access_tier: community
 ---
 
 # Skill: Microservices Architecture Patterns

@@ -5,6 +5,7 @@ Semantic + keyword search over the MidOS knowledge base.
 Uses gemini-embedding-001 (3072-d) + BM25 FTS with RRF fusion.
 Includes memory decay scoring for knowledge lifecycle management.
 """
+
 import math
 import time
 import json
@@ -15,13 +16,18 @@ from typing import List, Dict, Optional, Any
 
 # Use hive_commons config
 from .config import LANCE_DB_URI, L1_MEMORY, get_api_key, ensure_env
+from .native_bridge import rrf_fuse as _native_rrf_fuse
+from .native_bridge import rrf_fuse_weighted as _native_rrf_fuse_weighted
+from .native_bridge import rerank_score_fallback as _native_rerank_fallback
+from .native_bridge import batch_decay_scores as _native_batch_decay
+from .search_schema import SearchResult
 
 ensure_env()
 
 log = structlog.get_logger("hive_commons.vector_store")
 
 # Table for Cloud Embeddings (3072 dims from Gemini gemini-embedding-001)
-TABLE_NAME = "knowledge_chunks_cloud_rebuild"
+TABLE_NAME = "knowledge_chunks_cloud"
 
 # Embedding cache: avoids re-embedding identical text within a session
 # In-memory only by default (3072-d vectors are too large for JSON persistence)
@@ -38,22 +44,64 @@ def _cache_key(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()[:16]
 
 
-# Configure Gemini (new SDK)
-_genai_client = None
+# Configure Gemini (new SDK) — supports dual-key round-robin
+_genai_clients: list = []
+_genai_rr_index = 0
+_genai_rr_lock = None
 
 
 def _get_genai():
-    """Lazy load google.genai Client."""
-    global _genai_client
-    if _genai_client is None:
+    """Lazy load google.genai Client (single key, backward compat)."""
+    clients = _get_genai_pool()
+    return clients[0] if clients else None
+
+
+def _get_genai_pool():
+    """Lazy load pool of genai Clients for round-robin embedding."""
+    global _genai_clients, _genai_rr_lock
+    if not _genai_clients:
+        import threading
         from google import genai
 
-        key = get_api_key("GEMINI")
-        if key:
-            _genai_client = genai.Client(api_key=key)
-        else:
+        _genai_rr_lock = threading.Lock()
+        key1 = get_api_key("GEMINI")
+        key2 = get_api_key("GEMINI_2")  # optional second key
+        if key1:
+            _genai_clients.append(genai.Client(api_key=key1))
+        if key2:
+            # Validate key2 before adding to pool (bad keys cause silent 50% failures)
+            try:
+                _test_client = genai.Client(api_key=key2)
+                _test_client.models.embed_content(
+                    model="gemini-embedding-001", contents="ping"
+                )
+                _genai_clients.append(_test_client)
+                log.info(
+                    "dual_gemini_keys", message="Round-robin embedding enabled (2 keys)"
+                )
+            except Exception as e:
+                log.warning(
+                    "gemini_key2_invalid",
+                    error=str(e)[:120],
+                    message="Key2 disabled, using single key",
+                )
+        if not _genai_clients:
             log.error("no_gemini_key", message="Memory will be disabled")
-    return _genai_client
+    return _genai_clients
+
+
+def _next_genai():
+    """Round-robin pick next genai Client from pool."""
+    global _genai_rr_index
+    pool = _get_genai_pool()
+    if not pool:
+        return None
+    if len(pool) == 1:
+        return pool[0]
+    with _genai_rr_lock:
+        client = pool[_genai_rr_index % len(pool)]
+        _genai_rr_index += 1
+    return client
 
 
 def get_embedding(text: str) -> Optional[List[float]]:
@@ -133,36 +181,52 @@ def get_embeddings_batch(
     for i in range(0, len(uncached_texts), batch_size):
         batches.append((i, uncached_texts[i : i + batch_size]))
 
+    import re as _re
+    import threading
+
+    # Rate limiter: concurrency matches key count (1 key=1 worker, 2 keys=2 workers)
+    n_keys = len(_get_genai_pool())
+    _rate_sem = threading.Semaphore(max(n_keys, 1))
+    _rate_delay = (
+        0.1 if n_keys > 1 else 0.4
+    )  # 0.4s single-key avoids 429s on sustained bulk
+
     def _embed_batch(batch_info):
-        """Embed a single batch with retry. Returns (start_idx, embeddings)."""
+        """Embed a single batch with retry + exponential backoff + round-robin keys."""
         start_idx, batch = batch_info
-        try:
-            response = client.models.embed_content(
-                model="models/gemini-embedding-001",
-                contents=batch,
-            )
-            return (start_idx, [emb.values for emb in response.embeddings])
-        except Exception as e:
-            log.warning(
-                "batch_embed_failed",
-                batch_start=start_idx,
-                batch_size=len(batch),
-                error=str(e),
-            )
+        max_retries = 5
+        for attempt in range(max_retries):
+            rr_client = _next_genai() or client
+            _rate_sem.acquire()
             try:
-                time.sleep(2)
-                response = client.models.embed_content(
+                time.sleep(_rate_delay)
+                response = rr_client.models.embed_content(
                     model="models/gemini-embedding-001",
                     contents=batch,
                 )
                 return (start_idx, [emb.values for emb in response.embeddings])
-            except Exception as e2:
-                log.error(
-                    "batch_embed_retry_failed", batch_start=start_idx, error=str(e2)
-                )
-                return (start_idx, [None] * len(batch))
+            except Exception as e:
+                err_str = str(e)
+                # Parse retryDelay from API response
+                delay_match = _re.search(r"retryDelay.*?(\d+)", err_str)
+                wait = float(delay_match.group(1)) if delay_match else (2**attempt * 3)
+                if "429" in err_str or "RESOURCE_EXHAUSTED" in err_str:
+                    log.warning(
+                        "rate_limited",
+                        batch_start=start_idx,
+                        wait=wait,
+                        attempt=attempt + 1,
+                    )
+                    time.sleep(wait)
+                else:
+                    log.error("embed_error", batch_start=start_idx, error=err_str[:200])
+                    time.sleep(2**attempt)
+            finally:
+                _rate_sem.release()
+        log.error("embed_exhausted_retries", batch_start=start_idx)
+        return (start_idx, [None] * len(batch))
 
-    # Concurrent execution
+    # Concurrent execution with controlled parallelism
     from concurrent.futures import ThreadPoolExecutor
 
     uncached_results: List[Optional[List[float]]] = [None] * len(uncached_texts)
@@ -173,11 +237,12 @@ def get_embeddings_batch(
             for j, emb in enumerate(embeddings):
                 uncached_results[start_idx + j] = emb
 
-    # Phase 3: Populate cache + results
+    # Phase 3: Populate cache + results (cap cache at 2000 to avoid OOM on bulk indexing)
+    MAX_CACHE = 2000
     new_cached = 0
     for (orig_idx, text), emb in zip(uncached, uncached_results):
         results[orig_idx] = emb
-        if emb is not None:
+        if emb is not None and len(_embedding_cache) < MAX_CACHE:
             _embedding_cache[_cache_key(text)] = emb
             new_cached += 1
 
@@ -289,8 +354,8 @@ def expand_query(query: str) -> str:
 # Key: expanded query text, Value: embedding vector
 # Typical latency savings: 1-2s per cached hit
 _QUERY_EMBEDDING_CACHE: dict = {}  # {text: (timestamp, embedding)}
-_QUERY_EMBEDDING_CACHE_TTL = 300  # 5 minutes
-_QUERY_EMBEDDING_CACHE_MAX = 100  # max entries
+_QUERY_EMBEDDING_CACHE_TTL = 600  # 10 minutes
+_QUERY_EMBEDDING_CACHE_MAX = 500  # max entries
 
 
 def get_query_embedding(text: str) -> Optional[List[float]]:
@@ -389,6 +454,61 @@ def compute_decay_score_v2(
     return base_score * importance * time_factor * access_boost
 
 
+def compute_decay_score_v3(
+    base_quality: float = 0.5,
+    access_history: list = None,
+    max_fib_index: int = 20,
+) -> float:
+    """Fibonacci-weighted decay: recent accesses weighted by golden-ratio plateaus.
+
+    Adapted from SpiralSafe vortex_surjection.py fibonacci_weight().
+    Unlike v1 (geometric) and v2 (exponential), v3 weights each access by its
+    Fibonacci-normalized recency rank, creating natural plateau-based decay.
+
+    Args:
+        base_quality: Base quality score (0-1).
+        access_history: List of dicts [{ts: float, quality: float}, ...].
+            If None or empty, falls back to base_quality * 0.5 (no history penalty).
+        max_fib_index: Cap for Fibonacci index to prevent overflow.
+
+    Returns:
+        Weighted quality score (0+).
+    """
+    if not access_history:
+        return base_quality * 0.5
+
+    def _fibonacci(n: int) -> int:
+        a, b = 0, 1
+        for _ in range(n):
+            a, b = b, a + b
+        return a
+
+    max_fib = _fibonacci(max_fib_index)
+    if max_fib == 0:
+        return base_quality * 0.5
+
+    # Sort by timestamp descending (most recent first)
+    sorted_history = sorted(access_history, key=lambda x: x.get("ts", 0), reverse=True)
+
+    total_weight = 0.0
+    total_contribution = 0.0
+
+    for rank, entry in enumerate(sorted_history):
+        bounded_rank = min(rank, max_fib_index)
+        # Invert rank: most recent gets highest Fibonacci weight
+        fib_index = max(0, max_fib_index - bounded_rank)
+        weight = _fibonacci(fib_index) / max_fib
+
+        quality = entry.get("quality", base_quality)
+        total_contribution += quality * weight
+        total_weight += weight
+
+    if total_weight == 0:
+        return base_quality * 0.5
+
+    return total_contribution / total_weight
+
+
 class VectorStore:
     """LanceDB-backed vector store with Gemini embeddings + hybrid search.
 
@@ -399,6 +519,7 @@ class VectorStore:
     # Query result cache: hash(query+top_k) -> (timestamp, results)
     _query_cache: dict = {}
     _QUERY_CACHE_TTL = 60  # seconds
+    _QUERY_CACHE_MAX = 5000  # max entries (prevents unbounded growth)
     _fts_ready: bool = False  # FTS index created flag
 
     # RRF constant (standard value, higher = more weight to lower ranks)
@@ -438,22 +559,8 @@ class VectorStore:
     def _rrf_fuse(
         ranked_lists: List[List[dict]], k: int = 60, limit: int = 5
     ) -> List[dict]:
-        """Reciprocal Rank Fusion: merge multiple ranked result lists.
-
-        score(doc) = sum(1 / (rank_i + k)) across all lists.
-        Uses first 200 chars of text as doc identity.
-        """
-        doc_scores: Dict[str, tuple] = {}  # text_hash -> (score, doc)
-        for ranked_list in ranked_lists:
-            for rank, doc in enumerate(ranked_list):
-                doc_id = doc["text"][:200]
-                rrf_score = 1.0 / (rank + 1 + k)
-                if doc_id in doc_scores:
-                    doc_scores[doc_id] = (doc_scores[doc_id][0] + rrf_score, doc)
-                else:
-                    doc_scores[doc_id] = (rrf_score, doc)
-        sorted_docs = sorted(doc_scores.values(), key=lambda x: x[0], reverse=True)
-        return [doc for _, doc in sorted_docs[:limit]]
+        """Reciprocal Rank Fusion — delegates to native_bridge (Rust or Python)."""
+        return _native_rrf_fuse(ranked_lists, k, limit)
 
     def add(self, items: List[Dict[str, Any]]) -> bool:
         """Add items to the vector store."""
@@ -484,7 +591,7 @@ class VectorStore:
         search_mode: str = "hybrid",
         rerank: bool = False,
         alpha: float = 0.5,
-    ) -> List[Dict]:
+    ) -> List[SearchResult]:
         """Configurable search: vector, keyword, or hybrid with optional reranking.
 
         Args:
@@ -503,6 +610,11 @@ class VectorStore:
         Backwards compatible: search(query, top_k) works as before.
         """
         try:
+            # Adaptive alpha: if caller uses default 0.5, classify query intent
+            if alpha == 0.5:
+                alpha = self._classify_query(query)
+            alpha_used = alpha
+
             cache_key = _cache_key(f"{query}:{top_k}:{search_mode}:{rerank}:{alpha}")
             now = time.time()
             if cache_key in self._query_cache:
@@ -566,21 +678,76 @@ class VectorStore:
 
             refined = []
             for rank, r in enumerate(merged):
+                # Score priority: rerank > LanceDB _distance > RRF > rank fallback
+                if "_rerank_score" in r:
+                    score = r["_rerank_score"]
+                elif "_distance" in r:
+                    # LanceDB cosine distance: 0=identical, 2=opposite → similarity
+                    score = round(1.0 - (r["_distance"] / 2.0), 4)
+                else:
+                    score = round(1.0 / (rank + 1), 4)
                 entry = {
                     "text": r["text"],
                     "source": r.get("source", "unknown"),
-                    "score": r.get("_rerank_score", 1.0 / (rank + 1)),
+                    "file": Path(r.get("source", "unknown")).name,
+                    "score": score,
                     "timestamp": r.get("timestamp", 0),
                     "metadata": r.get("metadata", "{}"),
                     "search_mode": search_mode,
+                    "alpha_used": alpha_used,
                 }
                 refined.append(entry)
 
+            # Store in cache (evict oldest if at capacity)
+            if len(self._query_cache) >= self._QUERY_CACHE_MAX:
+                oldest_key = min(
+                    self._query_cache, key=lambda k: self._query_cache[k][0]
+                )
+                del self._query_cache[oldest_key]
             self._query_cache[cache_key] = (now, refined)
             return refined
         except Exception as e:
             log.error("search_failed", error=str(e))
             return []
+
+    @staticmethod
+    def _classify_query(query: str) -> float:
+        """Classify query intent and return optimal alpha for RRF fusion.
+
+        Alpha controls keyword vs semantic balance:
+          0.0 = pure keyword, 1.0 = pure semantic.
+
+        Returns:
+            float: alpha value tuned to query type.
+        """
+        q = query.strip()
+        # Exact phrase search — heavily favor keyword
+        if q.startswith('"') and q.endswith('"'):
+            return 0.15
+        # Code queries — favor keyword
+        if "`" in q or any(
+            tok in q for tok in ("def ", "class ", "import ", "->", "=>", "()", "{}")
+        ):
+            return 0.20
+        tokens = q.split()
+        n_tokens = len(tokens)
+        # Very short queries — lean keyword
+        if n_tokens <= 3:
+            return 0.30
+        q_lower = q.lower()
+        # Conceptual / explanatory — lean semantic
+        if any(
+            w in q_lower
+            for w in ("explain", "why ", "how does", "what is", "conceptually")
+        ):
+            return 0.80
+        # Question words — moderate semantic lean
+        if any(
+            q_lower.startswith(w)
+            for w in ("how ", "what ", "where ", "when ", "which ", "who ")
+        ):
+            return 0.70
+        return 0.50
 
     @staticmethod
     def _rrf_fuse_weighted(
@@ -590,44 +757,60 @@ class VectorStore:
         k: int = 60,
         limit: int = 10,
     ) -> List[dict]:
-        """Alpha-weighted Reciprocal Rank Fusion.
-
-        score(doc) = alpha * (1/(vec_rank + k)) + (1-alpha) * (1/(fts_rank + k))
-
-        Args:
-            alpha: 0.0 = pure keyword, 1.0 = pure vector, 0.5 = equal weight.
-        """
-        doc_scores: Dict[str, tuple] = {}
-
-        for rank, doc in enumerate(vec_results):
-            doc_id = doc["text"][:200]
-            score = alpha * (1.0 / (rank + 1 + k))
-            doc_scores[doc_id] = (score, doc)
-
-        for rank, doc in enumerate(fts_results):
-            doc_id = doc["text"][:200]
-            score = (1.0 - alpha) * (1.0 / (rank + 1 + k))
-            if doc_id in doc_scores:
-                doc_scores[doc_id] = (doc_scores[doc_id][0] + score, doc)
-            else:
-                doc_scores[doc_id] = (score, doc)
-
-        sorted_docs = sorted(doc_scores.values(), key=lambda x: x[0], reverse=True)
-        return [doc for _, doc in sorted_docs[:limit]]
+        """Alpha-weighted RRF — delegates to native_bridge (Rust or Python)."""
+        return _native_rrf_fuse_weighted(vec_results, fts_results, alpha, k, limit)
 
     def _rerank(self, query: str, candidates: List[dict], top_k: int) -> List[dict]:
-        """Rerank candidates using cross-encoder or fallback scoring.
+        """Rerank candidates using cascade: L2R GBM → cross-encoder → fallback.
 
-        Tries sentence-transformers cross-encoder first (best quality).
-        Falls back to decay-score-based reranking (always available).
+        1. Always try GBM L2R reranker (fast, <1ms per candidate)
+        2. Optionally apply cross-encoder on top-5 (best quality)
+        3. Fall back to decay-score-based reranking
         """
-        # Try cross-encoder reranking
+        # Stage 1: GBM L2R reranker (always runs if model available)
+        try:
+            from tools.l2r_reranker import rerank as l2r_rerank
+
+            l2r_results = l2r_rerank(query, candidates, top_k=top_k)
+            if l2r_results:
+                # Optional Stage 2: cross-encoder on top-5 for precision
+                top5 = l2r_results[:5]
+                rest = l2r_results[5:]
+                reranked_top5 = self._rerank_cross_encoder(query, top5, len(top5))
+                if reranked_top5 is not None:
+                    return (reranked_top5 + rest)[:top_k]
+                return l2r_results
+        except (ImportError, FileNotFoundError):
+            pass  # L2R model not trained yet
+
+        # Fallback: Try cross-encoder on all candidates
         reranked = self._rerank_cross_encoder(query, candidates, top_k)
         if reranked is not None:
             return reranked
 
-        # Fallback: score-based reranking using decay + text overlap
+        # Final fallback: score-based reranking using decay + text overlap
         return self._rerank_score_fallback(query, candidates, top_k)
+
+    # Singleton cross-encoder model (avoids reloading 105 weights per query)
+    _cross_encoder_model = None
+    _cross_encoder_lock = None
+
+    @staticmethod
+    def _get_cross_encoder():
+        """Get or create singleton cross-encoder model (thread-safe)."""
+        if VectorStore._cross_encoder_model is None:
+            import threading
+
+            if VectorStore._cross_encoder_lock is None:
+                VectorStore._cross_encoder_lock = threading.Lock()
+            with VectorStore._cross_encoder_lock:
+                if VectorStore._cross_encoder_model is None:
+                    from sentence_transformers import CrossEncoder
+
+                    VectorStore._cross_encoder_model = CrossEncoder(
+                        "cross-encoder/ms-marco-MiniLM-L-6-v2"
+                    )
+        return VectorStore._cross_encoder_model
 
     @staticmethod
     def _rerank_cross_encoder(
@@ -635,9 +818,7 @@ class VectorStore:
     ) -> Optional[List[dict]]:
         """Rerank using sentence-transformers cross-encoder (optional dep)."""
         try:
-            from sentence_transformers import CrossEncoder
-
-            model = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
+            model = VectorStore._get_cross_encoder()
             pairs = [(query, c["text"][:512]) for c in candidates]
             scores = model.predict(pairs)
             for i, score in enumerate(scores):
@@ -654,21 +835,8 @@ class VectorStore:
     def _rerank_score_fallback(
         query: str, candidates: List[dict], top_k: int
     ) -> List[dict]:
-        """Fallback reranking: combine initial rank with text overlap score.
-
-        Scores: 0.6 * normalized_rank + 0.4 * keyword_overlap
-        """
-        query_tokens = set(query.lower().split())
-        for i, c in enumerate(candidates):
-            # Rank score: higher for earlier positions
-            rank_score = 1.0 / (i + 1)
-            # Keyword overlap score
-            text_tokens = set(c.get("text", "").lower().split()[:200])
-            overlap = len(query_tokens & text_tokens) / max(len(query_tokens), 1)
-            # Combined score
-            c["_rerank_score"] = 0.6 * rank_score + 0.4 * overlap
-        candidates.sort(key=lambda x: x.get("_rerank_score", 0), reverse=True)
-        return candidates[:top_k]
+        """Fallback reranking — delegates to native_bridge (Rust or Python)."""
+        return _native_rerank_fallback(query, candidates, top_k)
 
     def count(self) -> int:
         tbl = self._get_table()
@@ -692,7 +860,8 @@ class VectorStore:
             rows = tbl.search().limit(min(limit * 5, 500)).to_list()
         except Exception:
             try:
-                rows = tbl.to_pandas().to_dict("records")[:500]
+                # Fallback: limit scan to 500 rows max to avoid OOM
+                rows = tbl.search().limit(500).to_list()
             except Exception as e:
                 log.error("decay_report_read_failed", error=str(e))
                 return []
@@ -713,14 +882,14 @@ class VectorStore:
                     "source": r.get("source", "unknown"),
                     "decay_score": round(ds, 4),
                     "access_count": ac,
-                    "last_accessed_days_ago": round((time.time() - la) / 86400, 1)
-                    if la
-                    else None,
-                    "created_days_ago": round(
-                        (time.time() - r.get("timestamp", 0)) / 86400, 1
-                    )
-                    if r.get("timestamp")
-                    else None,
+                    "last_accessed_days_ago": (
+                        round((time.time() - la) / 86400, 1) if la else None
+                    ),
+                    "created_days_ago": (
+                        round((time.time() - r.get("timestamp", 0)) / 86400, 1)
+                        if r.get("timestamp")
+                        else None
+                    ),
                 }
             )
 
@@ -808,33 +977,43 @@ class VectorStore:
             return {"error": "no_table"}
 
         try:
+            row_count = tbl.count_rows()
+            if row_count > 50_000:
+                log.warning(
+                    "batch_rescore_large_table",
+                    rows=row_count,
+                    msg="Loading full table into memory — consider chunked iteration for tables >50K rows",
+                )
             df = tbl.to_pandas()
         except Exception as e:
             return {"error": f"read_failed: {e}"}
 
         total = len(df)
-        updated = 0
-        stale_count = 0
         stale_threshold = 0.05
 
-        for idx, row in df.iterrows():
-            la = row.get("last_accessed", row.get("timestamp", 0)) or row.get(
-                "timestamp", 0
+        # Vectorized batch decay via native_bridge (Rust when available)
+        base_qualities = [0.5] * total
+        last_accessed_vals = [
+            float(
+                row.get("last_accessed", row.get("timestamp", 0))
+                or row.get("timestamp", 0)
             )
-            ac = row.get("access_count", 0) or 0
+            for _, row in df.iterrows()
+        ]
+        access_counts_vals = [
+            int(row.get("access_count", 0) or 0) for _, row in df.iterrows()
+        ]
+        created_ats_vals = [
+            float(row.get("timestamp", 0) or 0) for _, row in df.iterrows()
+        ]
 
-            score = compute_decay_score(
-                base_quality=0.5,
-                last_accessed=la,
-                access_count=ac,
-                created_at=row.get("timestamp", 0),
-            )
+        scores = _native_batch_decay(
+            base_qualities, last_accessed_vals, access_counts_vals, created_ats_vals
+        )
 
-            if score < stale_threshold:
-                stale_count += 1
-
-            df.at[idx, "decay_score"] = score
-            updated += 1
+        df["decay_score"] = scores
+        stale_count = sum(1 for s in scores if s < stale_threshold)
+        updated = total
 
         # Write back (LanceDB overwrite mode)
         try:
@@ -907,7 +1086,7 @@ def search_memory(
     search_mode: str = "hybrid",
     rerank: bool = False,
     alpha: float = 0.5,
-) -> List[Dict]:
+) -> List[SearchResult]:
     """Search the memory for relevant chunks.
 
     Args:
@@ -916,19 +1095,51 @@ def search_memory(
         search_mode: "vector" | "keyword" | "hybrid" (default: "hybrid").
         rerank: Apply reranking (cross-encoder or fallback).
         alpha: Vector/keyword balance for hybrid (0.0=keyword, 1.0=vector).
+
+    Returns:
+        List of result dicts with keys: text, source, file (basename of source),
+        score, timestamp, metadata, search_mode, alpha_used.
+        The ``file`` field equals ``Path(source).name`` — same as search().
     """
-    return get_store().search(
+    results = get_store().search(
         query, top_k, search_mode=search_mode, rerank=rerank, alpha=alpha
     )
+    # Guarantee 'file' field on every result (defensive, matches search() contract)
+    for r in results:
+        if "file" not in r:
+            r["file"] = Path(r.get("source", "unknown")).name
+    return results
+
+
+def get_vector_store_health() -> Dict:
+    """Canonical health check for the vector store.
+
+    Returns a consistent status dict used by both hive_status and memory_stats
+    to avoid reporting inconsistencies between tools.
+
+    Returns:
+        dict with keys: status ("online" | "empty" | "degraded"), vectors (int), error (str, optional)
+    """
+    try:
+        store = get_store()
+        tbl = store._get_table()
+        if tbl is not None:
+            count = tbl.count_rows()
+            return {"status": "online", "vectors": count, "table": TABLE_NAME}
+        else:
+            return {"status": "empty", "vectors": 0, "table": TABLE_NAME}
+    except Exception as e:
+        return {"status": "degraded", "vectors": 0, "error": str(e)[:100]}
 
 
 def get_memory_stats() -> Dict:
     """Get stats about the memory store."""
+    health = get_vector_store_health()
     return {
-        "status": "online",
+        "status": health["status"],
         "engine": "lancedb_hybrid (gemini-embedding-001 + BM25 RRF + decay)",
         "table": TABLE_NAME,
-        "total_chunks": get_store().count(),
+        "total_chunks": health.get("vectors", 0),
     }
 
 

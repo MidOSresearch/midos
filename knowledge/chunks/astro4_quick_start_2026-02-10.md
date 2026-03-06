@@ -1,14 +1,14 @@
 ---
-tier: public
 title: Astro 4 Quick Start Reference Card
 source: internal
 date: 2026-02-10
-tags: [typescript]
+tags:
+- typescript
+content_type: reference
 confidence: 0.7
----
-
-# Astro 4 Quick Start Reference Card
-
-> **Cheat sheet** for the complete Astro 4 harvest
+domain: frontend
+access_tier: dev
+related:
+- case_study_pricing_web_development_seo_services_2026-02-14.md
 
 [...content truncated — free tier preview]

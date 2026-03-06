@@ -6,6 +6,7 @@ model: any
 created: 2026-02-18
 tags: [github-models, free-tier, api, llm, deployment]
 source: https://github.com/marketplace/models
+access_tier: community
 ---
 
 # GitHub Models API Reference

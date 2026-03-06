@@ -7,6 +7,7 @@ category: architecture
 author: MidOS Research
 last_updated: 2026-02-13
 quality_score: 95
+access_tier: community
 ---
 
 # Skill: Domain-Driven Design Patterns
@@ -14,6 +15,5 @@ quality_score: 95
 ## Quick Reference
 
 ```
-┌─────────────────────────────────────────────────────────────┐
 
 > **Note**: Full content available to MidOS PRO subscribers. See https://midos.dev/pricing

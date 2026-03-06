@@ -9,6 +9,7 @@
   <a href="https://cursor.com"><img src="https://img.shields.io/badge/Cursor-Ready-4B8BBE?style=flat-square" alt="Cursor"></a>
   <a href="https://github.com/cline/cline"><img src="https://img.shields.io/badge/Cline-Ready-green?style=flat-square" alt="Cline"></a>
   <a href="https://github.com/nicepkg/aide"><img src="https://img.shields.io/badge/Windsurf-Ready-purple?style=flat-square" alt="Windsurf"></a>
+  <a href="https://opencode.ai"><img src="https://img.shields.io/badge/OpenCode-Ready-FF6B35?style=flat-square" alt="OpenCode"></a>
   <br>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="MIT License"></a>
   <a href="https://github.com/MidOSresearch/midos-mcp/stargazers"><img src="https://img.shields.io/github/stars/MidOSresearch/midos-mcp?style=social" alt="GitHub stars"></a>
@@ -62,6 +63,35 @@ Add a new server:
     "midos": {
       "url": "https://midos.dev/mcp",
       "transportType": "streamable-http"
+    }
+  }
+}
+```
+</details>
+
+<details>
+<summary><b>OpenCode</b> — <code>opencode.json</code></summary>
+
+```json
+{
+  "mcp": {
+    "midos": {
+      "type": "remote",
+      "url": "https://midos.dev/mcp"
+    }
+  }
+}
+```
+
+Or self-hosted (stdio):
+
+```json
+{
+  "mcp": {
+    "midos": {
+      "type": "local",
+      "command": ["python", "-m", "modules.mcp_server.midos_mcp"],
+      "enabled": true
     }
   }
 }

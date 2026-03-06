@@ -1,14 +1,15 @@
 ---
-tier: internal
-title: MCP Config Sync — PyPI Launch (2026)
+title: "MCP Config Sync \u2014 PyPI Launch (2026)"
 source: internal
 date: 2026-02-15
-tags: [claude, mcp]
+tags:
+- claude
+- mcp
 confidence: 0.7
----
-
-# MCP Config Sync — PyPI Launch (2026)
-
-> **Source**: Internal development — `tools/mcp_config_sync/`
+domain: architecture
+category: analysis
+content_type: analysis
+access_tier: dev
+related:
 
 [...content truncated — free tier preview]

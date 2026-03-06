@@ -1,13 +1,14 @@
 ---
-tier: premium
 title: Claude Code Plugin Development Patterns
 source: mixed
 date: 2026-02-14
-tags: [anthropic, claude]
+tags:
+- anthropic
+- claude
+content_type: reference
 confidence: 0.7
----
-
-# Claude Code Plugin Development Patterns
-
+domain: llm-models
+access_tier: dev
+related:
 
 [...content truncated — free tier preview]

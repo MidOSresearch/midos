@@ -1,14 +1,13 @@
 ---
-tier: public
-title: "Case Learning: Bare-Metal Firmware with FSM for Appliance Control"
+title: 'Case Learning: Bare-Metal Firmware with FSM for Appliance Control'
 source: internal
 date: 2026-02-14
-tags: [stack]
+tags:
+- stack
+content_type: reference
 confidence: 0.7
----
-
-# Case Learning: Bare-Metal Firmware with FSM for Appliance Control
-
-## Patron
+domain: system-architecture
+access_tier: dev
+related:
 
 [...content truncated — free tier preview]

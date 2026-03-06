@@ -1,14 +1,15 @@
 ---
-title: "Research: Manus Context Engineering"
+title: 'Research: Manus Context Engineering'
 source: research
 date: 2026-02-13
-tags: [optimization, research]
+tags:
+- optimization
+- research
 confidence: 0.7
----
-
-# Research: Manus Context Engineering
-
-**Date**: 2026-02-13
-**Source**: Deep research (WebSearch + WebFetch)
+domain: ai_ml
+category: case_study
+content_type: case_study
+access_tier: dev
+related:
 
 [...content truncated — free tier preview]

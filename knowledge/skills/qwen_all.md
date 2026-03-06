@@ -14,11 +14,9 @@ compatibility:
   - windsurf
 tags: [qwen, cli, mcp, agent, productivity, multi-model]
 tier: universal
+access_tier: community
 ---
 
 # Qwen Code CLI — Universal Skills
-
-## WHY
-
 
 > **Note**: Full content available to MidOS PRO subscribers. See https://midos.dev/pricing

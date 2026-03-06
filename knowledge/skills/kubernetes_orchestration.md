@@ -3,6 +3,7 @@ name: Kubernetes Container Orchestration
 version: "1.0"
 date: 2026-02-13
 tags: [kubernetes, k8s, containers, orchestration, devops, infrastructure, cloud-native, production]
+access_tier: community
 ---
 
 # Skill: Kubernetes Container Orchestration

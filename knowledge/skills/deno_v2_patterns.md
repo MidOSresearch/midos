@@ -9,7 +9,5 @@ languages: [javascript, typescript]
 frameworks: [fresh, hono]
 globs: ["**/deno.json", "**/deno.jsonc"]
 description: "Deno 2.0 patterns -- npm compat, permissions, Fresh, KV, Deploy, testing"
----
-
 
 > **Note**: Full content available to MidOS PRO subscribers. See https://midos.dev/pricing

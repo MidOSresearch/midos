@@ -9,7 +9,5 @@ languages: [javascript, typescript]
 frameworks: [elysia, hono]
 globs: ["**/bunfig.toml", "**/bun.lockb"]
 description: "Bun runtime patterns -- bundler, test runner, SQLite, HTTP server, Node.js migration"
----
-
 
 > **Note**: Full content available to MidOS PRO subscribers. See https://midos.dev/pricing

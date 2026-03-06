@@ -1,8 +1,11 @@
 ---
-name: react_comprehensive
-version: 1.0.0
-type: foundational
-category: web_development
+title: "React 19 — Comprehensive Skill Guide"
+domain: web_development
+stack: react
+category: reference
+confidence: 0.95
+date: 2026-02-23
+access_tier: community
 tags:
   - react
   - react19
@@ -12,12 +15,11 @@ tags:
   - performance
   - testing
   - state-management
+  - migration
+  - actions
+  - server-actions
+version: 2.0.0
 created: 2026-02-10
-phase: phase_1_foundation
-priority: critical
-demand_metric: "20% of front-end developer jobs 2026"
-prerequisites:
-  - typescript_mastery
-  - javascript_fundamentals
+updated: 2026-02-23
 
 > **Note**: Full content available to MidOS PRO subscribers. See https://midos.dev/pricing

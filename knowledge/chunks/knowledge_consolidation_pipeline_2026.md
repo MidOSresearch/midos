@@ -1,12 +1,16 @@
 ---
 title: Knowledge Consolidation Pipeline -- Systematic Quality Management
-type: chunk
-category: knowledge-management
-created: 2026-02-15
-author: V5 (R031)
+source: internal
+date: 2026-02-15
+tags:
+- knowledge
+- consolidation
+- dedup
+- quality
+- pipeline
+- tools
 confidence: HIGH
-tags: [knowledge, consolidation, dedup, quality, pipeline, tools]
----
-
+domain: architecture
+category: research
 
 [...content truncated — free tier preview]

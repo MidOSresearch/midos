@@ -1,9 +1,18 @@
 ---
-status: needs_work
-triage_status: gap_identified
-triage_notes: Negative result report. Needs reframing as a 'Gap Analysis' chunk rather than a failed research log.
-topic: mcp_annotations_gap_analysis
-created: 2026-02-18
----
+title: Mcp Annotations Gap Analysis
+source: internal
+date: 2026-02-18
+tags:
+- api
+- claude
+- mcp
+- python
+confidence: 0.7
+domain: architecture
+category: analysis
+content_type: analysis
+access_tier: dev
+related:
+- mcp_output_schema_structures.md
 
 [...content truncated — free tier preview]

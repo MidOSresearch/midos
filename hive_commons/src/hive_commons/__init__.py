@@ -20,24 +20,43 @@ __version__ = "0.1.0"
 # Lazy imports to avoid circular dependencies
 def get_llm_router():
     from .llm_router import get_router
+
     return get_router()
+
 
 def get_vector_store():
     from .vector_store import get_store
+
     return get_store()
+
 
 def get_semantic_cache():
     from .semantic_cache import get_cache
+
     return get_cache()
+
 
 def get_circuit_breaker():
     from .circuit_breaker import get_breaker
+
     return get_breaker()
+
+
+def get_domain_classifier():
+    from .domain_classifier import classify_item, get_access_tier, load_registry
+
+    return {
+        "classify_item": classify_item,
+        "get_access_tier": get_access_tier,
+        "load_registry": load_registry,
+    }
+
 
 __all__ = [
     "get_llm_router",
     "get_vector_store",
     "get_semantic_cache",
     "get_circuit_breaker",
+    "get_domain_classifier",
     "__version__",
 ]

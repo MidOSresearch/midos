@@ -1,13 +1,16 @@
 ---
-title: "Research: Knowledge Persistence & RAG Repos (Session A)"
+title: 'Research: Knowledge Persistence & RAG Repos (Session A)'
 source: research
 date: 2026-02-10
-tags: [claude, mcp, research]
+tags:
+- claude
+- mcp
+- research
 confidence: 0.7
----
-
-# Research: Knowledge Persistence & RAG Repos (Session A)
-
-**Created**: 2026-02-10
+domain: architecture
+category: research
+content_type: research
+access_tier: dev
+related:
 
 [...content truncated — free tier preview]

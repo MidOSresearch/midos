@@ -5,6 +5,7 @@ date: 2026-02-13
 tags: [elasticsearch, search, full-text, vector-search, analytics, elk, semantic-search, observability, index-management]
 status: stable
 truth_validated: true
+access_tier: community
 ---
 
 # Skill: Elasticsearch Search & Analytics

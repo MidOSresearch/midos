@@ -8,11 +8,10 @@ sources:
   - https://endoflife.date/symfony
   - https://proxify.io/articles/symfony-vs-laravel
   - https://symfony.com/stats/downloads
+access_tier: community
 ---
 
 # Symfony — Skill Reference
-
-## Version Landscape
 
 
 > **Note**: Full content available to MidOS PRO subscribers. See https://midos.dev/pricing
