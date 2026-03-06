@@ -1,0 +1,30 @@
+---
+import LandingLayout from "../layouts/LandingLayout.astro";
+import GridBackground from "../components/landing/GridBackground";
+import Navbar from "../components/landing/Navbar";
+import Hero from "../components/landing/Hero";
+import CrosshairDivider from "../components/landing/CrosshairDivider";
+import Pipeline from "../components/landing/Pipeline";
+import Features from "../components/landing/Features";
+import Pricing from "../components/landing/Pricing";
+import CTA from "../components/landing/CTA";
+import Footer from "../components/landing/Footer";
+---
+
+<LandingLayout title="MidOS — Curated Knowledge for AI Agents" description="MCP Community Library with 57 tools, 1284 knowledge chunks, 104 skills, and 22900 vectors. Source-verified patterns and semantic search for any MCP-compatible client.">
+  <GridBackground client:load>
+    <Navbar client:load />
+    <main>
+      <Hero client:load />
+      <CrosshairDivider client:load />
+      <Pipeline client:load />
+      <CrosshairDivider client:load />
+      <Features client:load />
+      <CrosshairDivider client:load />
+      <Pricing client:load />
+      <CrosshairDivider client:load />
+      <CTA client:load />
+    </main>
+    <Footer client:load />
+  </GridBackground>
+</LandingLayout>
