@@ -1,265 +1,184 @@
-<p align="center">
-  <h1 align="center">MidOS — MCP Server for Developer Knowledge</h1>
-  <p align="center">Curated, validated knowledge for AI coding agents. Not raw docs — battle-tested patterns.</p>
-</p>
+# midos-mcp
 
-<p align="center">
-  <a href="https://modelcontextprotocol.io"><img src="https://img.shields.io/badge/MCP-Compatible-blue?style=flat-square" alt="MCP Compatible"></a>
-  <a href="https://claude.ai"><img src="https://img.shields.io/badge/Claude_Code-Ready-D79943?style=flat-square" alt="Claude Code"></a>
-  <a href="https://cursor.com"><img src="https://img.shields.io/badge/Cursor-Ready-4B8BBE?style=flat-square" alt="Cursor"></a>
-  <a href="https://github.com/cline/cline"><img src="https://img.shields.io/badge/Cline-Ready-green?style=flat-square" alt="Cline"></a>
-  <a href="https://github.com/nicepkg/aide"><img src="https://img.shields.io/badge/Windsurf-Ready-purple?style=flat-square" alt="Windsurf"></a>
-  <a href="https://opencode.ai"><img src="https://img.shields.io/badge/OpenCode-Ready-FF6B35?style=flat-square" alt="OpenCode"></a>
-  <br>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="MIT License"></a>
-  <a href="https://github.com/MidOSresearch/midos-mcp/stargazers"><img src="https://img.shields.io/github/stars/MidOSresearch/midos-mcp?style=social" alt="GitHub stars"></a>
-  <a href="https://smithery.ai"><img src="https://img.shields.io/badge/Smithery-Listed-orange?style=flat-square" alt="Smithery"></a>
-  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.11+-blue?style=flat-square&logo=python&logoColor=white" alt="Python 3.11+"></a>
-</p>
+**MidOS MCP Community Library** — Knowledge, Skills, and Research as MCP tools.
 
----
+Install once, connect to any AI client.
 
-**125 skill packs** across 20+ tech stacks. **46,000+ curated chunks**. **436 validated discoveries**. Every piece reviewed, cross-validated, and myth-busted.
+## Install
 
+```bash
+pip install midos-mcp
 ```
-Your agent asks: "How do I implement optimistic updates in React 19?"
-MidOS returns: Battle-tested pattern with useOptimistic + Server Actions, validated Feb 2026.
-Context7 returns: Raw React docs from reactjs.org.
+
+**Requirement**: MidOS knowledge base must be available locally. Set the `MIDOS_ROOT` environment variable to point to your MidOS installation directory (the one containing `knowledge/` and `modules/`).
+
+```bash
+export MIDOS_ROOT=/path/to/midos
 ```
 
 ## Quick Start
 
-**One line.** Add to your MCP config and start querying:
+```bash
+# Start server (stdio — default for Claude Code, Cursor, etc.)
+midos-mcp serve
 
-<details>
-<summary><b>Claude Code</b> — <code>.mcp.json</code> or <code>~/.claude/settings.json</code></summary>
+# Start with HTTP transport
+midos-mcp serve --http
 
-```json
-{
-  "mcpServers": {
-    "midos": {
-      "url": "https://midos.dev/mcp"
-    }
-  }
-}
-```
-</details>
+# Generate config for your AI client
+midos-mcp config --generate claude
+midos-mcp config --generate cursor
 
-<details>
-<summary><b>Cursor / Windsurf</b> — MCP Settings</summary>
-
-Add a new server:
-- **Name**: `midos`
-- **URL**: `https://midos.dev/mcp`
-- **Transport**: Streamable HTTP
-</details>
-
-<details>
-<summary><b>Cline</b> — MCP Settings</summary>
-
-```json
-{
-  "mcpServers": {
-    "midos": {
-      "url": "https://midos.dev/mcp",
-      "transportType": "streamable-http"
-    }
-  }
-}
-```
-</details>
-
-<details>
-<summary><b>OpenCode</b> — <code>opencode.json</code></summary>
-
-```json
-{
-  "mcp": {
-    "midos": {
-      "type": "remote",
-      "url": "https://midos.dev/mcp"
-    }
-  }
-}
+# Check health
+midos-mcp health
 ```
 
-Or self-hosted (stdio):
+## Commands
 
-```json
-{
-  "mcp": {
-    "midos": {
-      "type": "local",
-      "command": ["python", "-m", "modules.mcp_server.midos_mcp"],
-      "enabled": true
-    }
-  }
-}
-```
-</details>
+### `midos-mcp serve`
 
-<details>
-<summary><b>Self-hosted</b> — Run locally</summary>
+Start the MCP server with your preferred transport.
 
 ```bash
-git clone https://github.com/MidOSresearch/midos-mcp.git
-cd midos-mcp
-pip install -e .
-pip install -e hive_commons/
-python -m modules.mcp_server.midos_mcp --http --port 8419
+midos-mcp serve              # stdio (default)
+midos-mcp serve --http       # Streamable HTTP on 127.0.0.1:8419
+midos-mcp serve --sse        # Legacy SSE transport
+midos-mcp serve --http --host 0.0.0.0 --port 9000
 ```
 
-Then point your MCP client to `http://localhost:8419/mcp`.
-</details>
+| Flag | Transport | Use Case |
+|------|-----------|----------|
+| `--stdio` | stdio | Claude Code, Cursor, Cline (default) |
+| `--http` | Streamable HTTP | Web clients, remote access |
+| `--sse` | Server-Sent Events | Legacy clients |
 
-### First Tool Call
+### `midos-mcp config`
 
-After connecting, personalize your experience:
+Generate ready-to-paste JSON config for any supported MCP client.
 
-```
-agent_handshake(model="claude-opus-4-6", client="claude-code", languages="python,typescript", frameworks="fastapi,react")
-```
+```bash
+midos-mcp config --generate claude    # Claude Desktop / Claude Code
+midos-mcp config --generate cursor    # Cursor IDE
+midos-mcp config --generate cline     # Cline (VS Code)
+midos-mcp config --generate windsurf  # Windsurf IDE
+midos-mcp config --generate continue  # Continue.dev
+midos-mcp config --generate zed       # Zed Editor
+midos-mcp config --generate opencode  # OpenCode
+midos-mcp config --generate http      # Generic HTTP client
 
-Then search for what you need:
-
-```
-search_knowledge("React 19 Server Components patterns")
-```
-
-## Tools Reference
-
-### Free Tier (no API key)
-
-| Tool | Description | Example |
-|------|-------------|---------|
-| `search_knowledge` | Search 46,000+ curated chunks across all stacks | `search_knowledge("FastAPI dependency injection")` |
-| `hybrid_search` | Combined keyword + semantic search with reranking | `hybrid_search("PostgreSQL JSONB indexing")` |
-| `list_skills` | Browse 125 skill packs by technology | `list_skills(stack="react")` |
-| `get_skill` | Get a specific skill pack (preview in free, full in Dev) | `get_skill("nextjs")` |
-| `get_protocol` | Protocol and pattern documentation | `get_protocol("domain-driven-design")` |
-| `hive_status` | System health and live statistics | `hive_status()` |
-| `project_status` | Knowledge pipeline dashboard | `project_status()` |
-| `agent_handshake` | Personalized onboarding for your model + stack | See example above |
-
-### Dev Tier ($20/mo — full content + advanced search)
-
-| Tool | Description | Example |
-|------|-------------|---------|
-| `get_eureka` | Validated breakthrough discoveries (436 items) | `get_eureka("response-cache")` |
-| `get_truth` | Empirically verified truth patches (52 items) | `get_truth("qlora-myths")` |
-| `semantic_search` | Vector search with Gemini embeddings (3072-d) | `semantic_search("event sourcing CQRS")` |
-| `research_youtube` | Extract knowledge from video content | `research_youtube("https://youtube.com/...")` |
-| `chunk_code` | Intelligent code chunking for ingestion | `chunk_code(code="...", language="python")` |
-| `memory_stats` | Vector store analytics and health | `memory_stats()` |
-| `episodic_search` | Search agent session history | `episodic_search("last deployment issue")` |
-
-### Ops Tier (custom — security, infrastructure, advanced ops)
-
-Contact for specialized knowledge packs. [midos.dev/pricing](https://midos.dev/pricing)
-
-## Skill Packs (125 and growing)
-
-Production-tested patterns for:
-
-**Frontend**: React 19, Next.js 16, Angular 21, Svelte 5, Tailwind CSS v4, Remix v2
-
-**Backend**: FastAPI, Django 5, NestJS 11, Laravel 12, Spring Boot, Symfony 8
-
-**Languages**: TypeScript, Go, Rust, Python
-
-**Data**: PostgreSQL, Redis, MongoDB, Elasticsearch, LanceDB, Drizzle ORM, Prisma 7
-
-**Infrastructure**: Kubernetes, Terraform, Docker, GitHub Actions
-
-**AI/ML**: LoRA/QLoRA, MCP patterns, multi-agent orchestration, Vercel AI SDK
-
-**Testing**: Playwright, Vitest
-
-**Architecture**: DDD, GraphQL, event-driven, microservices, spec-driven dev
-
-## How MidOS is Different
-
-| | Raw Docs (Context7, etc.) | MidOS |
-|---|---|---|
-| **Content** | Documentation dumps | Curated, human-reviewed, cross-validated |
-| **Quality** | No validation | 5-layer pipeline: chunks → truth → EUREKA → SOTA |
-| **Search** | Keyword matching | Semantic + hybrid search (Gemini embeddings, 3072-d) |
-| **Onboarding** | Generic | Personalized per model + CLI + stack |
-| **Format** | Raw text | Stack-specific skill packs with production patterns |
-| **Accuracy** | Stale docs | Myth-busted with empirical evidence |
-
-## Knowledge Pipeline
-
-```
-staging/ → chunks/ → skills/ → truth/ → EUREKA/ → SOTA/
- (entry)    (L1)      (L2)      (L3)     (L4)      (L5)
+# Write to file
+midos-mcp config --generate claude -o mcp-config.json
 ```
 
-- **Chunks** (46,000+): Curated, indexed knowledge across 20+ stacks
-- **Skills** (125): Organized, actionable, versioned by stack
-- **Truth** (52): Verified with empirical evidence
-- **EUREKA** (436): Validated improvements with measured ROI
-- **SOTA** (138): Best-in-class, currently unimprovable
+### `midos-mcp health`
 
-## Using an API Key
+Check server health: knowledge base stats, vector store status, dependencies.
 
-Pass your key via the `Authorization` header for Dev/Ops access:
-
-```json
-{
-  "mcpServers": {
-    "midos": {
-      "url": "https://midos.dev/mcp",
-      "headers": {
-        "Authorization": "Bearer midos_your_key_here"
-      }
-    }
-  }
-}
+```bash
+midos-mcp health          # Human-readable output
+midos-mcp health --json   # JSON output for scripts
 ```
 
-Get a key at [midos.dev/pricing](https://midos.dev/pricing).
+### `midos-mcp keys`
 
-## Architecture
+Manage API keys for tiered access control.
 
-```
-midos-mcp/
-├── modules/mcp_server/   FastMCP server (streamable-http)
-├── knowledge/
-│   ├── chunks/            Curated knowledge (L1) — 46,000+ items
-│   ├── skills/            Stack-specific skill packs (L2) — 125 items
-│   ├── EUREKA/            Validated discoveries (L4) — 436 items
-│   └── truth/             Empirical patches (L3) — 52 items
-├── hive_commons/          Shared library (LanceDB vector store, config)
-├── smithery.yaml          Smithery marketplace manifest
-├── Dockerfile             Production container
-└── pyproject.toml         Dependencies and build config
+```bash
+midos-mcp keys generate --name "my-app" --tier dev
+midos-mcp keys list
+midos-mcp keys revoke midos_sk_abc
 ```
 
-## Tech Stack
+Tiers: `dev` (free), `pro` ($10/mo), `admin`.
 
-- **Server**: [FastMCP](https://github.com/jlowin/fastmcp) 2.x (streamable-http transport)
-- **Vectors**: [LanceDB](https://lancedb.com) + Gemini embeddings (670,000+ vectors, 3072-d)
-- **Auth**: 2-tier API key middleware (free → dev) with rate limiting
-- **Pipeline**: 5-layer quality validation with myth-busting
-- **Deploy**: Docker + Coolify (auto-deploy on push)
+## Configuration
 
-## Contributing
+### Environment Variables
 
-MidOS is community-first. If you have production-tested patterns, battle scars, or discovered that a popular claim is false — we want it.
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `MIDOS_ROOT` | auto-detect | Path to MidOS installation (required) |
+| `MIDOS_HOST` | `127.0.0.1` | HTTP server bind host |
+| `MIDOS_PORT` | `8419` | HTTP server bind port |
+| `MIDOS_TRANSPORT` | `stdio` | Default transport |
 
-1. Search existing knowledge first: `search_knowledge("your topic")`
-2. [Open an issue](https://github.com/MidOSresearch/midos-mcp/issues/new) describing the pattern or discovery
-3. We'll review and add it to the pipeline
+### Root Detection
+
+The server locates the MidOS knowledge base:
+
+1. `MIDOS_ROOT` environment variable (recommended)
+2. Auto-detect: walks up from package location looking for `CLAUDE.md` + `knowledge/`
+3. Fallback: current working directory
+
+**If you installed via pip**, auto-detect won't find the knowledge base. Either:
+
+```bash
+# Option A: Clone the repo and point to it
+git clone https://github.com/MidOSresearch/midos.git
+export MIDOS_ROOT=./midos
+
+# Option B: Point to an existing MidOS directory
+export MIDOS_ROOT=/path/to/your/midos
+```
+
+Verify with `midos-mcp health` — it shows the detected root and knowledge counts.
+
+## Supported Clients
+
+| Client | Config File | Transport |
+|--------|-------------|-----------|
+| Claude Desktop | `claude_desktop_config.json` | stdio |
+| Claude Code | `.mcp.json` | stdio |
+| Cursor | `.cursor/mcp.json` | stdio |
+| Cline | `cline_mcp_settings.json` | stdio |
+| Windsurf | `~/.codeium/windsurf/mcp_config.json` | stdio |
+| Continue.dev | `~/.continue/config.json` | stdio |
+| Zed | `~/.config/zed/settings.json` | stdio |
+| OpenCode | `opencode.json` | SSE |
+
+## Optional Dependencies
+
+```bash
+# Vector store support (LanceDB + embeddings)
+pip install midos-mcp[vector]
+
+# Development tools
+pip install midos-mcp[dev]
+```
+
+## What's Inside
+
+MidOS exposes 68 MCP tools across 2 tiers:
+
+| Tier | Tools | Access |
+|------|-------|--------|
+| **Dev** | 34 tools | Free — no API key needed, full content, 500 queries/month |
+| **Pro** | 68 tools | $10/mo — security ops, AOTC, orchestration, maker write ops |
+
+### Capabilities
+
+- **Knowledge** — Search 46K+ curated chunks across all domains (full content, no truncation)
+- **Skills** — 119 reusable patterns across 16+ technology stacks
+- **EUREKA** — 383 validated improvements with measured ROI
+- **Truth** — 50 verified patches and corrections
+- **SOTA** — 140 state-of-the-art convergence ceilings
+- **Vector Search** — Semantic search via LanceDB + Gemini embeddings (3072-d)
+
+## Rate Limits
+
+| Tier | Queries/month | Content |
+|------|:-------------:|---------|
+| Dev | 500 | Full content (no truncation) |
+| Pro | 100,000 | Full content + AOTC + ops packs |
+
+Invalid or expired API keys silently fall back to Dev tier.
+
+## Requirements
+
+- Python 3.10+
+- FastMCP 2.x
+- MidOS knowledge base (local)
 
 ## License
 
-[MIT](LICENSE)
-
----
-
-<p align="center">
-  Source-verified developer knowledge. Built by devs, for agents.
-  <br>
-  <a href="https://midos.dev">midos.dev</a> · <a href="https://github.com/MidOSresearch/midos-mcp/discussions">Discussions</a> · <a href="https://github.com/MidOSresearch/midos-mcp/issues">Issues</a>
-</p>
+MIT
