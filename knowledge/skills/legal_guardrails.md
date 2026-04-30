@@ -1,6 +1,6 @@
 ---
 title: Legal Guardrails for AI Agents — Platform ToS Synthesis
-domain: legal, compliance, agents
+domain: legal, compliance, agents  # needs-review
 type: skill
 confidence: 0.90
 created: 2026-02-11

@@ -1,6 +1,6 @@
 ---
 title: "Vector DB Operations with LanceDB"
-domain: data
+domain: rag-search
 stack: [python, lancedb]
 category: reference
 confidence: 0.97

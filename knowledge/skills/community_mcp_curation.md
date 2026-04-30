@@ -1,6 +1,6 @@
 ---
 title: "Community MCP Curation"
-domain: architecture
+domain: agentic-systems
 stack: [mcp, python]
 category: tutorial
 confidence: 0.85

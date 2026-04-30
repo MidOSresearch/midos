@@ -1,14 +1,14 @@
+---
+title: "Supabase SQL Migrations — Enterprise Standard"
+domain: backend-systems
+confidence: 0.87
+access_tier: community
+tags: [supabase, sql, migrations, postgresql, rls, triggers, enterprise]
+sources: ["https://supabase.com/docs/guides/database/migrations", "session_extraction_20260205"]
+---
+
 # Supabase SQL Migrations - Enterprise Standard
 
 > **Knowledge Type**: Technical Standard
-> **Created**: 2026-02-05
-> **Source**: L3 Research Request (Terrazos)
-> **Last Updated**: 2026-02-05
-> **Tags**: supabase, sql, migrations, postgresql, rls, triggers
-
----
-
-## 📌 Summary
-
 
 > **Note**: Full content available to MidOS PRO subscribers. See https://midos.dev/pricing

@@ -1,6 +1,6 @@
 ---
 title: "Data Quality Frameworks"
-domain: data_engineering
+domain: rag-search
 stack: [python, great-expectations, dbt]
 category: tutorial
 confidence: 0.85

@@ -1,6 +1,6 @@
 ---
 title: "Notepad++ Plugin Installer — Automated Plugin Management for Notepad++"
-domain: devops
+domain: platform-ops
 stack: python
 category: reference
 confidence: 0.88

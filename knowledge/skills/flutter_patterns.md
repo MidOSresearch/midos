@@ -1,6 +1,6 @@
 ---
 title: "Flutter Patterns — Dart + Riverpod + Material3"
-domain: web_development
+domain: frontend-web
 stack: dart
 category: reference
 confidence: 0.85

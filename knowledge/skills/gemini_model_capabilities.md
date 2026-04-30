@@ -11,11 +11,7 @@ compatibility:
   - midos
 last_updated: 2026-02-16
 access_tier: community
----
-
-# Gemini Model Capabilities (2.5 Family)
-
-## Model Comparison
-
+domain: llm-engineering
+confidence: 0.88
 
 > **Note**: Full content available to MidOS PRO subscribers. See https://midos.dev/pricing

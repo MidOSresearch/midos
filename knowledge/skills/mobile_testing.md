@@ -1,6 +1,6 @@
 ---
 title: "Mobile Testing — Swift Testing + Compose Test + Snapshot + E2E"
-domain: web_development
+domain: frontend-web
 stack: mobile
 category: reference
 confidence: 0.85

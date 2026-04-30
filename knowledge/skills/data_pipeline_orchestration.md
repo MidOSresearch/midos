@@ -1,6 +1,6 @@
 ---
 title: "Data Pipeline Orchestration"
-domain: data_engineering
+domain: rag-search
 stack: [python, dask, polars, airflow]
 category: tutorial
 confidence: 0.85

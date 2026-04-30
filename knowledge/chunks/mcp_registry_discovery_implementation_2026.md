@@ -1,4 +1,5 @@
 ---
+
 title: "MCP Registry, Discovery & .well-known \u2014 Implementation Guide"
 source: web_research
 date: 2026-02-15
@@ -11,6 +12,6 @@ tags:
 - namespace
 - publishing
 - sub-registry
-confidence: 0.7
+confidence: 0.80
 
 [...content truncated — free tier preview]

@@ -1,6 +1,6 @@
 ---
 title: "MidOS Efficiency Guide"
-domain: general
+domain: platform-ops
 stack: midos
 category: reference
 confidence: 0.92
@@ -14,6 +14,7 @@ tags:
   - decision-tree
   - context-management
   - midos
+  - retag:2026-04-23
 version: 1.0.0
 created: 2026-02-23
 model: any

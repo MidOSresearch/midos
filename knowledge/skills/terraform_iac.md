@@ -6,9 +6,10 @@ tags: [terraform, iac, infrastructure, devops, cloud, opentofu, hcl, state-manag
 research_date: 2026-02-13
 sources: [HashiCorp Developer, DevOpsie, Spacelift, Firefly Academy, Infracost, GitHub]
 access_tier: community
+confidence: 0.88
+domain: platform-ops
+category: skills
 ---
-
-# Skill: Terraform Infrastructure as Code
 
 
 > **Note**: Full content available to MidOS PRO subscribers. See https://midos.dev/pricing

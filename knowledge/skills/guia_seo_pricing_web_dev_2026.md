@@ -7,8 +7,9 @@ tags: [seo, pricing, freelance, web-dev, core-web-vitals, wordpress, react, tail
 quality_score: A (0.88)
 confidence: 0.88
 created: 2026-02-12
-source: RQ-001 (Guarin) + RQ-004 (community request)
+source: community-request
 access_tier: community
+domain: frontend-web
 ---
 
 # Guía Completa: SEO, Pricing y Venta de Sitios Web 2026

@@ -1,6 +1,6 @@
 ---
 title: "Swift iOS Patterns — SwiftUI + SwiftData + Concurrency"
-domain: web_development
+domain: llm-engineering
 stack: swift
 category: reference
 confidence: 0.85

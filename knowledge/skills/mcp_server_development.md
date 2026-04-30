@@ -1,6 +1,6 @@
 ---
 title: "MCP Server Development"
-domain: architecture
+domain: agentic-systems
 stack: [python, mcp]
 category: reference
 confidence: 0.95

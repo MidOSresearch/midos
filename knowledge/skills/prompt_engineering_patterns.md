@@ -1,6 +1,6 @@
 ---
 title: "Prompt Engineering Patterns"
-domain: ai_ml
+domain: llm-engineering
 stack: [python]
 category: reference
 confidence: 0.95

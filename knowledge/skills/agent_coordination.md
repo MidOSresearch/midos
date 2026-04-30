@@ -1,6 +1,6 @@
 ---
 title: "Agent Coordination Patterns"
-domain: architecture
+domain: agentic-systems
 stack: [multi, python, bash]
 category: reference
 confidence: 0.94

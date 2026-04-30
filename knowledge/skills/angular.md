@@ -4,6 +4,9 @@ version: 19.0.0
 truth_validated: true
 last_updated: 2026-02-10
 access_tier: community
+domain: frontend-web
+confidence: 0.87
+sources: ["https://angular.dev", "https://angular.dev/guide/signals"]
 ---
 
 # Angular — Skill Reference
@@ -11,6 +14,5 @@ access_tier: community
 ## Version Landscape
 
 - **Current stable**: 19.0.0 (released November 19, 2024)
-- **Latest (2025-2026)**: Angular 21 (released November 19, 2025)
 
 > **Note**: Full content available to MidOS PRO subscribers. See https://midos.dev/pricing

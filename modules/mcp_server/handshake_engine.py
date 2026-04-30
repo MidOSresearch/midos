@@ -311,7 +311,7 @@ def generate_config(profile: AgentProfile) -> dict[str, Any]:
         "suggestions": _build_suggestions(profile, model_spec, client_spec),
     }
 
-    # Resume hint (BL-074): check for previous sessions
+    # Resume hint: check for previous sessions
     try:
         from .session_logger import get_recent_sessions
 
@@ -548,7 +548,7 @@ def format_config(config: dict[str, Any], profile: AgentProfile) -> str:
             parts.append(f"- {s}")
         parts.append("")
 
-    # Resume hint (BL-074)
+    # Resume hint
     resume = config.get("resume_hint")
     if resume:
         ago = _time_ago(resume.get("last_active", ""))

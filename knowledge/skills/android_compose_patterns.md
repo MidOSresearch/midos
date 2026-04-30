@@ -1,6 +1,6 @@
 ---
 title: "Android Compose Patterns — Jetpack Compose + Material3 + Kotlin"
-domain: web_development
+domain: frontend-web
 stack: kotlin
 category: reference
 confidence: 0.85

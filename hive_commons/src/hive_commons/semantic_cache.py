@@ -6,12 +6,13 @@ returns the cached answer instantly. Zero latency, Zero cost.
 
 Part of hive_commons — MidOS shared infrastructure.
 """
-import time
+
 import json
+import time
+from typing import Dict, Optional
+
 import lancedb
 import structlog
-from typing import Optional, Dict
-from pathlib import Path
 
 from .config import L1_ROOT, ensure_env
 from .vector_store import get_embedding
@@ -115,9 +116,7 @@ class SemanticCache:
     def set(self, prompt: str, result, query_type: str, estimated_tokens: int = 0):
         """Adapter: saves result."""
         try:
-            response_str = (
-                json.dumps(result) if isinstance(result, dict) else str(result)
-            )
+            response_str = json.dumps(result) if isinstance(result, dict) else str(result)
             self.cache(prompt, response_str, "auto", query_type)
         except Exception as e:
             log.error("adapter_set_error", error=str(e))

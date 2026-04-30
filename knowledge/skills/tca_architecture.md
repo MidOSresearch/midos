@@ -1,6 +1,6 @@
 ---
 title: "TCA — The Composable Architecture for SwiftUI"
-domain: web_development
+domain: frontend-web
 stack: swift
 category: reference
 confidence: 0.85

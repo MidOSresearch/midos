@@ -1,3 +1,11 @@
+---
+title: "tRPC v11 — End-to-End Typesafe APIs"
+domain: backend-systems
+confidence: 0.90
+access_tier: community
+sources: ["https://trpc.io"]
+---
+
 # tRPC v11 — End-to-End Typesafe APIs
 
 > **Stack**: tRPC
@@ -11,8 +19,5 @@
 
 ## WHY (Motivation)
 
-**What problem does tRPC solve?**
-- REST APIs require manual type duplication between client and server
-- GraphQL needs code generation, schemas, and resolvers
 
 > **Note**: Full content available to MidOS PRO subscribers. See https://midos.dev/pricing

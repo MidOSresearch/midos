@@ -567,7 +567,7 @@ class VectorStore:
         if not items:
             return False
 
-        # Normalize source paths to POSIX forward-slash (BL-118)
+        # Normalize source paths to POSIX forward-slash
         for item in items:
             if "source" in item and isinstance(item["source"], str):
                 item["source"] = item["source"].replace("\\", "/")

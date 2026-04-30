@@ -4,7 +4,7 @@ source: pain_pipeline_spec_55b24943
 date: 2026-02-22
 tags: [angular, cloudflare, ai-gateway, troubleshooting, authentication, byok]
 confidence: 0.85
-domain: web_development
+domain: frontend-web
 category: tutorial
 stack: [angular, cloudflare, openai, gemini, hugging-face]
 access_tier: community

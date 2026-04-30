@@ -6,6 +6,7 @@ tags: [redis, caching, real-time, pub-sub, streams, rate-limiting, distributed-l
 status: stable
 truth_validated: true
 access_tier: community
+domain: backend-systems
 ---
 
 # Skill: Redis Caching & Real-Time Patterns

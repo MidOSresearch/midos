@@ -5,8 +5,9 @@ description: GitHub Models API reference - free access to GLM, Llama, Phi, and m
 model: any
 created: 2026-02-18
 tags: [github-models, free-tier, api, llm, deployment]
-source: https://github.com/marketplace/models
+source: distilled
 access_tier: community
+domain: llm-engineering
 ---
 
 # GitHub Models API Reference

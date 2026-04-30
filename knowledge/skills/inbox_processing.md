@@ -7,13 +7,12 @@ stack: [python, mcp]
 quality: high
 triggers: ["inbox", "process inbox", "triage inbox", "ingest content"]
 access_tier: community
+domain: rag-search
 ---
 
 # Inbox Processing Pipeline
 
 Systematic pipeline to process `knowledge/inbox/` content into indexed knowledge chunks.
-
-## Prerequisites
 
 
 > **Note**: Full content available to MidOS PRO subscribers. See https://midos.dev/pricing

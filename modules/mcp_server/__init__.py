@@ -1,9 +1,1 @@
-"""
-MIDOS MCP SERVER
-================
-Expone el knowledge base como herramientas MCP.
-"""
-
-from .midos_mcp import main as run_server
-
-__all__ = ["run_server"]
+"""Deprecated MCP server compatibility package; use modules.m90_mcp_server."""

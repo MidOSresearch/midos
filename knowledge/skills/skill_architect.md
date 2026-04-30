@@ -1,6 +1,6 @@
 ---
 title: Skill Architect — Agent Self-Audit & Improvement
-domain: architecture
+domain: agentic-systems
 stack: multi
 category: reference
 confidence: 0.95

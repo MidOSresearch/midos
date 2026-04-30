@@ -1,6 +1,6 @@
 ---
 title: "Kotlin Coroutines & Flow — Structured Concurrency for Android"
-domain: web_development
+domain: frontend-web
 stack: kotlin
 category: reference
 confidence: 0.85

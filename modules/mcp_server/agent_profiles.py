@@ -755,25 +755,6 @@ MODEL_CATALOG: dict[str, ModelSpec] = {
         speed_tps=45,
         tips=["Free via OpenRouter", "80B MoE reasoning model"],
     ),
-    # --- Additional Free/Trial Models (R002) ---
-    "kimi-k2.5": ModelSpec(
-        id="kimi-k2.5",
-        family="kimi",
-        context_window=262144,
-        max_output=8192,
-        supports_tools=True,
-        supports_vision=True,
-        supports_structured=True,
-        tier="frontier",
-        code_score=9,
-        reasoning_score=9,
-        speed_tps=40,
-        tips=[
-            "262K context — use it for deep analysis",
-            "Agent swarm capability — can self-direct multi-step tasks",
-            "Multimodal — accepts images",
-        ],
-    ),
     "minimax-m2.5": ModelSpec(
         id="minimax-m2.5",
         family="minimax",
@@ -1130,12 +1111,6 @@ _MODEL_ALIASES: dict[str, str] = {
     "openai/gpt-oss-120b:free": "gpt-oss-120b",
     "qwen3-next-80b-a3b-instruct": "qwen3-next-80b",
     "qwen/qwen3-next-80b-a3b-instruct:free": "qwen3-next-80b",
-    # Kimi
-    "kimi": "kimi-k2.5",
-    "kimi k2.5": "kimi-k2.5",
-    "kimi-k2": "kimi-k2.5",
-    "moonshotai/kimi-k2.5": "kimi-k2.5",
-    "moonshotai/kimi-k2.5:free": "kimi-k2.5",
     # MiniMax
     "minimax": "minimax-m2.5",
     "minimax m2.5": "minimax-m2.5",

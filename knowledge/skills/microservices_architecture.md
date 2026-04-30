@@ -4,6 +4,7 @@ version: "1.0"
 date: 2026-02-13
 tags: [microservices, architecture, distributed-systems, patterns, resilience, DDD, CQRS, event-sourcing, api-gateway, service-mesh]
 access_tier: community
+domain: backend-systems
 ---
 
 # Skill: Microservices Architecture Patterns
@@ -11,6 +12,5 @@ access_tier: community
 ## Quick Reference: When to Use Microservices
 
 | Scenario | Recommendation | Notes |
-|----------|---|---|
 
 > **Note**: Full content available to MidOS PRO subscribers. See https://midos.dev/pricing

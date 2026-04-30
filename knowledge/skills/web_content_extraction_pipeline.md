@@ -3,7 +3,7 @@ title: "Web Content Extraction Pipeline"
 date: "2026-02-22"
 tags: [pipeline, extraction, knowledge-engineering, ops]
 confidence: 0.95
-domain: "architecture"
+domain: architecture
 category: "reference"
 content_type: "reference"
 stack: "python"

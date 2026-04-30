@@ -1,6 +1,6 @@
 ---
 title: "Pipeline Signals & Event System"
-domain: architecture
+domain: agentic-systems
 stack: [python]
 category: reference
 confidence: 0.96

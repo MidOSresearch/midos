@@ -1,6 +1,6 @@
 ---
 title: "React 19 — Comprehensive Skill Guide"
-domain: web_development
+domain: frontend-web
 stack: react
 category: reference
 confidence: 0.95
@@ -21,5 +21,6 @@ tags:
 version: 2.0.0
 created: 2026-02-10
 updated: 2026-02-23
+prerequisites:
 
 > **Note**: Full content available to MidOS PRO subscribers. See https://midos.dev/pricing

@@ -1,4 +1,5 @@
 ---
+
 title: Playwright E2E Modern Patterns (2026)
 source: internal
 date: 2026-02-10
@@ -8,8 +9,8 @@ tags:
 - docker
 - github
 - testing
-confidence: 0.7
-domain: devops
+confidence: 0.80
+domain: platform-ops
 category: tutorial
 content_type: tutorial
 access_tier: dev

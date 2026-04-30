@@ -1,6 +1,6 @@
 ---
 title: "Kotlin Multiplatform (KMP) — Shared Code for iOS & Android"
-domain: web_development
+domain: frontend-web
 stack: kotlin
 category: reference
 confidence: 0.85

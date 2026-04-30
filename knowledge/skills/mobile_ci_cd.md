@@ -1,6 +1,6 @@
 ---
 title: "Mobile CI/CD — fastlane + Xcode CLI + Gradle for iOS & Android"
-domain: devops
+domain: platform-ops
 stack: mobile
 category: reference
 confidence: 0.85

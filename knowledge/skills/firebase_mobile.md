@@ -1,11 +1,11 @@
 ---
 title: "Firebase Mobile — Auth + Firestore + FCM for iOS & Android"
-domain: web_development
+domain: security
 stack: firebase
 category: reference
 confidence: 0.85
 date: 2026-02-23
-access_tier: community
+access_tier: internal
 tags:
   - firebase
   - auth

@@ -7,10 +7,12 @@ stack: [gemini-cli, mcp]
 quality: high
 tags: [gemini, cli, skills, authoring, cross-platform]
 access_tier: community
+domain: agentic-systems
+confidence: 0.85
+sources: ["https://ai.google.dev/gemini-api/docs", "https://github.com/google-gemini/gemini-cli"]
 ---
 
 ## Purpose
 
-Step-by-step procedure for creating, testing, and deploying Gemini CLI skills from scratch.
 
 > **Note**: Full content available to MidOS PRO subscribers. See https://midos.dev/pricing

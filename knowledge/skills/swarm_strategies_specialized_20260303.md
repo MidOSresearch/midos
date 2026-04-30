@@ -1,6 +1,6 @@
 ---
 title: "Specialized Swarm Strategies — 6 Mission Templates"
-domain: ai_ml
+domain: llm-engineering
 stack: [multi-agent, swarm, orchestration, python, bash]
 category: reference
 confidence: 0.92
